@@ -20,15 +20,15 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      react-easy-router:
-        specifier: ^2.2.0
-        version: 2.2.0(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react-icons:
         specifier: ^5.2.1
         version: 5.2.1(react@18.3.1)
       react-redux:
         specifier: ^9.1.2
         version: 9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1)
+      react-router-dom:
+        specifier: ^6.25.1
+        version: 6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.13
@@ -1892,13 +1892,6 @@ packages:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
       react: ^18.3.1
-
-  react-easy-router@2.2.0:
-    resolution: {integrity: sha512-qEpxk6vXHU/637u4rYK/20apPZAxAQdCAlDbMChh9rCgQKm2r3QO05Q+qAu225mkFLYnrJV4MSqplnqfAlc+EQ==}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-      react-router-dom: '>=6.4.0'
 
   react-icons@5.2.1:
     resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
@@ -4192,12 +4185,6 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-
-  react-easy-router@2.2.0(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-router-dom: 6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   react-icons@5.2.1(react@18.3.1):
     dependencies:
