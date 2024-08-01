@@ -1,3 +1,5 @@
-const App = () => <div className='text-9xl font-extrabold text-primary'>DNS</div>
+import { Header } from './widgets/header'
+
+const App = () => <Header />
 
 export default App
