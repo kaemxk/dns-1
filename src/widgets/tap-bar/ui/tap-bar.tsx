@@ -8,11 +8,11 @@ export const TapBar = () => {
     setActiveTab(tab)
   }
   const getLinkClass = (tab: string) => {
-    return tab === activeTab ? 'text-orange-500' : 'text-#AFAFAF'
+    return tab === activeTab ? 'text-primary' : 'text-#AFAFAF'
   }
 
   const getIconFill = (tab: string) => {
-    return tab === activeTab ? '#FFA500' : '#AFAFAF'
+    return tab === activeTab ? 'fill-current fill-primary' : 'fill-current fill-[#AFAFAF]'
   }
   return (
     <nav className='fixed bottom-0 left-0 h-[50px] w-screen bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.15)] min-[992px]:hidden'>
@@ -23,10 +23,17 @@ export const TapBar = () => {
             className={`flex flex-col items-center ${getLinkClass('home')}`}
             onClick={event => handleTabClick('home', event)}
           >
-            <svg width='19' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <svg
+              width='19'
+              height='20'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='fill-current'
+            >
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
+                className='fill-current'
                 d='M8.397 2.481a2.25 2.25 0 012.206 0l5 2.812a2.25 2.25 0 011.147 1.962V16a2.25 2.25 0 01-2.25 2.25h-1.25V13a2.75 2.75 0 00-2.75-2.75h-2A2.75 2.75 0 005.75 13v5.25H4.5A2.25 2.25 0 012.25 16V7.255a2.25 2.25 0 011.147-1.962l5-2.812zM11.75 18.25h-4.5V13c0-.69.56-1.25 1.25-1.25h2c.69 0 1.25.56 1.25 1.25v5.25zm-6 1.5H4.5A3.75 3.75 0 01.75 16V7.255a3.75 3.75 0 011.912-3.269l5-2.812a3.75 3.75 0 013.676 0l5 2.812a3.75 3.75 0 011.912 3.269V16a3.75 3.75 0 01-3.75 3.75H5.75z'
                 fill={getIconFill('home')}
               ></path>
@@ -40,7 +47,13 @@ export const TapBar = () => {
             className={`flex flex-col items-center ${getLinkClass('stores')}`}
             onClick={event => handleTabClick('stores', event)}
           >
-            <svg width='17' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <svg
+              width='17'
+              height='20'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='fill-current'
+            >
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
@@ -57,7 +70,13 @@ export const TapBar = () => {
             className={`flex flex-col items-center ${getLinkClass('catalog')}`}
             onClick={event => handleTabClick('catalog', event)}
           >
-            <svg width='24' height='17' fill='none' xmlns='http://www.w3.org/2000/svg' className=''>
+            <svg
+              width='24'
+              height='17'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='fill-current'
+            >
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
@@ -74,7 +93,13 @@ export const TapBar = () => {
             className={`flex flex-col items-center ${getLinkClass('cart')}`}
             onClick={event => handleTabClick('cart', event)}
           >
-            <svg width='20' height='19' fill='none' xmlns='http://www.w3.org/2000/svg' className=''>
+            <svg
+              width='20'
+              height='19'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='fill-current'
+            >
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
@@ -91,7 +116,13 @@ export const TapBar = () => {
             className={`flex flex-col items-center ${getLinkClass('profile')}`}
             onClick={event => handleTabClick('profile', event)}
           >
-            <svg width='21' height='20' fill='none' xmlns='http://www.w3.org/2000/svg' className=''>
+            <svg
+              width='21'
+              height='20'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='fill-current'
+            >
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
