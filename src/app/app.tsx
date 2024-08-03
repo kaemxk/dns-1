@@ -1,3 +1,5 @@
-const App = () => <div className='text-9xl font-extrabold text-primary'>DNS</div>
+import Footer from "@/widgets/footer/footer.tsx";
+
+const App = () => <Footer />
 
 export default App
