@@ -1,11 +1,12 @@
+import { IconContext } from 'react-icons'
 interface PropsIconButton {
   title: string
-  svgLogo: JSX.Element
+  icon: JSX.Element
   counter?: number | undefined
   sum?: number
 }
 
-export const IconButton = ({ title, svgLogo, counter, sum }: PropsIconButton) => {
+export const IconButton = ({ title, icon, counter, sum }: PropsIconButton) => {
   return (
     <div className='icon-button relative'>
       <a
@@ -18,7 +19,9 @@ export const IconButton = ({ title, svgLogo, counter, sum }: PropsIconButton) =>
               {counter}
             </span>
           )}
-          {svgLogo}
+          <IconContext.Provider value={{ size: '20px', color: '#AFAFAF' }}>
+            {icon}
+          </IconContext.Provider>
         </span>
         {sum ? (
           <span className='icon-button-counter__lbl font-bold'>{`${sum} ₽`}</span>
