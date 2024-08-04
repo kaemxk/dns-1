@@ -1,11 +1,9 @@
-import { Provider } from 'react-redux'
-
-import store from './store'
+import { Providers } from './providers'
 
 const App = () => (
-  <Provider store={store}>
+  <Providers>
     <div className='text-9xl font-extrabold text-primary'>DNS</div>
-  </Provider>
+  </Providers>
 )
 
 export default App

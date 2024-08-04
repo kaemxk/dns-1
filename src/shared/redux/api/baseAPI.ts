@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const serviceAPI = createApi({
+export const baseAPI = createApi({
   reducerPath: 'serviceAPI',
   baseQuery: fetchBaseQuery({
     // Указать ссылку
@@ -11,4 +11,3 @@ const serviceAPI = createApi({
 })
 
 // Также экспортировать хуки основанные на эндпоинтах
-export default serviceAPI
