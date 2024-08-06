@@ -1,5 +1,5 @@
 const Catolog = () => {
-  return <div>Catolog Page</div>
+  return <div></div>
 }
 
 export default Catolog

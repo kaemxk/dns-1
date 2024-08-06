@@ -1,5 +1,5 @@
 const Stores = () => {
-  return <div>Stores Page</div>
+  return <div></div>
 }
 
 export default Stores
