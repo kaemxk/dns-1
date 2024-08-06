@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { useOnClickOutside } from '../../../shared/hooks/useOnClickOutside'
 import clsx from 'clsx'
+import { useEffect, useState } from 'react'
+import { useOutsideClick } from '@/shared/hooks/use-outside-click'
 import { HeaderDesktopSearch } from './header-desktop-search'
 import { BsBarChartLine, BsCart3, BsHeart } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
@@ -11,9 +11,8 @@ import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
-  const ref = useRef<HTMLDivElement | null>(null)
 
-  useOnClickOutside(ref, () => setDropdownOpen(false))
+  const ref = useOutsideClick(() => setDropdownOpen(false))
 
   const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
 
