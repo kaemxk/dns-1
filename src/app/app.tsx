@@ -1,5 +1,4 @@
-import { ScrollTop } from '@/widgets/scroll-top'
-import { TapBar } from '@/widgets/tap-bar'
+import { ScrollTop, TapBar } from '@/widgets'
 
 const App = () => (
   <>
