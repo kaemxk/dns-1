@@ -1,1 +1,1 @@
-export { baseAPI } from './baseApi'
+export { baseApi } from './baseApi'
