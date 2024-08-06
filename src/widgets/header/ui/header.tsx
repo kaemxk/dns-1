@@ -1,4 +1,3 @@
-import './style.css'
 import { HeaderDesktop } from './header-desktop'
 import { HeaderMobile } from './header-mobile'
 
