@@ -1,11 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-
-import Home from '@/app/pages/home'
-import Stores from '@/app/pages/stores'
-import Catalog from '@/app/pages/catalog'
-import Cart from '@/app/pages/cart'
-import Profile from '@/app/pages/profile'
-import NotFoundPage from './pages/not-found-page'
+import { Home, Stores, Catalog, Cart, Profile, NotFoundPage } from '@/pages'
 
 const AppRouter = () => {
   return (
