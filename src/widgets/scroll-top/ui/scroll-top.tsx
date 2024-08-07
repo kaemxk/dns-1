@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { IconContext } from 'react-icons'
 import { GoArrowUp } from 'react-icons/go'
 
 export const ScrollTop = () => {
@@ -27,14 +26,8 @@ export const ScrollTop = () => {
   )
 
   return (
-    <IconContext.Provider
-      value={{
-        className: 'text-[rgb(175,175,175)] w-[22px] h-[22px] transition-all hover:text-[#000]',
-      }}
-    >
-      <div className={classesScrollTop} onClick={handleClickScrollTop}>
-        <GoArrowUp />
-      </div>
-    </IconContext.Provider>
+    <div className={classesScrollTop} onClick={handleClickScrollTop}>
+      <GoArrowUp className='h-[22px] w-[22px] text-[rgb(175,175,175)] transition-all hover:text-[#000]' />
+    </div>
   )
 }
