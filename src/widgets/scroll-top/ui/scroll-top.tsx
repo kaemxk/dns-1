@@ -21,11 +21,10 @@ export const ScrollTop = () => {
     }
   }
 
-  const classesScrollTop = clsx({
-    ['scroll-top fixed bottom-[108px] right-[24px] z-[1000] flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-xl bg-white opacity-[.88] shadow-[0_0_10px_rgba(0,0,0,.25)] transition-all']:
-      true,
-    ['hidden']: !scrollY,
-  })
+  const classesScrollTop = clsx(
+    'scroll-top fixed bottom-[108px] right-[24px] z-[1000] flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-xl bg-white opacity-[.88] shadow-[0_0_10px_rgba(0,0,0,.25)] transition-all',
+    { hidden: scrollY === 0 },
+  )
 
   return (
     <IconContext.Provider
