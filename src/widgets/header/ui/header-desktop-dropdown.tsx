@@ -14,11 +14,10 @@ export const HeaderDesktopDropdown = ({ open }: PropsDropdown) => {
     { title: 'Сервисные центры', href: '#' },
   ]
 
-  const classesDropdownList = clsx({
-    ['dropdown-content left-[-50px] top-[35px] z-[999] min-w-40 rounded-xl border-t-[#ddd] bg-white p-6 shadow']:
-      true,
-    ['hidden']: !open,
-  })
+  const classesDropdownList = clsx(
+    'dropdown-content left-[-50px] top-[35px] z-[999] min-w-40 rounded-xl border-t-[#ddd] bg-white p-6 shadow',
+    { 'hidden': !open },
+  )
 
   return (
     <ul tabIndex={0} className={classesDropdownList}>

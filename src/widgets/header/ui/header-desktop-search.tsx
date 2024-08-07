@@ -12,15 +12,13 @@ export const HeaderDesktopSearch = () => {
 
   const handleBlurSearch = () => setIsFocusedSearch(false)
 
-  const classesIconClear = clsx({
-    ['presearch__icon-clear absolute right-[70px] top-[10px] flex h-11 w-11 cursor-pointer items-center justify-center z-[4] rounded-lg after:absolute after:right-[-7px] after:top-[10px] after:h-6 after:w-[1px] after:bg-[#d9d9d9] after:bg-cover after:z-[4]']:
-      true,
-    ['hidden']: inputSearch.length === 0,
-  })
+  const classesIconClear = clsx(
+    'presearch__icon-clear absolute right-[70px] top-[10px] flex h-11 w-11 cursor-pointer items-center justify-center z-[4] rounded-lg after:absolute after:right-[-7px] after:top-[10px] after:h-6 after:w-[1px] after:bg-[#d9d9d9] after:bg-cover after:z-[4]',
+    { hidden: inputSearch.length === 0 },
+  )
 
-  const classesOverlay = clsx({
-    ['presearch__overlay fixed left-0 top-0 z-[3] h-screen w-screen bg-[rgba(0,0,0,.1);]']:
-      isFocusedSearch,
+  const classesOverlay = clsx('presearch__overlay', {
+    'fixed left-0 top-0 z-[3] h-screen w-screen bg-[rgba(0,0,0,.1);]': isFocusedSearch,
   })
 
   return (

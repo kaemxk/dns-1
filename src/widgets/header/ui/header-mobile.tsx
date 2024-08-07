@@ -9,40 +9,37 @@ export const HeaderMobile = () => {
   const [inputSearch, setInputSearch] = useState<string>('')
   const [isFocusedSearch, setIsFocusedSearch] = useState<boolean>(false)
 
-  const classesIconClearMobile = clsx({
-    ['hidden']: inputSearch.length === 0,
-    ['presearch-mobile__icon-clear absolute right-0 top-0 flex h-11 w-11 cursor-pointer items-center justify-center']:
-      true,
-  })
+  const classesIconClearMobile = clsx(
+    'presearch-mobile__icon-clear absolute right-0 top-0 flex h-11 w-11 cursor-pointer items-center justify-center',
+    { hidden: inputSearch.length === 0 },
+  )
 
-  const classesIconScan = clsx({
-    ['presearch-mobile__icon-scan absolute right-[13px] top-[9px] h-[25px] w-[25px]']: true,
-    ['hidden']: inputSearch.length > 0,
-  })
+  const classesIconScan = clsx(
+    'presearch-mobile__icon-scan absolute right-[13px] top-[9px] h-[25px] w-[25px]',
+    { hidden: inputSearch.length > 0 },
+  )
 
-  const classesPresearchMobile = clsx({
-    ['presearch-mobile box-border max-h-11 w-full p-0']: !isFocusedSearch,
-    ['transition-[all_.2s_ease-in-out_0s] fixed flex items-center justify-center w-full top-0 left-0 z-[10] bg-white max-h-[70px]']:
+  const classesPresearchMobile = clsx('presearch-mobile box-border max-h-11 w-full p-0', {
+    'transition-[all_.2s_ease-in-out_0s] fixed flex items-center justify-center w-full top-0 left-0 z-[10] bg-white max-h-[70px]':
       isFocusedSearch,
   })
 
-  const classesNotificationButton = clsx({
-    ['header-mobile__notification-button inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#f7f7f7]']:
-      !isFocusedSearch,
-    ['hidden']: isFocusedSearch,
+  const classesNotificationButton = clsx('header-mobile__notification-button', {
+    'inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#f7f7f7]': !isFocusedSearch,
+    hidden: isFocusedSearch,
   })
 
-  const classesPresearchMobileWrapper = clsx({
-    ['presearch-mobile__wrapper relative z-[2] mr-0 flex h-auto w-full items-center gap-4 rounded-lg border-none bg-white text-[16px]']:
-      true,
-    ['max-h-[58px] rounded-[0] p-[7px_16px] shadow-[0_1px_2px_rgba(0,0,0,.1)]']: isFocusedSearch,
-  })
+  const classesPresearchMobileWrapper = clsx(
+    'presearch-mobile__wrapper relative z-[2] mr-0 flex h-auto w-full items-center gap-4 rounded-lg border-none bg-white text-[16px]',
+    {
+      'max-h-[58px] rounded-[0] p-[7px_16px] shadow-[0_1px_2px_rgba(0,0,0,.1)]': isFocusedSearch,
+    },
+  )
 
-  const classesSuggests = clsx({
-    ['presearch-mobile__suggests absolute left-0 top-[58px] z-[1] block h-[100vh] w-full overflow-hidden bg-white']:
-      true,
-    ['hidden']: !isFocusedSearch,
-  })
+  const classesSuggests = clsx(
+    'presearch-mobile__suggests absolute left-0 top-[58px] z-[1] block h-[100vh] w-full overflow-hidden bg-white',
+    { hidden: !isFocusedSearch },
+  )
 
   const handleClickSearchClear = () => setInputSearch('')
 

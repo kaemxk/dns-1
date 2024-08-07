@@ -28,22 +28,20 @@ export const HeaderDesktop = () => {
     }
   }, [])
 
-  const classesDropdownContainer = clsx({
-    dropdown: true,
-    'dropdown-open': dropdownOpen,
-  })
+  const classesDropdownContainer = clsx(
+    'dropdown',
+    { 'dropdown-open': dropdownOpen },
+  )
 
-  const classesSvgArrow = clsx({
-    ['header-top-menu__arrow-svg absolute right-[-15px] top-[3px] transition-[all_200ms_0ms] ease-out']:
-      true,
-    ['rotate-180 transition-[all_200ms_ease-out_0ms]']: dropdownOpen,
-  })
+  const classesSvgArrow = clsx(
+    'header-top-menu__arrow-svg absolute right-[-15px] top-[3px] transition-[all_200ms_0ms] ease-out',
+    { 'rotate-180 transition-[all_200ms_ease-out_0ms]': dropdownOpen },
+  )
 
-  const classesScrollHeader = clsx({
-    ['header-bottom box-content flex h-24 items-center bg-white transition-[all_200ms_ease-out_0.1s] text-sm shadow-sm md:pl-[10px] md:pr-[10px] lg:pl-[10px] lg:pr-[10px]']:
-      true,
-    ['fixed left-0 top-0 right-0']: scrollTop > 49,
-  })
+  const classesScrollHeader = clsx(
+    'header-bottom box-content flex h-24 items-center bg-white transition-[all_200ms_ease-out_0.1s] text-sm shadow-sm md:pl-[10px] md:pr-[10px] lg:pl-[10px] lg:pr-[10px]',
+    { 'fixed left-0 top-0 right-0': scrollTop > 49 },
+  )
 
   return (
     <div className='header-desktop hidden lg:block'>
