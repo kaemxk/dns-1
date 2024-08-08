@@ -7,6 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { SlLocationPin } from 'react-icons/sl'
 import { TbPointFilled } from 'react-icons/tb'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
+import { Link } from 'react-router-dom'
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
@@ -28,10 +29,7 @@ export const HeaderDesktop = () => {
     }
   }, [])
 
-  const classesDropdownContainer = clsx(
-    'dropdown',
-    { 'dropdown-open': dropdownOpen },
-  )
+  const classesDropdownContainer = clsx('dropdown', { 'dropdown-open': dropdownOpen })
 
   const classesSvgArrow = clsx(
     'header-top-menu__arrow-svg absolute right-[-15px] top-[3px] transition-[all_200ms_0ms] ease-out',
@@ -51,32 +49,32 @@ export const HeaderDesktop = () => {
             <ul className='header-top-menu__common-list mb-0 ml-0 mr-auto mt-0 flex grow whitespace-nowrap p-0'>
               <li className='first:mr-3 lg:mr-5 lg:w-[165px] xl:w-[270px]'>
                 <div className='city-select'>
-                  <a
-                    href='#'
+                  <Link
+                    to='#'
                     className='header-top-menu__common-link hover:fill-orange-500 hover:text-orange-500'
                   >
                     <span className='city-select__icon'>
                       <SlLocationPin className='mr-1 inline-block' />
                     </span>
                     <span className='city-select__text align-middle'>Москва</span>
-                  </a>
+                  </Link>
                 </div>
               </li>
               <li className='mr-5 lg:mr-3'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
                   Акции
                   <TbPointFilled className='header-top-menu__dot-svg ml-1 mr-1 inline-block text-orange-500' />
-                </a>
+                </Link>
               </li>
               <li className='mr-3 xl:mr-5'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='/stores' className='header-top-menu__common-link hover:text-orange-500'>
                   Магазины
-                </a>
+                </Link>
               </li>
               <li className='mr-3 xl:mr-5'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
                   Доставка
-                </a>
+                </Link>
               </li>
               <li className='mr-3 pr-[15px] xl:mr-5'>
                 <div className={classesDropdownContainer} ref={ref}>
@@ -93,27 +91,27 @@ export const HeaderDesktop = () => {
                 </div>
               </li>
               <li className='mr-3 xl:mr-5'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
                   Юридическим лицам
-                </a>
+                </Link>
               </li>
               <li className='mr-3 xl:mr-5'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
                   Клуб DNS
-                </a>
+                </Link>
               </li>
               <li className='mr-3 xl:mr-5'>
-                <a href='#' className='header-top-menu__common-link hover:text-orange-500'>
+                <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
                   Вакансии
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <ul className='header-top-menu__contact whitespace-nowrap pl-2'>
             <li>
-              <a href='#' className='header-top-menu__common-link'>
+              <Link to='#' className='header-top-menu__common-link'>
                 8-800-77-07-999
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -121,8 +119,8 @@ export const HeaderDesktop = () => {
       <nav className={classesScrollHeader}>
         <div className='header-bottom__container mx-auto my-0 box-content flex w-full max-w-[1380px] items-center justify-start lg:w-[960px] xl:w-full'>
           <div className='header-bottom__btn-catalog relative float-left box-content flex max-h-16 items-center rounded-xl bg-gradient-to-b from-[#ffa218] to-[#fc8507] pr-3 text-left'>
-            <a
-              href='#'
+            <Link
+              to='/'
               className='header-bottom__logo-container flex h-16 w-auto cursor-pointer items-center rounded-bl-xl rounded-tl-xl pl-5 pr-5 transition-[.3s] hover:bg-white hover:bg-opacity-15'
             >
               <div className='header-bottom__logo relative inline-block w-[67px] align-middle transition-[.3s] xl:w-[80px]'>
@@ -133,7 +131,7 @@ export const HeaderDesktop = () => {
                   />
                 </svg>
               </div>
-            </a>
+            </Link>
             <div className='header-bottom__catalog pt-2\\\\\\\\.5 visible mb-0 ml-5 flex cursor-pointer flex-row rounded-lg bg-white bg-opacity-15 pb-2.5 pl-5 pr-4 pt-2.5 text-center font-bold text-white shadow-md hover:bg-opacity-20'>
               <span className='header-bottom__catalog-title mr-2'>Каталог</span>
               <IoIosArrowDown className='h-[20px] w-[20px]' />
@@ -142,28 +140,28 @@ export const HeaderDesktop = () => {
           <HeaderDesktopSearch />
           <div className='header-bottom__nav-wrapper flex h-full'>
             <div className='buttons flex'>
-              <a
+              <Link
+                to='#'
                 className='compare-link-counter relative flex h-full w-[90%] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-                href='#'
               >
                 <span className='compare-link-counter__icon relative max-h-6'>
                   <BsBarChartLine className='h-5 w-5 text-[#AFAFAF]' />
                 </span>
                 <span className='compare-link-counter__lbl'>Сравнение</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to='#'
                 className='wishlist-link-counter relative flex h-full w-[90%] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-                href='#'
               >
                 <span className='wishlist-link-counter__icon relative max-h-6'>
                   <BsHeart className='h-5 w-5 text-[#AFAFAF]' />
                 </span>
                 <span className='wishlist-link-counter__lbl'>Избранное</span>
-              </a>
+              </Link>
               <div className='cart-button relative'>
-                <a
+                <Link
+                  to='#'
                   className='cart-link-counter relative flex h-full w-[90px] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-                  href='#'
                 >
                   <span className='cart-link-counter__icon relative max-h-6'>
                     <span className='cart-link-counter__badge bold absolute left-[20px] top-[-5px] inline-flex h-4 min-w-4 items-center rounded-[50px] bg-[linear-gradient(0deg,#fc8507_0%,#ffa218_100%)] p-[1px_4px] text-center text-[13px] font-bold text-white shadow-[0_0_0_2px_#fff]'>
@@ -172,7 +170,7 @@ export const HeaderDesktop = () => {
                     <BsCart3 className='h-5 w-5 text-[#AFAFAF]' />
                   </span>
                   <span className='cart-link-counter__lbl'>Корзина</span>
-                </a>
+                </Link>
               </div>
             </div>
             <div className='header-bottom__user-block ml-5 flex w-[46px] items-center justify-center'>

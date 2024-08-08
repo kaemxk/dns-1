@@ -4,6 +4,7 @@ import { SlLocationPin } from 'react-icons/sl'
 import { IoIosSearch, IoIosCloseCircle } from 'react-icons/io'
 import { VscCommentDiscussion } from 'react-icons/vsc'
 import { AiOutlineScan } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 export const HeaderMobile = () => {
   const [inputSearch, setInputSearch] = useState<string>('')
@@ -51,7 +52,7 @@ export const HeaderMobile = () => {
     <div className='header-mobile relative top-0 mb-0 block lg:hidden'>
       <div className='header-mobile-inner relative top-0 flex max-h-[110px] min-h-[110px] w-full flex-col bg-white p-4'>
         <div className='header-mobile__top mb-[17px] flex max-h-[18px] w-full justify-between'>
-          <a href='/' className='header-mobile__logo h-[17px] w-[68px]'>
+          <Link to='/' className='header-mobile__logo h-[17px] w-[68px]'>
             <svg
               width='68'
               height='17'
@@ -64,7 +65,7 @@ export const HeaderMobile = () => {
                 fill='#FC8507'
               />
             </svg>
-          </a>
+          </Link>
           <div className='header-mobile__select-city-wrap max-w-[calc(100%-68px)] pl-5'>
             <div className='city-select relative w-full'>
               <div className='city-select__label flex min-h-full cursor-pointer items-baseline'>

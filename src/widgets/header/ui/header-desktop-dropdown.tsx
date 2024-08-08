@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Link } from 'react-router-dom'
 
 interface PropsDropdown {
   open: boolean
@@ -24,12 +25,12 @@ export const HeaderDesktopDropdown = ({ open }: PropsDropdown) => {
       {dropdownMenuItem.map(item => {
         return (
           <li key={item.title}>
-            <a
-              href={item.href}
+            <Link
+              to={item.href}
               className='header-top-menu__common-link_child mb-2 block w-full cursor-pointer whitespace-nowrap p-0 leading-6 text-[#333] hover:bg-inherit hover:text-orange-500'
             >
               {item.title}
-            </a>
+            </Link>
           </li>
         )
       })}
