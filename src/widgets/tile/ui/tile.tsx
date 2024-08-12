@@ -1,56 +1,53 @@
 import React from 'react'
 
-import TileOne from './tileOne'
-import TileTwo from './tileTwo'
-import TileThree from './tileThree'
+import TileStory from './tileStory'
+import TileFeature from './tileFeature'
+import TileGoods from './tileGoods'
+
+interface ITileData {
+  title?: string
+  text: string
+  newPrice?: string
+  oldPrice?: string
+}
 
 interface ITile {
-  variant: string
-  marginRight: string
-  backgroundColor: string
-  borderRadius: string
-  title: string
-  text: string
-  color: string
+  variant: 'story-card' | 'feature-card' | 'goods-card'
+  backgroundColor?: string
+  borderRadius?: string
+  color?: string
   srcImage: string
-  newPrice: string
-  oldPrice: string
+  children: ITileData
 }
 
 export const Tile: React.FC<ITile> = ({
   variant,
-  marginRight,
-  backgroundColor,
-  borderRadius,
-  title,
-  text,
-  color,
+  backgroundColor = '',
+  borderRadius = '',
+  color = '',
   srcImage,
-  newPrice,
-  oldPrice,
+  children,
 }) => {
   return (
     <>
-      {variant === 'one' && (
-        <TileOne
-          marginRight={marginRight}
+      {variant === 'story-card' && (
+        <TileStory
           backgroundColor={backgroundColor}
           borderRadius={borderRadius}
           srcImage={srcImage}
           color={color}
-          text={text}
+          text={children.text}
         />
       )}
-      {variant === 'two' && (
-        <TileTwo marginRight={marginRight} srcImage={srcImage} title={title} text={text} />
+      {variant === 'feature-card' && (
+        <TileFeature srcImage={srcImage} title={children.title as string} text={children.text} />
       )}
-      {variant === 'three' && (
-        <TileThree
-          marginRight={marginRight}
-          title={title}
-          text={text}
-          oldPrice={oldPrice}
-          newPrice={newPrice}
+      {variant === 'goods-card' && (
+        <TileGoods
+          title={children.title as string}
+          text={children.text}
+          oldPrice={children.oldPrice as string}
+          newPrice={children.newPrice as string}
           srcImage={srcImage}
         />
       )}

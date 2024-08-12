@@ -1,7 +1,6 @@
 import React from 'react'
 
-interface ITileOne {
-  marginRight: string
+interface ITileStory {
   backgroundColor: string
   borderRadius: string
   srcImage: string
@@ -9,8 +8,7 @@ interface ITileOne {
   text: string
 }
 
-const TileOne: React.FC<ITileOne> = ({
-  marginRight,
+const TileStory: React.FC<ITileStory> = ({
   backgroundColor,
   borderRadius,
   srcImage,
@@ -19,8 +17,8 @@ const TileOne: React.FC<ITileOne> = ({
 }) => {
   return (
     <div
-      style={{ marginRight, backgroundColor }}
-      className='text-white relative box-border h-[220px] w-[186px] cursor-pointer overflow-hidden rounded-xl font-pt-sans text-sm font-bold leading-5'
+      style={{ backgroundColor }}
+      className='text-white relative box-border h-[220px] w-[186px] cursor-pointer overflow-hidden rounded-xl text-sm font-bold leading-5'
     >
       <a className='text-white block h-full w-full no-underline'>
         <div className='absolute left-2/4 top-0 mx-auto my-0 max-h-32 w-[125%] -translate-x-2/4'>
@@ -42,4 +40,4 @@ const TileOne: React.FC<ITileOne> = ({
   )
 }
 
-export default TileOne
+export default TileStory
