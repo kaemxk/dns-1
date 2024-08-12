@@ -2,12 +2,13 @@ import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { useOutsideClick } from '@/shared/hooks/use-outside-click'
 import { HeaderDesktopSearch } from './header-desktop-search'
-import { BsBarChartLine, BsCart3, BsHeart } from 'react-icons/bs'
+import { BsBarChartLine, BsCart3, BsHeart, BsPersonCircle } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
 import { SlLocationPin } from 'react-icons/sl'
 import { TbPointFilled } from 'react-icons/tb'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
+import { IconButton } from '@/shared/ui/icon-button'
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
@@ -140,41 +141,17 @@ export const HeaderDesktop = () => {
           <HeaderDesktopSearch />
           <div className='header-bottom__nav-wrapper flex h-full'>
             <div className='buttons flex'>
-              <Link
-                to='#'
-                className='compare-link-counter relative flex h-full w-[90%] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-              >
-                <span className='compare-link-counter__icon relative max-h-6'>
-                  <BsBarChartLine className='h-5 w-5 text-[#AFAFAF]' />
-                </span>
-                <span className='compare-link-counter__lbl'>Сравнение</span>
-              </Link>
-              <Link
-                to='#'
-                className='wishlist-link-counter relative flex h-full w-[90%] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-              >
-                <span className='wishlist-link-counter__icon relative max-h-6'>
-                  <BsHeart className='h-5 w-5 text-[#AFAFAF]' />
-                </span>
-                <span className='wishlist-link-counter__lbl'>Избранное</span>
-              </Link>
-              <div className='cart-button relative'>
-                <Link
-                  to='#'
-                  className='cart-link-counter relative flex h-full w-[90px] flex-col items-center justify-center rounded-xl p-[11px] text-[14px] leading-[18px] text-[#4e4e4e] transition-[.2s] hover:bg-[#f7f7f7]'
-                >
-                  <span className='cart-link-counter__icon relative max-h-6'>
-                    <span className='cart-link-counter__badge bold absolute left-[20px] top-[-5px] inline-flex h-4 min-w-4 items-center rounded-[50px] bg-[linear-gradient(0deg,#fc8507_0%,#ffa218_100%)] p-[1px_4px] text-center text-[13px] font-bold text-white shadow-[0_0_0_2px_#fff]'>
-                      12
-                    </span>
-                    <BsCart3 className='h-5 w-5 text-[#AFAFAF]' />
-                  </span>
-                  <span className='cart-link-counter__lbl'>Корзина</span>
-                </Link>
-              </div>
-            </div>
-            <div className='header-bottom__user-block ml-5 flex w-[46px] items-center justify-center'>
-              <span className='compare-link-counter__icon relative h-9 w-9 rounded-[100%] bg-[#f7f7f7]'></span>
+              <IconButton title={'Сравнение'} href={'#'} icon={<BsBarChartLine />} counter={2} />
+              <IconButton title={'Избранное'} href={'#'} icon={<BsHeart />} />
+              <IconButton
+                title={'Корзина'}
+                href={'/cart'}
+                icon={<BsCart3 />}
+                isBold
+                counter={5}
+                sum={13550}
+              />
+              <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
             </div>
           </div>
         </div>
