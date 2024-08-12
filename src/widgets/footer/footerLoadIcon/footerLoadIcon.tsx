@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FooterLoadIcon = () => {
   return (
     <div className='flex'>

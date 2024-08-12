@@ -1,8 +1,6 @@
-import React from 'react'
-
 const FooterLogoSection = () => {
   return (
-    <div className='flex hidden justify-between py-10 xl:flex'>
+    <div className='flex justify-between py-10 xl:flex'>
       <div className='flex'>
         <div className='mr-[60px] w-[246px]'>
           <a href='#'>

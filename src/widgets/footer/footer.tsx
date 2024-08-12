@@ -1,5 +1,3 @@
-import React from 'react'
-
 import FooterLogoSection from '../footer/footerLogoSection/footerLogoSection.tsx'
 import FooterNavSection from '../footer/footerNavSection/footerNavSection.tsx'
 import FooterLoadIcon from '../footer/footerLoadIcon/footerLoadIcon.tsx'
