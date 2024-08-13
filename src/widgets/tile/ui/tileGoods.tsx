@@ -1,6 +1,7 @@
 import React from 'react'
 
 interface ITileGoods {
+  onClick: () => void
   title: string
   text: string
   oldPrice: string
@@ -8,9 +9,19 @@ interface ITileGoods {
   srcImage: string
 }
 
-const TileGoods: React.FC<ITileGoods> = ({ title, text, oldPrice, newPrice, srcImage }) => {
+const TileGoods: React.FC<ITileGoods> = ({
+  onClick,
+  title,
+  text,
+  oldPrice,
+  newPrice,
+  srcImage,
+}) => {
   return (
-    <div className='bg-white relative z-0 mx-[2px] my-[2px] box-border grid h-[206px] w-[314px] grid-rows-1 gap-2 overflow-hidden rounded-2xl px-6 py-7 shadow-md'>
+    <div
+      className='relative z-0 mx-[2px] my-[2px] box-border grid h-[206px] w-[314px] grid-rows-1 gap-2 overflow-hidden rounded-2xl bg-white px-6 py-7 shadow-md'
+      onClick={onClick}
+    >
       <span className='line-h whitespace-pre-line text-lg font-bold leading-[22px] text-neutral-900'>
         {title}
       </span>

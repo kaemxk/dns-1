@@ -15,7 +15,6 @@ interface ITile {
   variant: 'story-card' | 'feature-card' | 'goods-card'
   backgroundColor?: string
   borderRadius?: string
-  color?: string
   srcImage: string
   children: ITileData
 }
@@ -24,26 +23,34 @@ export const Tile: React.FC<ITile> = ({
   variant,
   backgroundColor = '',
   borderRadius = '',
-  color = '',
   srcImage,
   children,
 }) => {
+  const handleClick: () => void = () => {
+    console.log('clicked')
+  }
+
   return (
     <>
       {variant === 'story-card' && (
         <TileStory
-          backgroundColor={backgroundColor}
-          borderRadius={borderRadius}
+          onClick={() => handleClick()}
+          className={{ backgroundColor, borderRadius }}
           srcImage={srcImage}
-          color={color}
           text={children.text}
         />
       )}
       {variant === 'feature-card' && (
-        <TileFeature srcImage={srcImage} title={children.title as string} text={children.text} />
+        <TileFeature
+          onClick={() => handleClick()}
+          srcImage={srcImage}
+          title={children.title as string}
+          text={children.text}
+        />
       )}
       {variant === 'goods-card' && (
         <TileGoods
+          onClick={() => handleClick()}
           title={children.title as string}
           text={children.text}
           oldPrice={children.oldPrice as string}

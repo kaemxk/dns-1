@@ -18,7 +18,7 @@ export const TapBar = () => {
     clsx('flex flex-col items-center', activeTab === tab && 'text-primary')
 
   return (
-    <nav className='bg-white fixed bottom-0 left-0 h-[50px] w-screen shadow-[0_-2px_8px_rgba(0,0,0,0.15)] lg:hidden'>
+    <nav className='fixed bottom-0 left-0 h-[50px] w-screen bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.15)] lg:hidden'>
       <ul className='flex h-full items-center justify-around'>
         <li>
           <Link to='/' className={linkClass('home')} onClick={() => handleTabClick('home')}>
