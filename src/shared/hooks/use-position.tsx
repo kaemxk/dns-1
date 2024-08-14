@@ -29,5 +29,5 @@ export const usePosition = () => {
     }
   }, [])
 
-  return { ...position, error }
+  return { position, error }
 }
