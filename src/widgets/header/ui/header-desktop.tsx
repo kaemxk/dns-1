@@ -4,11 +4,11 @@ import { useOutsideClick } from '@/shared/hooks/use-outside-click'
 import { HeaderDesktopSearch } from './header-desktop-search'
 import { BsBarChartLine, BsCart3, BsHeart, BsPersonCircle } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
-import { SlLocationPin } from 'react-icons/sl'
 import { TbPointFilled } from 'react-icons/tb'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button'
+import { Geolocation } from '@/widgets/geolocation'
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
@@ -49,17 +49,7 @@ export const HeaderDesktop = () => {
           <div className='header-top-menu flex flex-row'>
             <ul className='header-top-menu__common-list mb-0 ml-0 mr-auto mt-0 flex grow whitespace-nowrap p-0'>
               <li className='first:mr-3 lg:mr-5 lg:w-[165px] xl:w-[270px]'>
-                <div className='city-select'>
-                  <Link
-                    to='#'
-                    className='header-top-menu__common-link hover:fill-orange-500 hover:text-orange-500'
-                  >
-                    <span className='city-select__icon'>
-                      <SlLocationPin className='mr-1 inline-block' />
-                    </span>
-                    <span className='city-select__text align-middle'>Москва</span>
-                  </Link>
-                </div>
+                <Geolocation />
               </li>
               <li className='mr-5 lg:mr-3'>
                 <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
