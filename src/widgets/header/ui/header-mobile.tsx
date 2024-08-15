@@ -5,13 +5,10 @@ import { VscCommentDiscussion } from 'react-icons/vsc'
 import { AiOutlineScan } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { Geolocation } from '@/widgets/geolocation'
-import { usePosition } from '@/shared/hooks/use-position'
 
 export const HeaderMobile = () => {
   const [inputSearch, setInputSearch] = useState<string>('')
   const [isFocusedSearch, setIsFocusedSearch] = useState<boolean>(false)
-
-  const { position } = usePosition()
 
   const classesIconClearMobile = clsx(
     'presearch-mobile__icon-clear absolute right-0 top-0 flex h-11 w-11 cursor-pointer items-center justify-center',
@@ -70,7 +67,7 @@ export const HeaderMobile = () => {
             </svg>
           </Link>
           <div className='header-mobile__select-city-wrap max-w-[calc(100%-68px)] pl-5'>
-            <Geolocation lat={position.lat} lon={position.lon} />
+            <Geolocation />
           </div>
         </div>
         <div className='header-mobile__bottom flex w-full justify-between gap-2'>

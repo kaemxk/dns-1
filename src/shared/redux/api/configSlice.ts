@@ -23,8 +23,9 @@ export const configSlice = createApi({
     baseUrl: `https://api.opencagedata.com/`,
   }),
   endpoints: builder => ({
-    getCity: builder.query<DataCity, PropsFetchCity>({
+    getCity: builder.query<string, PropsFetchCity>({
       query: position => `geocode/v1/json?q=${position.lat},${position.lon}&key=${apiKey}`,
+      transformResponse: (response: DataCity) => response.results[0].components.city,
     }),
   }),
 })

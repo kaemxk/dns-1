@@ -9,13 +9,10 @@ import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
-import { usePosition } from '@/shared/hooks/use-position'
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
-
-  const { position } = usePosition()
 
   const ref = useOutsideClick(() => setDropdownOpen(false))
 
@@ -52,7 +49,7 @@ export const HeaderDesktop = () => {
           <div className='header-top-menu flex flex-row'>
             <ul className='header-top-menu__common-list mb-0 ml-0 mr-auto mt-0 flex grow whitespace-nowrap p-0'>
               <li className='first:mr-3 lg:mr-5 lg:w-[165px] xl:w-[270px]'>
-                <Geolocation lat={position.lat} lon={position.lon} />
+                <Geolocation />
               </li>
               <li className='mr-5 lg:mr-3'>
                 <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
