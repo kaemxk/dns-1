@@ -17,7 +17,7 @@ export const HeaderDesktopDropdown = ({ open }: PropsDropdown) => {
 
   const classesDropdownList = clsx(
     'dropdown-content left-[-50px] top-[35px] z-[999] min-w-40 rounded-xl border-t-[#ddd] bg-white p-6 shadow',
-    { 'hidden': !open },
+    { hidden: !open },
   )
 
   return (

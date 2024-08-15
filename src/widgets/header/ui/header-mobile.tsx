@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import clsx from 'clsx'
-import { SlLocationPin } from 'react-icons/sl'
 import { IoIosSearch, IoIosCloseCircle } from 'react-icons/io'
 import { VscCommentDiscussion } from 'react-icons/vsc'
 import { AiOutlineScan } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { Geolocation } from '@/widgets/geolocation'
 
 export const HeaderMobile = () => {
   const [inputSearch, setInputSearch] = useState<string>('')
@@ -67,16 +67,7 @@ export const HeaderMobile = () => {
             </svg>
           </Link>
           <div className='header-mobile__select-city-wrap max-w-[calc(100%-68px)] pl-5'>
-            <div className='city-select relative w-full'>
-              <div className='city-select__label flex min-h-full cursor-pointer items-baseline'>
-                <span className='city-select__icon flex text-[14px]'>
-                  <SlLocationPin className='inline-block align-baseline' />
-                </span>
-                <span className='city-select__text ml-[5px] inline-block w-full overflow-hidden whitespace-nowrap'>
-                  Москва
-                </span>
-              </div>
-            </div>
+            <Geolocation />
           </div>
         </div>
         <div className='header-mobile__bottom flex w-full justify-between gap-2'>
