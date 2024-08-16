@@ -11,7 +11,6 @@ export const Chat = () => {
     if (!isOpen) {
       setIsLoading(true)
 
-      // Имитируем задержку загрузки 1 секунду
       setTimeout(() => {
         setIsOpen(true)
         setIsLoading(false)
@@ -87,7 +86,6 @@ export const Chat = () => {
             onClick={() => console.log('clicked')}
           >
             <IoSend className='h-4 w-4 self-center bg-primary' />
-            {/* kjdfjkfskj */}
           </button>
         </div>
       </div>
