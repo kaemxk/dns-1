@@ -6,17 +6,17 @@ interface IClassName {
 }
 
 interface ITileStory {
-  onClick: () => void
+  handleClick: () => void
   className: IClassName
   srcImage: string
-  text: string
+  children: React.ReactNode
 }
 
-const TileStory: React.FC<ITileStory> = ({ onClick, className, srcImage, text }) => {
+const TileStory: React.FC<ITileStory> = ({ handleClick, className, srcImage, children }) => {
   return (
     <div
       className={`bg-[${className.backgroundColor}] relative box-border h-[220px] w-[186px] cursor-pointer overflow-hidden rounded-xl text-xs font-bold leading-5 text-white`}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <a className='block h-full w-full text-white no-underline'>
         <div className='absolute left-2/4 top-0 mx-auto my-0 max-h-32 w-[125%] -translate-x-2/4'>
@@ -26,9 +26,7 @@ const TileStory: React.FC<ITileStory> = ({ onClick, className, srcImage, text })
             <img src={srcImage} alt='story-image' className='h-full max-h-32 w-[81%] rounded-xl' />
           </div>
         </div>
-        <div className='absolute bottom-4 left-3 right-3 line-clamp-4 max-h-[78px] cursor-pointer text-white duration-200 hover:text-amber-600'>
-          {text}
-        </div>
+        {children}
       </a>
     </div>
   )
