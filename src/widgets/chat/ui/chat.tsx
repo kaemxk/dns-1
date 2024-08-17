@@ -31,7 +31,6 @@ export const Chat = () => {
   const time: Date = new Date()
   const hours = time.getHours()
   const minutes = time.getMinutes()
-  console.log(`${hours}:${minutes}`)
 
   return (
     <>
