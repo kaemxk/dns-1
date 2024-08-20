@@ -1,7 +1,13 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, useLocation } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 import { TapBar } from './tap-bar'
+
+// Вспомогательный компонент для проверки текущего URL
+const CurrentPathDisplay = () => {
+  const location = useLocation()
+  return <div data-testid='current-path'>{location.pathname}</div>
+}
 
 describe('tap-bar component', () => {
   it('все табы отображаются', () => {
@@ -18,7 +24,7 @@ describe('tap-bar component', () => {
     expect(screen.getByText(/войти/i)).not.toBeNull()
   })
 
-  it('иззначально стоит состояние active на табе', () => {
+  it('изначально стоит состояние active на табе', () => {
     render(
       <MemoryRouter>
         <TapBar />
@@ -48,37 +54,38 @@ describe('tap-bar component', () => {
     expect(mainTab?.classList.contains('text-primary')).toBe(false)
   })
 
-  it('навигация работает правильно', () => {
-    render(
-      <MemoryRouter>
+  const setup = (initialRoute = '/') => {
+    return render(
+      <MemoryRouter initialEntries={[initialRoute]}>
         <TapBar />
+        <CurrentPathDisplay />
       </MemoryRouter>,
     )
+  }
 
-    expect(
-      screen
-        .getByText(/главная/i)
-        .closest('a')!
-        .getAttribute('href'),
-    ).toBe('/')
-    expect(
-      screen
-        .getByText(/магазины/i)
-        .closest('a')!
-        .getAttribute('href'),
-    ).toBe('/stores')
-    expect(
-      screen
-        .getByText(/каталог/i)
-        .closest('a')!
-        .getAttribute('href'),
-    ).toBe('/catalog')
-    expect(
-      screen
-        .getByText(/корзина/i)
-        .closest('a')!
-        .getAttribute('href'),
-    ).toBe('/cart')
-    expect(screen.getByText(/войти/i).closest('a')!.getAttribute('href')).toBe('/profile/menu')
+  it('навигация по клику на главную работает правильно', () => {
+    setup('/stores')
+    fireEvent.click(screen.getByText('Главная'))
+    const currentPath = screen.getByTestId('current-path')
+    expect(currentPath.textContent).toBe('/')
+  })
+
+  it('навигация по клику на табы работает правильно', () => {
+    setup()
+    fireEvent.click(screen.getByText(/магазины/i).parentElement!)
+    const currentPath = screen.getByTestId('current-path')
+    expect(currentPath.textContent).toBe('/stores')
+
+    fireEvent.click(screen.getByText(/каталог/i).parentElement!)
+    const currentPathtwo = screen.getByTestId('current-path')
+    expect(currentPathtwo.textContent).toBe('/catalog')
+
+    fireEvent.click(screen.getByText(/корзина/i).parentElement!)
+    const currentPathThree = screen.getByTestId('current-path')
+    expect(currentPathThree.textContent).toBe('/cart')
+
+    fireEvent.click(screen.getByText(/войти/i).parentElement!)
+    const currentPathFour = screen.getByTestId('current-path')
+    expect(currentPathFour.textContent).toBe('/profile/menu')
   })
 })
