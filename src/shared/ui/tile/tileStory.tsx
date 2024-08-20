@@ -1,10 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-interface IClassName {
-  backgroundColor: string
-  borderRadius: string
-}
-
+import { IClassName } from '@/shared/intefaces/tile/tile'
 interface ITileStory {
   handleClick: () => void
   className: IClassName
@@ -12,10 +8,10 @@ interface ITileStory {
   children: React.ReactNode
 }
 
-const TileStory: React.FC<ITileStory> = ({ handleClick, className, srcImage, children }) => {
+const TileStory: FC<ITileStory> = ({ handleClick, className, srcImage, children }) => {
   return (
     <div
-      className={`bg-[${className.backgroundColor}] relative box-border h-[220px] w-[186px] cursor-pointer overflow-hidden rounded-xl text-xs font-bold leading-5 text-white`}
+      className={`bg-[${className.backgroundColor}] ${className.styles} relative box-border h-[220px] w-[186px] cursor-pointer overflow-hidden rounded-xl text-xs font-bold leading-5 text-white`}
       onClick={handleClick}
     >
       <a className='block h-full w-full text-white no-underline'>
