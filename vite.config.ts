@@ -10,12 +10,10 @@ const isPrduction = NODE_ENV === 'production'
 const __API_URL__ = JSON.stringify(
   isPrduction ? 'https://www.production-url.com' : 'http://localhost:4000/',
 )
+const isTest = process.env.NODE_ENV === 'test'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
-  const isTest = process.env.NODE_ENV === 'test'
-
-  return {
+export default defineConfig({
     root: isTest ? '.' : './src',
     server: { port: PORT },
     plugins: [react()],
@@ -36,5 +34,4 @@ export default defineConfig(({ command }) => {
       environment: 'happy-dom',
       globals: true,
     },
-  }
 })
