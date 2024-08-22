@@ -1,7 +1,6 @@
 export interface ITile {
-  variant?: 'story-card' | 'feature-card' | 'goods-card'
-  styles?: string
-  backgroundColor?: string
+  variant: 'story-card' | 'feature-card' | 'goods-card'
+  className?: string
   borderRadius?: string
   srcImage?: string
   handleClick?: () => void
@@ -15,8 +14,6 @@ export interface ITileVariant {
   children: React.ReactNode
 }
 
-export interface IClassName {
-  backgroundColor: string
+export interface ITileStory extends ITileVariant {
   borderRadius: string
-  styles?: string
 }

@@ -3,12 +3,11 @@ import { FC } from 'react'
 import TileStory from './tileStory'
 import TileFeature from './tileFeature'
 import TileGoods from './tileGoods'
-import { ITile } from '@/shared/intefaces/tile/tile'
+import { ITile } from './interface'
 
 export const Tile: FC<ITile> = ({
   variant = 'story-card',
-  styles = '',
-  backgroundColor = '',
+  className = '',
   borderRadius = '',
   srcImage = '',
   handleClick = () => {},
@@ -19,19 +18,20 @@ export const Tile: FC<ITile> = ({
       {variant === 'story-card' && (
         <TileStory
           handleClick={handleClick}
-          className={{ backgroundColor, borderRadius, styles }}
+          className={className}
           srcImage={srcImage}
+          borderRadius={borderRadius}
         >
           {children}
         </TileStory>
       )}
       {variant === 'feature-card' && (
-        <TileFeature handleClick={handleClick} className={styles} srcImage={srcImage}>
+        <TileFeature handleClick={handleClick} className={className} srcImage={srcImage}>
           {children}
         </TileFeature>
       )}
       {variant === 'goods-card' && (
-        <TileGoods handleClick={handleClick} className={styles} srcImage={srcImage}>
+        <TileGoods handleClick={handleClick} className={className} srcImage={srcImage}>
           {children}
         </TileGoods>
       )}
