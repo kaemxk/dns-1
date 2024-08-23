@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
+import clsx from 'clsx'
 
 export const Chat = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,11 +11,8 @@ export const Chat = () => {
   const openChat = () => {
     if (!isOpen) {
       setIsLoading(true)
-
-      setTimeout(() => {
-        setIsOpen(true)
-        setIsLoading(false)
-      }, 1000)
+      setIsOpen(true)
+      setIsLoading(false)
     } else {
       setIsOpen(false)
     }
@@ -25,29 +23,33 @@ export const Chat = () => {
       message:
         'Здравствуйте, я виртуальный помощник DNS! Я могу помочь в поиске заказа или товаров, проверке баланса подарочной карты или карты ProZaPass и многом другом. Выберите что Вас интересует или напишите свой вопрос.',
       author: 'agent',
+      time: `${new Date().getHours().toString().padStart(2, '0')}:${new Date().getMinutes().toString().padStart(2, '0')}`,
     },
   ]
-
-  const time: Date = new Date()
-  const hours = time.getHours()
-  const minutes = time.getMinutes()
 
   return (
     <>
       <div
-        className={`${!isOpen ? 'translate-y-8 opacity-0' : 'translate-y-0 opacity-100'} fixed bottom-28 right-6 flex hidden w-[360px] flex-col rounded-lg bg-neutral shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block`}
+        className={clsx(
+          'fixed bottom-28 right-6 flex hidden w-[360px] flex-col rounded-lg bg-neutral shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
+          {
+            'translate-y-8 opacity-0': !isOpen,
+            'translate-y-0 opacity-100': isOpen,
+          },
+        )}
       >
-        <div
-          className={`flex h-12 items-center shadow-[0_8px_20px_0_rgba(0,0,0,0.1)] duration-700`}
-        >
-          <p className='mx-auto block h-6 text-lg text-neutral-content'>Чат DNS</p>
-        </div>
+        <p className='flex h-12 items-center justify-center text-lg text-neutral-content shadow-[0_8px_20px_0_rgba(0,0,0,0.1)] duration-700'>
+          Чат DNS
+        </p>
         <div className='h-[515px] w-full px-4 pt-14'>
           {messages.map((message, index) =>
             message.author === 'agent' ? (
               <div
                 key={`agent-${index}`}
-                className={`chat chat-start ${!isOpen ? 'opacity-0' : 'opacity-100'} duration-700`}
+                className={clsx('chat chat-start duration-700', {
+                  'opacity-0': !isOpen,
+                  'opacity-100': isOpen,
+                })}
               >
                 <div className='avatar chat-image'>
                   <div className='!flex w-10 justify-center rounded-full border'>
@@ -56,12 +58,15 @@ export const Chat = () => {
                 </div>
 
                 <div className='chat-bubble chat-bubble-primary'>{message.message}</div>
-                <time className='mt-1 text-xs opacity-50'>{`${hours}:${minutes}`}</time>
+                <time className='mt-1 text-xs opacity-50'>{message.time}</time>
               </div>
             ) : (
               <div
                 key={`user-${index}`}
-                className={`chat chat-start ${!isOpen ? 'opacity-0' : 'opacity-100'} duration-700`}
+                className={clsx('chat chat-start duration-700', {
+                  'opacity-0': !isOpen,
+                  'opacity-100': isOpen,
+                })}
               >
                 <div className='chat-bubble chat-bubble-accent'>{message.message}</div>
               </div>
