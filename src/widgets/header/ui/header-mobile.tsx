@@ -88,6 +88,7 @@ export const HeaderMobile = () => {
                   <div className='presearch-mobile__controls'>
                     <div className={classesIconClearMobile}>
                       <IoIosCloseCircle
+                        data-testid='btn-clear'
                         onClick={handleClickSearchClear}
                         className='z-[4] h-6 w-6 text-[#AFAFAF]'
                       />
