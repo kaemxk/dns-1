@@ -21,7 +21,7 @@ const FooterContactSection: React.FC<FooterContactSectionProps> = ({ phone, city
           (с {phone.timeFrom} до {phone.timeTo})
         </span>
       </p>
-      <div className='flex w-full items-center justify-between border-b border-t border-solid border-b-gray-200 border-t-gray-200 pb-5 pt-5 md:border-0 md:pb-0 md:pt-0'>
+      <div className='flex w-full items-center justify-between border-b border-t border-solid border-b-gray-600 border-t-gray-600 pb-5 pt-5 md:border-0 md:pb-0 md:pt-0'>
         <a href='#'>Адреса магазинов в г. {cityName}</a>
         <svg
           className='md:hidden'
