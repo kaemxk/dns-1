@@ -44,6 +44,14 @@
     },
     "languages": [
       "ru"
-    ]
-  }
+    ]    
+  },
+    "chatHistory": [
+    {
+      "author": "agent",
+      "message": "Здравствуйте, я виртуальный помощник DNS!",
+      "timestamp": "14:00",
+      "isImage": false
+    }
+  ]
 }

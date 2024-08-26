@@ -1,6 +1,7 @@
 import { ScrollTop, TapBar } from '@/widgets'
 import { Providers } from './providers'
 import AppRouter from './router'
+import { Chat } from '@/widgets/chat'
 
 const App = () => (
   <Providers>
@@ -9,6 +10,7 @@ const App = () => (
       <TapBar />
       <AppRouter />
       <ScrollTop />
+      <Chat />
     </>
   </Providers>
 )
