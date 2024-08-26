@@ -1,7 +1,7 @@
 const FooterLoadIcon = () => {
   return (
     <div className='flex'>
-      <div className='mb-5 w-full'>
+      <div className='mb-5 mt-5 w-full'>
         <div className='flex flex-wrap gap-3'>
           <a href='#'>
             <div
