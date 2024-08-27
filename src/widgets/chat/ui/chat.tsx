@@ -1,4 +1,6 @@
+
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+        
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
@@ -121,6 +123,7 @@ export const Chat: React.FC = () => {
     }
   }
 
+
   return (
     <>
       <div
@@ -157,7 +160,7 @@ export const Chat: React.FC = () => {
             ) : (
               <div
                 key={`user-${index}`}
-                className={clsx('chat chat-end duration-700', {
+                className={clsx('chat chat-start duration-700', {
                   'opacity-0': !isOpen,
                   'opacity-100': isOpen,
                 })}
@@ -173,6 +176,7 @@ export const Chat: React.FC = () => {
                 )}
 
                 <time className='mt-1 text-xs text-gray-500 opacity-70'>{message.timestamp}</time>
+
               </div>
             ),
           )}

@@ -69,8 +69,8 @@ const FooterNavSection: React.FC = () => {
     >
       {/* Десктопная версия */}
       {!isMobileView && (
-        <div className='mb-8 flex w-full md:mb-0'>
-          <div className='mb-8 w-[250px] sm:mr-0 md:mr-1 lg:mr-14'>
+        <div className='mb-8 flex w-full justify-around md:mb-0 xl:justify-normal'>
+          <div className='mw-[246px] mb-8 w-[250px] sm:mr-0 md:mr-1 xl:mr-14'>
             <h6 className='mb-5 border-b border-gray-600 pb-5 text-lg font-bold text-white'>
               Компания
             </h6>
@@ -84,11 +84,11 @@ const FooterNavSection: React.FC = () => {
               ))}
             </ul>
           </div>
-          <div className='md:w-[64]2xl:w-[523px] md:mb-0'>
+          <div className='mw-[246px] max-lg:ml-5 max-lg:mr-5 md:mb-0 md:w-[64] lg:mr-16 xl:w-[523px]'>
             <h6 className='mb-5 border-b border-gray-600 pb-5 text-lg font-bold text-white'>
               Покупателям
             </h6>
-            <ul className='text-white md:columns-1 lg:columns-2'>
+            <ul className='text-white md:columns-1 xl:columns-2'>
               {Object.keys(customerLinks).map((link, index) => (
                 <li key={index} className='mb-2'>
                   <a href={customerLinks[link]} className='text-white no-underline hover:underline'>
