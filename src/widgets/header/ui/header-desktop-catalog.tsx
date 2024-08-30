@@ -63,7 +63,7 @@ export const HeaderDesktopCatalog = () => {
           )
         })}
       </div>
-      <div className='catalog-submenu max-h-[800px] overflow-x-visible overflow-y-visible rounded-r-xl bg-white pb-4 pl-5 pr-6 pt-6 xl:w-[860px]'>
+      <div className='catalog-submenu overflow-x-visible overflow-y-visible rounded-r-xl bg-white pb-4 pl-5 pr-6 pt-6 xl:w-[860px]'>
         {activeCategory.map(category => {
           return (
             <div key={category.id} className='mb-4'>

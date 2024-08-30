@@ -59,7 +59,7 @@ export const HeaderDesktop = () => {
   })
 
   const classesCatalogMenu = clsx(
-    'catalog-menu absolute top-[66px] z-[1002] flex max-w-[1180px] rounded-xl bg-white shadow-[rgba(0,0,0,0.1)_0px_0px_0px_calc(100*(1vh-1vmin+1vw))] transition-[all_200ms_0ms] ease-out',
+    'catalog-menu min-w-[960px] absolute top-[66px] z-[1002] flex max-w-[1180px] rounded-xl bg-white shadow-[rgba(0,0,0,0.1)_0px_0px_0px_calc(100*(1vh-1vmin+1vw))] transition-[all_200ms_0ms] ease-out',
     { hidden: !catalogOpen },
   )
 
@@ -129,11 +129,11 @@ export const HeaderDesktop = () => {
         </div>
       </div>
       <nav className={classesScrollHeader}>
-        <div
-          ref={refCatalog}
-          className='header-bottom__container relative mx-auto my-0 box-content flex w-full max-w-[1380px] items-center justify-start lg:w-[960px] xl:w-full'
-        >
-          <div className='header-bottom__btn-catalog relative float-left box-content flex max-h-16 items-center rounded-xl bg-gradient-to-b from-[#ffa218] to-[#fc8507] pr-3 text-left'>
+        <div className='header-bottom__container relative mx-auto my-0 box-content flex w-full max-w-[1380px] items-center justify-start lg:w-[960px] xl:w-full'>
+          <div
+            ref={refCatalog}
+            className='header-bottom__btn-catalog relative float-left box-content flex max-h-16 items-center rounded-xl bg-gradient-to-b from-[#ffa218] to-[#fc8507] pr-3 text-left'
+          >
             <Link
               to='/'
               className='header-bottom__logo-container flex h-16 w-auto cursor-pointer items-center rounded-bl-xl rounded-tl-xl pl-5 pr-5 transition-[.3s] hover:bg-white hover:bg-opacity-15'
@@ -154,6 +154,9 @@ export const HeaderDesktop = () => {
               <span className='header-bottom__catalog-title mr-2 select-none'>Каталог</span>
               <IoIosArrowDown className={classesSvgArrowCatalog} />
             </div>
+            <div className={classesCatalogMenu}>
+              <HeaderDesktopCatalog />
+            </div>
           </div>
           <HeaderDesktopSearch />
           <div className='header-bottom__nav-wrapper flex h-full'>
@@ -170,9 +173,6 @@ export const HeaderDesktop = () => {
               />
               <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
             </div>
-          </div>
-          <div className={classesCatalogMenu}>
-            <HeaderDesktopCatalog />
           </div>
         </div>
       </nav>
