@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/shared/redux/store'
 
 interface IProviders {
-  readonly children: JSX.Element
+  readonly children: React.ReactNode
 }
 
 export const Providers: React.FC<IProviders> = ({ children }) => {
