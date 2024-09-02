@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FooterContactSection from '../footerContactSection/footerContactSection.tsx'
+import FooterContactSection from './footerContactSection.tsx'
 
 type MenuLinks = {
   [key: string]: string
