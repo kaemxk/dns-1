@@ -22,12 +22,19 @@ export const Chat: React.FC = () => {
   const messages = useSelector((state: RootState) => state.chat.messages)
 
   useEffect(() => {
-    const savedMessages = sessionStorage.getItem('chatMessages')
-    if (savedMessages) {
-      dispatch(addMessages(JSON.parse(savedMessages) as ChatMessage[]))
-    } else {
-      dispatch(fetchChatHistory())
+    const fetchData = async () => {
+      try {
+        const savedMessages = sessionStorage.getItem('chatMessages')
+        if (savedMessages) {
+          dispatch(addMessages(JSON.parse(savedMessages) as ChatMessage[]))
+        } else {
+          await dispatch(fetchChatHistory())
+        }
+      } catch (error) {
+        console.error('Failed to fetch chat history:', error)
+      }
     }
+    void fetchData()
   }, [dispatch])
 
   useLayoutEffect(() => {

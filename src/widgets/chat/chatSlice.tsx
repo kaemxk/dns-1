@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import { ChatMessage } from './interfaces'
 
 export const fetchChatHistory = createAsyncThunk<ChatMessage[]>(
@@ -8,7 +8,7 @@ export const fetchChatHistory = createAsyncThunk<ChatMessage[]>(
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: ChatMessage[] = await response.json()
+    const data = (await response.json()) as ChatMessage[]
     return data
   },
 )
@@ -19,11 +19,11 @@ const chatSlice = createSlice({
     messages: [] as ChatMessage[],
   },
   reducers: {
-    addMessage: (state, action) => {
+    addMessage: (state, action: PayloadAction<ChatMessage>) => {
       state.messages.push(action.payload)
       sessionStorage.setItem('chatMessages', JSON.stringify(state.messages))
     },
-    addMessages: (state, action) => {
+    addMessages: (state, action: PayloadAction<ChatMessage[]>) => {
       state.messages = action.payload
       sessionStorage.setItem('chatMessages', JSON.stringify(state.messages))
     },
