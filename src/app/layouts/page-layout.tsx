@@ -1,9 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import { Header } from '@/widgets'
-import Footer from '@/widgets/footer/footer'
-import { ScrollTop } from '@/widgets'
-import { TapBar } from '@/widgets'
+import { Header, Footer, ScrollTop, TapBar } from '@/widgets'
 import { Chat } from '@/widgets/chat'
 
 export const PageLayout = () => {
