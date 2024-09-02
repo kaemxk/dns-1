@@ -7,7 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { TbPointFilled } from 'react-icons/tb'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
-import { IconButton } from '@/shared/ui/icon-button'
+import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
 
 export const HeaderDesktop = () => {
