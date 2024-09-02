@@ -149,7 +149,7 @@ export const HeaderDesktop = () => {
             </Link>
             <div
               onClick={handlerClickCatalogOpen}
-              className='header-bottom__catalog pt-2\\\\\\\\.5 visible mb-0 ml-5 flex cursor-pointer flex-row rounded-lg bg-white bg-opacity-15 pb-2.5 pl-5 pr-4 pt-2.5 text-center font-bold text-white shadow-md hover:bg-opacity-20'
+              className='header-bottom__catalog visible mb-0 ml-5 flex cursor-pointer flex-row rounded-lg bg-white bg-opacity-15 pb-2.5 pl-5 pr-4 pt-2.5 text-center font-bold text-white shadow-md hover:bg-opacity-20'
             >
               <span className='header-bottom__catalog-title mr-2 select-none'>Каталог</span>
               <IoIosArrowDown className={classesSvgArrowCatalog} />

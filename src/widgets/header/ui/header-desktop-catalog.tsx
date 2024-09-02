@@ -1,11 +1,12 @@
+import { useGetCatalogMenuQuery } from '@/shared/redux/api/baseApi'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-interface CatalogItem {
+export interface CatalogItem {
   id: string
   title: string
-  subtitles: []
+  subtitles: string[]
   searchUid: string
   url: string
   imageUrl: string
@@ -15,53 +16,50 @@ interface CatalogItem {
 }
 
 export const HeaderDesktopCatalog = () => {
-  const [catalog, setCatalog] = useState<CatalogItem[]>([])
+  const { data } = useGetCatalogMenuQuery()
   const [activeCategory, setActiveCategory] = useState<CatalogItem[]>([])
   const [activeCategoryId, setActiveCategoryId] = useState<string>('')
 
   useEffect(() => {
-    fetch('http://localhost:4000/catalogMenu')
-      .then(response => response.json())
-      .then((catalogMenu: CatalogItem[]) => {
-        setCatalog(catalogMenu)
-        setActiveCategory(catalogMenu[0].childs)
-      })
-      .catch(error => console.error('Error fetching data:', error))
-  }, [])
+    if (data) {
+      setActiveCategory(data[0].childs)
+      setActiveCategoryId(data[0].id)
+    }
+  }, [data])
 
   const handleMouseOverCategory = (item: CatalogItem[], id: string) => {
     setActiveCategory(item)
     setActiveCategoryId(id)
   }
 
-  const classesCategory = (id: string): string => {
-    return clsx(
+  const classesCategory = (id: string): string =>
+    clsx(
       'catalog-menu__root-item mb-3 box-border flex h-fit w-[238px] cursor-pointer items-center border-l-2 p-[7px_0_7px_12px]',
       { 'border-orange-400 text-orange-400': id === activeCategoryId },
       { 'border-white': id !== activeCategoryId },
     )
-  }
 
   return (
     <>
       <div className='catalog-menu-rootmenu relative h-full rounded-xl bg-white pb-6 pt-6'>
-        {catalog.map(item => {
-          return (
-            <div
-              onMouseOver={() => handleMouseOverCategory(item.childs, item.id)}
-              key={item.id}
-              className={classesCategory(item.id)}
-            >
-              <Link to={item.url} className='flex items-center'>
-                <span
-                  style={{ backgroundImage: `url("${item.imageMenuUrl}")` }}
-                  className='mr-4 block h-5 w-6 bg-contain bg-center bg-no-repeat text-center align-middle'
-                ></span>
-                <span className='block w-[216px]'>{item.title}</span>
-              </Link>
-            </div>
-          )
-        })}
+        {data &&
+          data.map(item => {
+            return (
+              <div
+                onMouseOver={() => handleMouseOverCategory(item.childs, item.id)}
+                key={item.id}
+                className={classesCategory(item.id)}
+              >
+                <Link to={item.url} className='flex items-center'>
+                  <span
+                    style={{ backgroundImage: `url("${item.imageMenuUrl}")` }}
+                    className='mr-4 block h-5 w-6 bg-contain bg-center bg-no-repeat text-center align-middle'
+                  ></span>
+                  <span className='block w-[216px]'>{item.title}</span>
+                </Link>
+              </div>
+            )
+          })}
       </div>
       <div className='catalog-submenu overflow-x-visible overflow-y-visible rounded-r-xl bg-white pb-4 pl-5 pr-6 pt-6 xl:w-[860px]'>
         {activeCategory.map(category => {
