@@ -1,11 +1,14 @@
+
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../shared/redux/store'
+
 
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
 import clsx from 'clsx'
+
 
 import { ChatMessage } from '../interfaces'
 import { validateFiles, createMessageData } from '../utils'
@@ -43,6 +46,7 @@ export const Chat: React.FC = () => {
       container.scrollTop = container.scrollHeight
     }
   }, [messages])
+
 
   const openChat = () => {
     if (!isOpen) {
@@ -84,6 +88,7 @@ export const Chat: React.FC = () => {
     }
   }
 
+
   return (
     <>
       <div
@@ -98,8 +103,10 @@ export const Chat: React.FC = () => {
         <p className='flex h-12 items-center justify-center text-lg text-neutral-content shadow-[0_8px_20px_0_rgba(0,0,0,0.1)] duration-700'>
           Чат DNS
         </p>
+
         <div className='h-[515px] w-full overflow-y-auto px-4 pt-14' ref={messagesContainerRef}>
           {messages.map((message: ChatMessage, index: number) =>
+
             message.author === 'agent' ? (
               <div
                 key={`agent-${index}`}
@@ -115,12 +122,16 @@ export const Chat: React.FC = () => {
                 </div>
 
                 <div className='chat-bubble chat-bubble-primary'>{message.message}</div>
+
                 <time className='mt-1 text-xs opacity-50'>{message.timestamp}</time>
+
               </div>
             ) : (
               <div
                 key={`user-${index}`}
+
                 className={clsx('chat chat-end duration-700', {
+
                   'opacity-0': !isOpen,
                   'opacity-100': isOpen,
                 })}
@@ -136,12 +147,14 @@ export const Chat: React.FC = () => {
                 )}
 
                 <time className='mt-1 text-xs text-gray-500 opacity-70'>{message.timestamp}</time>
+
               </div>
             ),
           )}
         </div>
         <div className='mt-auto flex h-16 items-center justify-start shadow-[8px_0_20px_0_rgba(0,0,0,0.1)]'>
           <label htmlFor='file-upload' className='cursor-pointer'>
+
             <PiPaperclipHorizontal className='mx-2 h-7 w-7 rotate-90 text-gray-500' />
           </label>
           <input
@@ -156,12 +169,14 @@ export const Chat: React.FC = () => {
             value={newMessage}
             onChange={e => setNewMessage(e.target.value)}
             onKeyDown={handleKeyPress}
+
             className='h-10 w-[250px] rounded-lg px-2 placeholder:text-sm'
             placeholder='Введите сообщение...'
           />
           <button
             type='button'
             className='relative m-2.5 mt-2 flex h-10 w-10 justify-center rounded-full bg-primary bg-center'
+
             onClick={handleSendMessage}
           >
             <IoSend className='h-4 w-4 self-center bg-primary' />
