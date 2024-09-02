@@ -1,51 +1,34 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../../shared/redux/store'
+
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
 import clsx from 'clsx'
 
-type ChatMessage = {
-  author: string
-  message: string
-  timestamp: string
-  isImage: boolean
-}
+import { ChatMessage } from '../interfaces'
+import { validateFiles, createMessageData } from '../utils'
+import { fetchChatHistory, addMessages } from '../chatSlice'
 
 export const Chat: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [newMessage, setNewMessage] = useState<string>('')
   const [attachedFiles, setAttachedFiles] = useState<File[]>([])
   const messagesContainerRef = useRef<HTMLDivElement | null>(null)
 
-  const MAX_FILE_SIZE_MB = 50
-  const MAX_FILES = 5
-  const ALLOWED_FORMATS = ['doc', 'docx', 'xls', 'xlsx', 'txt', 'pdf', 'jpeg', 'jpg', 'png']
+  const dispatch = useDispatch<AppDispatch>()
+  const messages = useSelector((state: RootState) => state.chat.messages)
 
   useEffect(() => {
     const savedMessages = sessionStorage.getItem('chatMessages')
     if (savedMessages) {
-      setMessages(JSON.parse(savedMessages))
+      dispatch(addMessages(JSON.parse(savedMessages) as ChatMessage[]))
     } else {
-      fetch('http://localhost:4000/chatHistory')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok')
-          }
-          return response.json()
-        })
-        .then((data: ChatMessage[]) => {
-          const updatedChatHistory = data.map(message => ({
-            ...message,
-            timestamp: new Date().toLocaleTimeString(),
-          }))
-          setMessages(updatedChatHistory)
-          sessionStorage.setItem('chatMessages', JSON.stringify(updatedChatHistory))
-        })
-        .catch(error => console.error('Error fetching data:', error))
+      dispatch(fetchChatHistory())
     }
-  }, [])
+  }, [dispatch])
 
   useLayoutEffect(() => {
     const container = messagesContainerRef.current
@@ -66,25 +49,14 @@ export const Chat: React.FC = () => {
 
   const handleSendMessage = () => {
     if (newMessage.trim() || attachedFiles.length) {
-      const newMessages = attachedFiles.map(file => ({
-        message: URL.createObjectURL(file),
-        author: 'user',
-        timestamp: new Date().toLocaleTimeString(),
-        isImage: file.type.startsWith('image'),
-      }))
-
+      const newMessages = attachedFiles.map(file =>
+        createMessageData(URL.createObjectURL(file), 'user', file.type.startsWith('image')),
+      )
       if (newMessage.trim()) {
-        const messageData = {
-          message: newMessage,
-          author: 'user',
-          timestamp: new Date().toLocaleTimeString(),
-          isImage: false,
-        }
-        newMessages.push(messageData)
+        newMessages.push(createMessageData(newMessage, 'user'))
       }
-
       const updatedMessages = [...messages, ...newMessages]
-      setMessages(updatedMessages)
+      dispatch(addMessages(updatedMessages))
       sessionStorage.setItem('chatMessages', JSON.stringify(updatedMessages))
       setNewMessage('')
       setAttachedFiles([])
@@ -94,23 +66,7 @@ export const Chat: React.FC = () => {
   const handleAttachImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files
     if (files) {
-      const validFiles: File[] = []
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i]
-        const fileSizeMB = file.size / (1024 * 1024)
-        const fileExtension = file.name.split('.').pop()?.toLowerCase()
-
-        if (fileSizeMB > MAX_FILE_SIZE_MB) {
-          alert(`Файл ${file.name} превышает максимальный размер в ${MAX_FILE_SIZE_MB}MB.`)
-        } else if (!ALLOWED_FORMATS.includes(fileExtension || '')) {
-          alert(`Формат файла ${file.name} не поддерживается.`)
-        } else if (attachedFiles.length + validFiles.length >= MAX_FILES) {
-          alert(`Превышено максимальное количество файлов (${MAX_FILES}).`)
-          break
-        } else {
-          validFiles.push(file)
-        }
-      }
+      const validFiles = validateFiles(Array.from(files), attachedFiles)
       setAttachedFiles(prevFiles => [...prevFiles, ...validFiles])
     }
   }
@@ -136,7 +92,7 @@ export const Chat: React.FC = () => {
           Чат DNS
         </p>
         <div className='h-[515px] w-full overflow-y-auto px-4 pt-14' ref={messagesContainerRef}>
-          {messages.map((message, index) =>
+          {messages.map((message: ChatMessage, index: number) =>
             message.author === 'agent' ? (
               <div
                 key={`agent-${index}`}
