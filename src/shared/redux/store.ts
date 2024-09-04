@@ -5,7 +5,6 @@ import { baseApi } from './api'
 import chatSlice from '@/widgets/chat/chatSlice'
 import { configSlice } from './api/configSlice'
 
-
 export const store: Store = configureStore({
   reducer: {
     chat: chatSlice,
