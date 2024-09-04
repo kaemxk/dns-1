@@ -1,15 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, Store } from '@reduxjs/toolkit'
 
 import { baseApi } from './api'
-import chatSlice from '@/widgets/chat/chatSlice'
 
-export const store = configureStore({
+import chatSlice from '@/widgets/chat/chatSlice'
+import { configSlice } from './api/configSlice'
+
+
+export const store: Store = configureStore({
   reducer: {
     chat: chatSlice,
     // Добавляем другие редукторы (слайсы)
     [baseApi.reducerPath]: baseApi.reducer,
+    [configSlice.reducerPath]: configSlice.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(baseApi.middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(baseApi.middleware, configSlice.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>
