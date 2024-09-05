@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { HeaderDesktop } from './header-desktop'
 import { MemoryRouter } from 'react-router-dom'
 import * as slice from '../../../shared/redux/api/configSlice'
+import * as baseApi from '../../../shared/redux/api/baseApi'
 import {
   QueryActionCreatorResult,
   QueryDefinition,
@@ -11,6 +12,25 @@ import {
   FetchBaseQueryError,
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
+import { CatalogItem } from './header-desktop-catalog'
+
+const mockBaseApi = () => {
+  vi.spyOn(baseApi, 'useGetCatalogMenuQuery').mockReturnValue({
+    data: undefined,
+    isLoading: false,
+    refetch: function (): QueryActionCreatorResult<
+      QueryDefinition<
+        void,
+        BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, object, FetchBaseQueryMeta>,
+        never,
+        CatalogItem[],
+        'serviceAPI'
+      >
+    > {
+      throw new Error('Function not implemented.')
+    },
+  })
+}
 
 const mockSlice = () => {
   vi.spyOn(slice, 'useGetCityQuery').mockReturnValue({
@@ -39,6 +59,7 @@ const renderDesktop = () =>
 
 describe('HeaderDesktop', () => {
   it('Отображение ссылок и кнопок', () => {
+    mockBaseApi()
     mockSlice()
     renderDesktop()
 
@@ -56,6 +77,7 @@ describe('HeaderDesktop', () => {
   })
 
   it('При прокрутке scroll больше 50px, header фиксируется сверху страницы', () => {
+    mockBaseApi()
     mockSlice()
     renderDesktop()
 
