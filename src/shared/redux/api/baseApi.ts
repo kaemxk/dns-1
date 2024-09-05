@@ -18,4 +18,3 @@ export const baseApi = createApi({
 })
 
 export const { useGetCatalogMenuQuery, useGetChatHistoryQuery } = baseApi
-

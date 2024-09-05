@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '../../../shared/redux/store'
+import { RootState } from '../../../shared/redux/store'
 
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
@@ -18,8 +18,9 @@ export const Chat: React.FC = () => {
   const [attachedFiles, setAttachedFiles] = useState<File[]>([])
   const messagesContainerRef = useRef<HTMLDivElement | null>(null)
 
-  const dispatch = useDispatch<AppDispatch>()
-  const messages = useSelector((state: RootState) => state.chat.messages)
+  const dispatch = useDispatch()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  const messages = useSelector((state: RootState) => state.chat.messages as ChatMessage[])
 
   const { data: chatHistory, isLoading } = useGetChatHistoryQuery()
 
