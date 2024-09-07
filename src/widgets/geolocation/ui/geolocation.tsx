@@ -4,19 +4,19 @@ import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
-export const Geolocation = () => {
+type Props = {onGeoLoaded: (bool: boolean) => void}
+
+export const Geolocation = ({onGeoLoaded}: Props) => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
   const { data, isLoading } = useGetCityQuery(position)
 
   useEffect(() => {
-    if (!isLoading && !localStorage.getItem('city')) {
-      if (data) {
+    if (!isLoading && data && city !== data) {
         setModalOpen(true)
-      }
     }
-  }, [data, isLoading])
+  }, [city, data, isLoading])
 
   const handleBtnSuccess = () => {
     if (data) {
@@ -24,10 +24,12 @@ export const Geolocation = () => {
       localStorage.setItem('city', data)
     }
     setModalOpen(false)
+    onGeoLoaded(true)
   }
 
   const handleBtnCancel = () => {
     setModalOpen(false)
+    onGeoLoaded(true)
   }
 
   const Modal = () => {
