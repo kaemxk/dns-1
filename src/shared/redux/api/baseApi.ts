@@ -1,13 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
 
 export const baseApi = createApi({
   reducerPath: 'serviceAPI',
   baseQuery: fetchBaseQuery({
-    // Указать ссылку
-    baseUrl: '',
+    baseUrl: 'http://localhost:4000/',
   }),
-  endpoints: () => ({}),
-  //   Определить эндпоинты необходимые
+  endpoints: builder => ({
+    getCatalogMenu: builder.query<CatalogItem[], void>({
+      query: () => `catalogMenu`,
+    }),
+  }),
 })
 
-// Также экспортировать хуки основанные на эндпоинтах
+export const { useGetCatalogMenuQuery } = baseApi

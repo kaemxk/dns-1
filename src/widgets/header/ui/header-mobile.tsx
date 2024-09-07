@@ -67,7 +67,7 @@ export const HeaderMobile = () => {
             </svg>
           </Link>
           <div className='header-mobile__select-city-wrap max-w-[calc(100%-68px)] pl-5'>
-            <Geolocation onGeoLoaded={() => {}}/>
+            <Geolocation onGeoLoaded={() => {}} />
           </div>
         </div>
         <div className='header-mobile__bottom flex w-full justify-between gap-2'>

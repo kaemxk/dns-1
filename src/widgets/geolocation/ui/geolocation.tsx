@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
-type Props = {onGeoLoaded: (bool: boolean) => void}
+type Props = { onGeoLoaded: (bool: boolean) => void }
 
-export const Geolocation = ({onGeoLoaded}: Props) => {
+export const Geolocation = ({ onGeoLoaded }: Props) => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
@@ -14,7 +14,7 @@ export const Geolocation = ({onGeoLoaded}: Props) => {
 
   useEffect(() => {
     if (!isLoading && data && city !== data) {
-        setModalOpen(true)
+      setModalOpen(true)
     }
   }, [city, data, isLoading])
 

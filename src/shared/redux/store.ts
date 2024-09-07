@@ -2,7 +2,7 @@ import { configureStore, Store } from '@reduxjs/toolkit'
 
 import { baseApi } from './api'
 import { configSlice } from './api/configSlice'
-import {dnsApi} from "@/shared/redux/api/dns-api";
+import { dnsApi } from '@/shared/redux/api/dns-api'
 
 export const store: Store = configureStore({
   reducer: {
