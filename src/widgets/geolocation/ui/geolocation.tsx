@@ -8,11 +8,11 @@ export const Geolocation = () => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
-  const { data, isLoading } = useGetCityQuery(position, {skip: !position})
+  const { data, isLoading } = useGetCityQuery(position, { skip: !position })
 
   useEffect(() => {
     if (!isLoading && data && city !== data) {
-        setModalOpen(true)
+      setModalOpen(true)
     }
   }, [city, data, isLoading])
 
