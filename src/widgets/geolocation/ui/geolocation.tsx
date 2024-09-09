@@ -8,15 +8,13 @@ export const Geolocation = () => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
-  const { data, isLoading } = useGetCityQuery(position)
+  const { data, isLoading } = useGetCityQuery(position, {skip: !position})
 
   useEffect(() => {
-    if (!isLoading && !localStorage.getItem('city')) {
-      if (data) {
+    if (!isLoading && data && city !== data) {
         setModalOpen(true)
-      }
     }
-  }, [data, isLoading])
+  }, [city, data, isLoading])
 
   const handleBtnSuccess = () => {
     if (data) {
