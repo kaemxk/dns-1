@@ -1,74 +1,16 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useResize } from '../../../shared/hooks/use-resize'
+import { offers, Offer } from '../model/offers'
+import { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 
-export const ActualOffers = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+export const ActualOffers: FC = () => {
+  const windowWidth = useResize()
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
-  // Определение размера экрана :)
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  // Массив с предложениями, вставьте url для того чтобы ссылка работала, обратите внимания на названия после url! :)
-  const offers = [
-    {
-      url: '#',
-      image: '../widgets/actual-offers/images/tv.png',
-      text: 'Смотреть кино',
-      anchors: [
-        { url: '#', text: 'Телевизоры' },
-        { url: '#', text: 'Кранштейны для телевизоров' },
-        { url: '#', text: 'Тумбы и стойки для ТВ' },
-        { url: '#', text: 'Приставка для цифрового ТВ' },
-      ],
-    },
-    {
-      url: '#',
-      image: '../widgets/actual-offers/images/iron.jpg',
-      text: 'Отдых на природе',
-      anchors: [
-        { url: '#', text: 'SUP-доски' },
-        { url: '#', text: 'Изометрические сумки' },
-        { url: '#', text: 'Аксессуары для SUP-досок' },
-        { url: '#', text: 'Квадрокоптеры и дроны' },
-        { url: '#', text: 'Настольные игры' },
-      ],
-    },
-    {
-      url: '#',
-      image: '../widgets/actual-offers/images/coffeemachine.jpg',
-      text: 'Согревающие напитки',
-      anchors: [
-        { url: '#', text: 'Кофемашины автоматические' },
-        { url: '#', text: 'Кофемашины капсульные' },
-        { url: '#', text: 'Электрочайники' },
-        { url: '#', text: 'Турки' },
-        { url: '#', text: 'Чайники для плит' },
-      ],
-    },
-    {
-      url: '#',
-      image: '../widgets/actual-offers/images/heater.jpg',
-      text: 'Тепло в доме',
-      anchors: [
-        { url: '#', text: 'Конвекторы' },
-        { url: '#', text: 'Электрокамины' },
-        { url: '#', text: 'Масляные обогреватели' },
-        { url: '#', text: 'Электрические инфракрасные обогреватели' },
-      ],
-    },
-  ]
-
-  const filteredOffers =
+  const filteredOffers: Offer[] =
     windowWidth >= 992 && windowWidth <= 1200 ? offers.filter((_, index) => index !== 2) : offers
-
+  // чтобы работали ссылки перейдите по ссылкам в файле offers.ts и вставьте url на который будет переадресация Link'a :)
   return (
     <div className={clsx(isMobile ? 'mb-6 pl-4 pr-4' : 'mb-[60px]')}>
       {isMobile ? (
@@ -85,7 +27,7 @@ export const ActualOffers = () => {
                   style={{ backgroundImage: `url(${offer.image})` }}
                 />
               </div>
-              <div className='block cursor-default text-sm font-bold text-gray-800'>
+              <div className='block cursor-default text-sm font-bold text-gray-800 hover:text-orange-500'>
                 {offer.text}
               </div>
             </Link>
@@ -97,12 +39,12 @@ export const ActualOffers = () => {
             <div key={index} className='h-full w-full flex-grow'>
               <Link
                 to={offer.url}
-                className='block cursor-pointer text-lg font-bold text-[#4e4e4e]'
+                className='block cursor-pointer text-lg font-bold text-[#4e4e4e] hover:text-orange-500'
               >
                 {offer.text}
               </Link>
               <div className='mt-4 flex'>
-                <div className='mr-4 flex h-[110px] w-[110px] cursor-pointer items-center justify-center rounded-[16px] border border-white bg-white shadow-sm transition-all duration-200'>
+                <div className='mr-4 flex h-[110px] w-[110px] cursor-pointer items-center justify-center rounded-[16px] border border-white bg-white shadow-sm transition-all duration-200 hover:border-gray-500 lg:hover:border-gray-500'>
                   <Link to={offer.url}>
                     <div
                       className='transition-filter hover:brightness-115 h-10 w-[135px] bg-contain bg-center bg-no-repeat duration-300'
@@ -115,7 +57,7 @@ export const ActualOffers = () => {
                     <Link
                       to={anchor.url}
                       key={index}
-                      className='flex max-h-[120px] w-auto max-w-[250px] cursor-pointer flex-col gap-2.5 overflow-hidden text-sm leading-4 text-[#8c8c8c]'
+                      className='flex max-h-[120px] w-auto max-w-[250px] cursor-pointer flex-col gap-2.5 overflow-hidden text-sm leading-4 text-[#8c8c8c] hover:text-orange-500'
                     >
                       {anchor.text}
                     </Link>
