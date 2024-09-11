@@ -1,11 +1,11 @@
-import FooterLogoSection from '../footer/footerLogoSection/footerLogoSection.tsx'
-import FooterNavSection from '../footer/footerNavSection/footerNavSection.tsx'
-import FooterLoadIcon from '../footer/footerLoadIcon/footerLoadIcon.tsx'
+import FooterLogoSection from './footerLogoSection.tsx'
+import FooterNavSection from './footerNavSection.tsx'
+import FooterLoadIcon from './footerLoadIcon.tsx'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className='mt-8 bg-gray-900 p-0 text-base text-white'>
-      <div className='mx-auto flex max-w-screen-xl flex-col px-4'>
+      <div className='mx-auto flex max-w-[1380px] flex-col px-4'>
         <FooterLogoSection />
         <div className='mt-8 flex flex-col justify-between md:flex-row xl:mt-0'>
           <FooterNavSection />
@@ -19,5 +19,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

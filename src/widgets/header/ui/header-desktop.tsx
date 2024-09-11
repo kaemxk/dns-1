@@ -7,16 +7,28 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { TbPointFilled } from 'react-icons/tb'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
-import { IconButton } from '@/shared/ui/icon-button'
+import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
+import { HeaderDesktopCatalog } from './header-desktop-catalog'
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
+  const [catalogOpen, setCatalogOpen] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
 
-  const ref = useOutsideClick(() => setDropdownOpen(false))
+  const refDropdown = useOutsideClick(() => {
+    setDropdownOpen(false)
+  })
+
+  const refCatalog = useOutsideClick(() => {
+    setCatalogOpen(false)
+  })
 
   const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
+
+  const handlerClickCatalogOpen = () => {
+    setCatalogOpen(prevState => !prevState)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +52,15 @@ export const HeaderDesktop = () => {
   const classesScrollHeader = clsx(
     'header-bottom box-content flex h-24 items-center bg-white transition-[all_200ms_ease-out_0.1s] text-sm shadow-sm md:pl-[10px] md:pr-[10px] lg:pl-[10px] lg:pr-[10px]',
     { 'fixed left-0 top-0 right-0': scrollTop > 49 },
+  )
+
+  const classesSvgArrowCatalog = clsx('h-[20px] w-[20px] transition-[all_200ms_0ms] ease-out', {
+    'rotate-180 transition-[all_200ms_ease-out_0ms]': catalogOpen,
+  })
+
+  const classesCatalogMenu = clsx(
+    'catalog-menu min-w-[960px] absolute top-[66px] z-[1002] flex max-w-[1180px] rounded-xl bg-white shadow-[rgba(0,0,0,0.1)_0px_0px_0px_calc(100*(1vh-1vmin+1vw))] transition-[all_200ms_0ms] ease-out',
+    { hidden: !catalogOpen },
   )
 
   return (
@@ -68,7 +89,7 @@ export const HeaderDesktop = () => {
                 </Link>
               </li>
               <li className='mr-3 pr-[15px] xl:mr-5'>
-                <div className={classesDropdownContainer} ref={ref}>
+                <div className={classesDropdownContainer} ref={refDropdown}>
                   <div
                     onClick={handlerClickDropdownOpen}
                     tabIndex={0}
@@ -108,8 +129,11 @@ export const HeaderDesktop = () => {
         </div>
       </div>
       <nav className={classesScrollHeader}>
-        <div className='header-bottom__container mx-auto my-0 box-content flex w-full max-w-[1380px] items-center justify-start lg:w-[960px] xl:w-full'>
-          <div className='header-bottom__btn-catalog relative float-left box-content flex max-h-16 items-center rounded-xl bg-gradient-to-b from-[#ffa218] to-[#fc8507] pr-3 text-left'>
+        <div className='header-bottom__container relative mx-auto my-0 box-content flex w-full max-w-[1380px] items-center justify-start lg:w-[960px] xl:w-full'>
+          <div
+            ref={refCatalog}
+            className='header-bottom__btn-catalog relative float-left box-content flex max-h-16 items-center rounded-xl bg-gradient-to-b from-[#ffa218] to-[#fc8507] pr-3 text-left'
+          >
             <Link
               to='/'
               className='header-bottom__logo-container flex h-16 w-auto cursor-pointer items-center rounded-bl-xl rounded-tl-xl pl-5 pr-5 transition-[.3s] hover:bg-white hover:bg-opacity-15'
@@ -123,9 +147,15 @@ export const HeaderDesktop = () => {
                 </svg>
               </div>
             </Link>
-            <div className='header-bottom__catalog pt-2\\\\\\\\.5 visible mb-0 ml-5 flex cursor-pointer flex-row rounded-lg bg-white bg-opacity-15 pb-2.5 pl-5 pr-4 pt-2.5 text-center font-bold text-white shadow-md hover:bg-opacity-20'>
-              <span className='header-bottom__catalog-title mr-2'>Каталог</span>
-              <IoIosArrowDown className='h-[20px] w-[20px]' />
+            <div
+              onClick={handlerClickCatalogOpen}
+              className='header-bottom__catalog visible mb-0 ml-5 flex cursor-pointer flex-row rounded-lg bg-white bg-opacity-15 pb-2.5 pl-5 pr-4 pt-2.5 text-center font-bold text-white shadow-md hover:bg-opacity-20'
+            >
+              <span className='header-bottom__catalog-title mr-2 select-none'>Каталог</span>
+              <IoIosArrowDown className={classesSvgArrowCatalog} />
+            </div>
+            <div className={classesCatalogMenu}>
+              <HeaderDesktopCatalog />
             </div>
           </div>
           <HeaderDesktopSearch />
