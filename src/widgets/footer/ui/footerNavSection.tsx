@@ -64,6 +64,7 @@ const FooterNavSection: React.FC = () => {
   return (
     // без contents позиция блоков посыпется
     <section
+      data-testid='footer-nav-section'
       className={`flex flex-wrap ${isMobileView ? 'md:hidden' : 'hidden md:flex'}`}
       style={{ display: 'contents' }}
     >
