@@ -10,11 +10,22 @@ import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
+import {useGetMenuHeaderQuery} from "@/shared/redux/api/baseApi";
+
+export type DNSSupportData = {
+  data: {
+    phone: string
+    work: string
+  }
+}
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [catalogOpen, setCatalogOpen] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
+  const [phone, setPhone] = useState('8-800-77-07-999')
+  const [workHours, setWorkHours] = useState('(с 03:00 до 22:00)')
+  const { data } = useGetMenuHeaderQuery()
 
   const refDropdown = useOutsideClick(() => {
     setDropdownOpen(false)
@@ -24,11 +35,21 @@ export const HeaderDesktop = () => {
     setCatalogOpen(false)
   })
 
-  const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
-
   const handlerClickCatalogOpen = () => {
     setCatalogOpen(prevState => !prevState)
   }
+
+  useEffect(() => {
+    if (data) {
+      const headerData = data.data
+      if (headerData.phone != phone || headerData.work != workHours) {
+        setPhone(headerData.phone)
+        setWorkHours(headerData.work)
+      }
+    }
+  }, [data, phone, workHours])
+
+  const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,7 +143,9 @@ export const HeaderDesktop = () => {
           <ul className='header-top-menu__contact whitespace-nowrap pl-2'>
             <li>
               <Link to='#' className='header-top-menu__common-link'>
-                8-800-77-07-999
+                <div className='tooltip tooltip-bottom' data-tip={workHours}>
+                  <a href={`tel:${phone}`}>{phone}</a>
+                </div>
               </Link>
             </li>
           </ul>

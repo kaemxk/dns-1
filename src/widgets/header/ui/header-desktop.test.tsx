@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { HeaderDesktop } from './header-desktop'
 import { MemoryRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import * as slice from '../../../shared/redux/api/configSlice'
 import * as baseApi from '../../../shared/redux/api/baseApi'
 import {
@@ -13,6 +14,7 @@ import {
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
 import { CatalogItem } from './header-desktop-catalog'
+import { store } from '@/shared/redux'
 
 const mockBaseApi = () => {
   vi.spyOn(baseApi, 'useGetCatalogMenuQuery').mockReturnValue({
@@ -52,9 +54,11 @@ const mockSlice = () => {
 
 const renderDesktop = () =>
   render(
-    <MemoryRouter>
-      <HeaderDesktop />
-    </MemoryRouter>,
+    <Provider store={store}>
+      <MemoryRouter>
+        <HeaderDesktop />
+      </MemoryRouter>
+    </Provider>,
   )
 
 describe('HeaderDesktop', () => {
