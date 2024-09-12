@@ -67,7 +67,7 @@ export const HeaderMobile = () => {
             </svg>
           </Link>
           <div className='header-mobile__select-city-wrap max-w-[calc(100%-68px)] pl-5'>
-            <Geolocation onGeoLoaded={() => {}} />
+            <Geolocation />
           </div>
         </div>
         <div className='header-mobile__bottom flex w-full justify-between gap-2'>
@@ -105,7 +105,7 @@ export const HeaderMobile = () => {
                   Отмена
                 </button>
               </div>
-              <div className={classesSuggests}></div>
+              <div className={classesSuggests}/>
             </div>
           </div>
           <div className={classesNotificationButton}>

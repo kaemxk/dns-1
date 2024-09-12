@@ -14,13 +14,11 @@ import {
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
 
-const mockOnGeoLoaded = () => {}
-
 const renderGeolocation = () => {
   return render(
     <Provider store={store}>
       <MemoryRouter>
-        <Geolocation onGeoLoaded={mockOnGeoLoaded} />
+        <Geolocation />
       </MemoryRouter>
     </Provider>,
   )

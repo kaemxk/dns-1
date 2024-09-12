@@ -9,13 +9,15 @@ import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
-import {
-  DNSCityData,
-  DNSSupportData,
-  useLazyGetCityListQuery,
-  useLazyGetMenuHeaderQuery,
-} from '@/shared/redux/api/dns-api'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
+import {useGetMenuHeaderQuery} from "@/shared/redux/api/baseApi";
+
+export type DNSSupportData = {
+  data: {
+    phone: string
+    work: string
+  }
+}
 
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
@@ -23,21 +25,7 @@ export const HeaderDesktop = () => {
   const [scrollTop, setScrollTop] = useState<number>(0)
   const [phone, setPhone] = useState('8-800-77-07-999')
   const [workHours, setWorkHours] = useState('(с 03:00 до 22:00)')
-  const [geoLoaded, setGeoLoaded] = useState(false)
-  const [city, setCity] = useState(localStorage.getItem('city') || 'Москва')
-  const [cityId, setCityId] = useState(
-    localStorage.getItem('city_id') || '30b7c1f3-03fb-11dc-95ee-00151716f9f5',
-  )
-  const [getCitiesTrigger, getCitiesResult]: [
-    () => void,
-    { data?: DNSCityData[] | undefined },
-    { lastArg: void },
-  ] = useLazyGetCityListQuery()
-  const [getMenuHeaderTrigger, getMenuHeaderResult]: [
-    (header: string) => void,
-    { data?: DNSSupportData | undefined },
-    { lastArg: string },
-  ] = useLazyGetMenuHeaderQuery()
+  const { data } = useGetMenuHeaderQuery()
 
   const refDropdown = useOutsideClick(() => {
     setDropdownOpen(false)
@@ -52,46 +40,14 @@ export const HeaderDesktop = () => {
   }
 
   useEffect(() => {
-    if (!getCitiesResult.data) {
-      getCitiesTrigger()
-    }
-    if (!getMenuHeaderResult.data) {
-      getMenuHeaderTrigger(cityId)
-    }
-  })
-
-  useEffect(() => {
-    if (getMenuHeaderResult.data) {
-      const headerData = getMenuHeaderResult.data.data
+    if (data) {
+      const headerData = data.data
       if (headerData.phone != phone || headerData.work != workHours) {
         setPhone(headerData.phone)
         setWorkHours(headerData.work)
       }
     }
-  }, [getMenuHeaderResult.data, phone, workHours])
-
-  useEffect(() => {
-    if (geoLoaded && getCitiesResult.data) {
-      const storageCity = localStorage.getItem('city')
-      if (city === storageCity) {
-        setGeoLoaded(false)
-        return
-      }
-      const foundCity = getCitiesResult.data.find(el => el.name === storageCity)
-      if (!foundCity) {
-        setGeoLoaded(false)
-        return
-      }
-      const id = foundCity.id
-      if (foundCity.name !== city) {
-        getMenuHeaderTrigger(id)
-        setCity(foundCity.name)
-        setCityId(id)
-        localStorage.setItem('city_id', id)
-      }
-      setGeoLoaded(false)
-    }
-  }, [city, geoLoaded, getCitiesResult.data, getMenuHeaderTrigger])
+  }, [data, phone, workHours])
 
   const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
 
@@ -135,7 +91,7 @@ export const HeaderDesktop = () => {
           <div className='header-top-menu flex flex-row'>
             <ul className='header-top-menu__common-list mb-0 ml-0 mr-auto mt-0 flex grow whitespace-nowrap p-0'>
               <li className='first:mr-3 lg:mr-5 lg:w-[165px] xl:w-[270px]'>
-                <Geolocation onGeoLoaded={setGeoLoaded} />
+                <Geolocation />
               </li>
               <li className='mr-5 lg:mr-3'>
                 <Link to='#' className='header-top-menu__common-link hover:text-orange-500'>
