@@ -1,6 +1,5 @@
-import { ActualOffers } from '../widgets/actual-offers'
-import { SliderProducts } from '../widgets/slider-products'
-
+import { ActualOffers } from '@/widgets/actual-offers'
+import { SliderProducts } from '@/widgets/slider-products'
 import { Brands } from '@/widgets/brands'
 
 const Home = () => {
