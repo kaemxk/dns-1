@@ -6,26 +6,33 @@ interface Position {
 }
 
 export const usePosition = () => {
-  const [position, setPosition] = useState<Position>({ lat: 0, lon: 0 })
+  const [position, setPosition] = useState<Position>()
   const [error, setError] = useState<string>('')
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          const lat = position.coords.latitude
-          const lon = position.coords.longitude
+      navigator.permissions
+        .query({ name: 'geolocation' })
+        .then((result) => {
+          if (result.state === 'granted') {
+            navigator.geolocation.getCurrentPosition(
+              position => {
+                const lat = position.coords.latitude
+                const lon = position.coords.longitude
 
-          setPosition({ lat, lon })
-        },
-        err => {
-          if (err instanceof window.GeolocationPositionError) {
-            setError(err.message)
+                setPosition({ lat, lon })
+              }
+            )
+          } else {
+            navigator.geolocation.getCurrentPosition(
+              () => {},
+              () => {},
+            )
           }
-        },
-      )
-    } else {
-      setPosition({ lat: 0, lon: 0 })
+        })
+        .catch(err => {
+            setError((err as Error).message)
+        })
     }
   }, [])
 
