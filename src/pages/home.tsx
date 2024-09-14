@@ -1,10 +1,13 @@
 import { ActualOffers } from '../widgets/actual-offers'
 
+import {Brands} from "@/widgets/brands";
+
 const Home = () => {
   return (
     <div>
       <ActualOffers />
-    </div>
+      <Brands/>
+  </div>
   )
 }
 
