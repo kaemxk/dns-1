@@ -13,16 +13,14 @@ export const usePosition = () => {
     if (navigator.geolocation) {
       navigator.permissions
         .query({ name: 'geolocation' })
-        .then((result) => {
+        .then(result => {
           if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition(
-              position => {
-                const lat = position.coords.latitude
-                const lon = position.coords.longitude
+            navigator.geolocation.getCurrentPosition(position => {
+              const lat = position.coords.latitude
+              const lon = position.coords.longitude
 
-                setPosition({ lat, lon })
-              }
-            )
+              setPosition({ lat, lon })
+            })
           } else {
             navigator.geolocation.getCurrentPosition(
               () => {},
@@ -31,7 +29,7 @@ export const usePosition = () => {
           }
         })
         .catch(err => {
-            setError((err as Error).message)
+          setError((err as Error).message)
         })
     }
   }, [])

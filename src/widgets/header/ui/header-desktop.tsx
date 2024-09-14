@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
-import {useGetMenuHeaderQuery} from "@/shared/redux/api/baseApi";
+import { useGetMenuHeaderQuery } from '@/shared/redux/api/baseApi'
 
 export type DNSSupportData = {
   data: {
