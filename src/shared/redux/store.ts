@@ -2,7 +2,7 @@ import { configureStore, Store } from '@reduxjs/toolkit'
 
 import { baseApi } from './api'
 
-import chatSlice from '@/widgets/chat/chatSlice'
+import chatSlice from '@/shared/redux/api/chatSlice'
 import { configSlice } from './api/configSlice'
 
 export const store: Store = configureStore({

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ChatMessage } from './interfaces'
+import { ChatMessage } from '@/widgets/chat/interfaces'
 
 interface ChatState {
   messages: ChatMessage[]
