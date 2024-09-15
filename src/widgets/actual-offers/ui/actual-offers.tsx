@@ -1,4 +1,4 @@
-import { useResize } from '../../../shared/hooks/use-resize'
+import { useResize } from '@/shared/hooks'
 import { offers, Offer } from '../model/offers'
 import { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
