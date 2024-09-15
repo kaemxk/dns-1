@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
-import {DNSSupportData} from "@/widgets/header/ui/header-desktop";
+import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
 import { ChatMessage } from '@/widgets/chat/interfaces'
 import { SliderProduct } from '@/widgets/slider-products/interfaces'
 
@@ -14,15 +14,20 @@ export const baseApi = createApi({
       query: () => `catalogMenu`,
     }),
     getMenuHeader: builder.query<DNSSupportData, void>({
-      query: () => 'headerInfo'
+      query: () => 'headerInfo',
     }),
     getChatHistory: builder.query<ChatMessage[], void>({
       query: () => `chatHistory`,
     }),
     getSliderProducts: builder.query<SliderProduct[], void>({
-      query: () => `sliderProducts`,  
+      query: () => `sliderProducts`,
     }),
   }),
 })
 
-export const { useGetCatalogMenuQuery, useGetMenuHeaderQuery, useGetChatHistoryQuery, useGetSliderProductsQuery } = baseApi
+export const {
+  useGetCatalogMenuQuery,
+  useGetMenuHeaderQuery,
+  useGetChatHistoryQuery,
+  useGetSliderProductsQuery,
+} = baseApi
