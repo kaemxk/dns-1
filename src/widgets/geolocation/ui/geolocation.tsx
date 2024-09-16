@@ -1,4 +1,4 @@
-import { usePosition } from '@/shared/hooks/use-position'
+import { usePosition } from '@/shared/hooks'
 import { useGetCityQuery } from '@/shared/redux/api/configSlice'
 import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
