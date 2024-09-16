@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
-export const Geolocation:React.FC = () => {
+export const Geolocation: React.FC = () => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
