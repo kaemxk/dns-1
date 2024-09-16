@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { useOutsideClick } from '@/shared/hooks/use-outside-click'
+import { useOutsideClick } from "@/shared/hooks";
 import { HeaderDesktopSearch } from './header-desktop-search'
 import { BsBarChartLine, BsCart3, BsHeart, BsPersonCircle } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import { IconButton } from '@/shared/ui/icon-button/icon-button'
 import { Geolocation } from '@/widgets/geolocation'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
-import {useGetMenuHeaderQuery} from "@/shared/redux/api/baseApi";
+import { useGetMenuHeaderQuery } from '@/shared/redux/api/baseApi'
 
 export type DNSSupportData = {
   data: {
