@@ -1,22 +1,20 @@
-import { usePosition } from '@/shared/hooks/use-position'
+import { usePosition } from '@/shared/hooks'
 import { useGetCityQuery } from '@/shared/redux/api/configSlice'
 import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
-export const Geolocation = () => {
+export const Geolocation: React.FC = () => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { position } = usePosition()
-  const { data, isLoading } = useGetCityQuery(position)
+  const { data, isLoading } = useGetCityQuery(position, { skip: !position })
 
   useEffect(() => {
-    if (!isLoading && !localStorage.getItem('city')) {
-      if (data) {
-        setModalOpen(true)
-      }
+    if (!isLoading && data && city !== data) {
+      setModalOpen(true)
     }
-  }, [data, isLoading])
+  }, [city, data, isLoading])
 
   const handleBtnSuccess = () => {
     if (data) {

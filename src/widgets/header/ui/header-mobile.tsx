@@ -105,7 +105,7 @@ export const HeaderMobile = () => {
                   Отмена
                 </button>
               </div>
-              <div className={classesSuggests}></div>
+              <div className={classesSuggests} />
             </div>
           </div>
           <div className={classesNotificationButton}>
