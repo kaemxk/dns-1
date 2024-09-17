@@ -7,7 +7,7 @@ import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
 import clsx from 'clsx'
 
-import { ChatMessage } from '../interfaces'
+import { ChatMessage } from "@/shared/redux/api/chatSlice";
 import { validateFiles, createMessageData } from '../utils'
 import { addMessages } from '@/shared/redux/api/chatSlice'
 import { useGetChatHistoryQuery } from '@/shared/redux/api/baseApi'
