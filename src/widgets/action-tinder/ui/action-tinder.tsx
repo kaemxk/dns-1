@@ -1,17 +1,12 @@
 import { tinders } from '../model/tinder'
-import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import { useResize } from '../../../shared/hooks/use-resize'; 
+import '../../action-tinder/model/action-tinder.css';
 
 export const ActionTinder = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth)
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    const windowWidth = useResize();
 
     return (
         <div className='flex w-full overflow-x-auto overscroll-contain snap-x snap-mandatory gap-4 pr-4 scrollbar-hide relative group'>
@@ -33,7 +28,7 @@ export const ActionTinder = () => {
                                 <div className='text-xl font-bold text-orange-500'>{tinder.price}</div>
                                 <div className='text-sm text-gray-400 line-through ml-2'>{tinder.priceDiscount}</div>
                             </div>
-                            <button className='flex border solid-#d9d9d9 rounded-lg items-center justify-center' style={{ width: '128px', height: '44px' }}>Подробнее</button>
+                            <button className='flex border solid-#d9d9d9 rounded-lg items-center justify-center hover:bg-gray-50' style={{ width: '128px', height: '44px' }}>Подробнее</button>
                             <div className='relative'>
                                 <div className='absolute bottom-[-30px] right-[-5px] h-30 w-30 bg-contain bg-center bg-no-repeat transition-filter duration-300 hover:brightness-110 object-fit-contain' style={{ backgroundImage: `url(${tinder.image})`, width: index === tinders.length - 1 ? '200px' : '120px', height: index === tinders.length - 1 ? '200px' : '120px' }} />
                             </div>
@@ -41,48 +36,6 @@ export const ActionTinder = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <style>{`
-                .swiper-button-next, .swiper-button-prev {
-                    background-color: #fff;
-                    border-radius: 50%;
-                    width: 48px;
-                    height: 48px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    opacity: 0;
-                    transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
-                    visibility: hidden;
-                }
-                .group:hover .swiper-button-next, .group:hover .swiper-button-prev {
-                    opacity: 1;
-                    visibility: visible;
-                }
-                .swiper-button-next:hover, .swiper-button-prev:hover,
-                .swiper-button-next:active, .swiper-button-prev:active {
-                    transform: scale(1.1);
-                }
-                .swiper-button-next::after, .swiper-button-prev::after {
-                    content: '';
-                    display: block;
-                    width: 8px;
-                    height: 8px;
-                    border: solid gray;
-                    border-width: 0 1px 1px 0;
-                }
-                .swiper-button-next::after {
-                    transform: rotate(-45deg);
-                }
-                .swiper-button-prev::after {
-                    transform: rotate(135deg);
-                }
-                .swiper-button-disabled {
-                    background-color: #ccc;
-                }
-                .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
-                    display: none;
-                }
-            `}</style>
         </div>
     )
 }
