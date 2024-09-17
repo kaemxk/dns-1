@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
 import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
-import { ChatMessage } from "@/shared/redux/api/chatSlice";
+import { ChatMessage } from '@/shared/redux/api/chatSlice'
 
 export const baseApi = createApi({
   reducerPath: 'serviceAPI',
