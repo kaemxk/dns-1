@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ChatMessage } from './interfaces'
+
+export interface ChatMessage {
+  author: string
+  message: string
+  timestamp: string
+  isImage: boolean
+}
 
 interface ChatState {
   messages: ChatMessage[]

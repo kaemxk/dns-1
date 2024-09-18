@@ -1,15 +1,15 @@
 import { useState, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../../shared/redux/store'
+import { RootState } from '@/shared/redux/store'
 
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
 import clsx from 'clsx'
 
-import { ChatMessage } from '../interfaces'
+import { ChatMessage } from "@/shared/redux/api/chatSlice";
 import { validateFiles, createMessageData } from '../utils'
-import { addMessages } from '../chatSlice'
+import { addMessages } from '@/shared/redux/api/chatSlice'
 import { useGetChatHistoryQuery } from '@/shared/redux/api/baseApi'
 
 export const Chat: React.FC = () => {
