@@ -13,7 +13,7 @@ export const ProductsDesktop = () => {
   const { data } = useGetSliderProductsQuery()
 
   return (
-    <div className='mb-[50px] rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>
+    <div className='rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>
       <Swiper
         spaceBetween={20}
         slidesPerView='auto'

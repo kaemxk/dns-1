@@ -5,10 +5,10 @@ import { Chat } from '@/widgets/chat'
 
 export const PageLayout = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main>
-        <div className='mx-auto my-0 max-w-[1380px]'>
+      <main className="flex-grow mb-[50px]">
+        <div className='mx-auto max-w-[1380px]'>
           <Outlet />
         </div>
       </main>
@@ -16,6 +16,6 @@ export const PageLayout = () => {
       <TapBar />
       <ScrollTop />
       <Chat />
-    </>
+    </div>
   )
 }
