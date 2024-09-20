@@ -1,5 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
 import { store } from '@/shared/redux/store'
 
@@ -8,5 +9,9 @@ interface IProviders {
 }
 
 export const Providers: React.FC<IProviders> = ({ children }) => {
-  return <Provider store={store}>{children}</Provider>
+  return (
+    <Provider store={store}>
+      <BrowserRouter>{children}</BrowserRouter>
+    </Provider>
+  )
 }
