@@ -121,7 +121,7 @@ export const Chat: React.FC = () => {
                     className='chat-bubble chat-bubble-accent max-w-full'
                   />
                 ) : (
-                  <div className='chat-bubble chat-bubble-accent'>{message.message}</div>
+                  <div className='chat-bubble chat-bubble-accent break-words'>{message.message}</div>
                 )}
 
                 <time className='mt-1 text-xs text-gray-500 opacity-70'>{message.timestamp}</time>
