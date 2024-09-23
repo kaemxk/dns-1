@@ -1,1 +1,1 @@
-export { ActionTinder } from './ui/action-tinder'   
+export { ActionTinder } from './ui/action-tinder'
