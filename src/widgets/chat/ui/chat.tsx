@@ -7,7 +7,7 @@ import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
 import clsx from 'clsx'
 
-import { ChatMessage } from "@/shared/redux/api/chatSlice";
+import { ChatMessage } from '@/shared/redux/api/chatSlice'
 import { validateFiles, createMessageData } from '../utils'
 import { addMessages } from '@/shared/redux/api/chatSlice'
 import { useGetChatHistoryQuery } from '@/shared/redux/api/baseApi'
@@ -75,7 +75,7 @@ export const Chat: React.FC = () => {
     <>
       <div
         className={clsx(
-          'fixed bottom-28 right-6 flex hidden w-[360px] flex-col rounded-lg bg-neutral shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
+          'fixed bottom-28 right-6 hidden w-[360px] flex-col rounded-lg bg-neutral shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
           {
             'translate-y-8 opacity-0': !isOpen,
             'translate-y-0 opacity-100': isOpen,
@@ -121,7 +121,9 @@ export const Chat: React.FC = () => {
                     className='chat-bubble chat-bubble-accent max-w-full'
                   />
                 ) : (
-                  <div className='chat-bubble chat-bubble-accent break-words'>{message.message}</div>
+                  <div className='chat-bubble chat-bubble-accent break-words'>
+                    {message.message}
+                  </div>
                 )}
 
                 <time className='mt-1 text-xs text-gray-500 opacity-70'>{message.timestamp}</time>
