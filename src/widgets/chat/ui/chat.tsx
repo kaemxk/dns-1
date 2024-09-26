@@ -163,7 +163,7 @@ export const Chat: React.FC = () => {
       </div>
       <button
         type='button'
-        className='fixed bottom-6 right-6 z-50 hidden h-14 w-14 rounded-full bg-[#fc8507] bg-primary shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] lg:block'
+        className='fixed bottom-6 right-6 z-50 hidden h-14 w-14 rounded-full bg-[#fc8507] shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] lg:block'
         onClick={openChat}
       >
         {isLoading ? (
