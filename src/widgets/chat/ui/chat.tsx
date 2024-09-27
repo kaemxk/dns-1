@@ -75,7 +75,7 @@ export const Chat: React.FC = () => {
     <>
       <div
         className={clsx(
-          'fixed bottom-28 right-6 hidden w-[360px] flex-col rounded-lg bg-neutral shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
+          'fixed bottom-28 right-6 z-50 hidden w-[360px] flex-col rounded-lg bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
           {
             'translate-y-8 opacity-0': !isOpen,
             'translate-y-0 opacity-100': isOpen,
@@ -102,7 +102,9 @@ export const Chat: React.FC = () => {
                   </div>
                 </div>
 
-                <div className='chat-bubble chat-bubble-primary'>{message.message}</div>
+                <div className='chat-bubble chat-bubble-primary bg-[#fc8507] text-white'>
+                  {message.message}
+                </div>
 
                 <time className='mt-1 text-xs opacity-50'>{message.timestamp}</time>
               </div>
@@ -147,29 +149,29 @@ export const Chat: React.FC = () => {
             value={newMessage}
             onChange={e => setNewMessage(e.target.value)}
             onKeyDown={handleKeyPress}
-            className='h-10 w-[250px] rounded-lg px-2 placeholder:text-sm'
+            className='h-10 w-[250px] rounded-lg bg-[#f2f2f2] px-2 placeholder:text-sm'
             placeholder='Введите сообщение...'
           />
           <button
             type='button'
-            className='relative m-2.5 mt-2 flex h-10 w-10 justify-center rounded-full bg-primary bg-center'
+            className='relative m-2.5 mt-2 flex h-10 w-10 justify-center rounded-full bg-[#fc8507] bg-gradient-to-t from-[#14bdf0] to-[#008ef8] bg-center'
             onClick={handleSendMessage}
           >
-            <IoSend className='h-4 w-4 self-center bg-primary' />
+            <IoSend color='white' className='h-4 w-4 self-center' />
           </button>
         </div>
       </div>
       <button
         type='button'
-        className='fixed bottom-6 right-6 hidden h-14 w-14 rounded-full border-2 border-primary bg-primary shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] lg:block'
+        className='fixed bottom-6 right-6 z-50 hidden h-14 w-14 rounded-full bg-[#fc8507] shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] lg:block'
         onClick={openChat}
       >
         {isLoading ? (
           <span className='loading loading-spinner text-neutral'></span>
         ) : isOpen ? (
-          <IoCloseOutline className='m-auto h-7 w-7 text-primary-content' />
+          <IoCloseOutline color='white' className='m-auto h-7 w-7' />
         ) : (
-          <IoChatboxSharp className='m-auto h-5 w-5 text-primary-content' />
+          <IoChatboxSharp color='white' className='m-auto h-5 w-5' />
         )}
       </button>
     </>
