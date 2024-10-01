@@ -6,32 +6,30 @@ import react from '@vitejs/plugin-react'
 const PORT = 8000
 
 const { NODE_ENV } = process.env
-const isPrduction = NODE_ENV === 'production'
+const isProduction = NODE_ENV === 'production'
 const __API_URL__ = JSON.stringify(
-  isPrduction ? 'https://www.production-url.com' : 'http://localhost:4000/',
+  isProduction ? 'https://www.production-url.com' : 'http://localhost:4000/',
 )
-const isTest = process.env.NODE_ENV === 'test'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    root: isTest ? '.' : './src',
-    server: { port: PORT },
-    plugins: [react()],
-    resolve: {
-      alias: {
-        '@/': path.resolve(__dirname, './src/'),
-        '@/app': path.resolve(__dirname, './src/app'),
-        '@/pages': path.resolve(__dirname, './src/pages'),
-        '@/widgets': path.resolve(__dirname, './src/widgets'),
-        '@/features': path.resolve(__dirname, './src/features'),
-        '@/shared': path.resolve(__dirname, './src/shared'),
-      },
+  server: { port: PORT },
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@/': path.resolve(__dirname, './src/'),
+      '@/app': path.resolve(__dirname, './src/app'),
+      '@/pages': path.resolve(__dirname, './src/pages'),
+      '@/widgets': path.resolve(__dirname, './src/widgets'),
+      '@/features': path.resolve(__dirname, './src/features'),
+      '@/shared': path.resolve(__dirname, './src/shared'),
     },
-    define: {
-      __API_URL__,
-    },
-    test: {
-      environment: 'happy-dom',
-      globals: true,
-    },
+  },
+  define: {
+    __API_URL__,
+  },
+  test: {
+    environment: 'happy-dom',
+    globals: true,
+  },
 })
