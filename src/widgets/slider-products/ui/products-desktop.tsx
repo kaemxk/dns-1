@@ -1,4 +1,3 @@
-import { useGetSliderProductsQuery } from '@/shared/redux/api/baseApi'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { MdOutlineShoppingCart } from 'react-icons/md'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -8,10 +7,10 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 import { CiHeart } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 import 'swiper/swiper-bundle.css'
+import { ProductsProps } from '../interfaces'
 
-export const ProductsDesktop = () => {
-  const { data } = useGetSliderProductsQuery()
-
+// eslint-disable-next-line react/prop-types
+export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => {
   return (
     <div className='rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>
       <Swiper
@@ -25,6 +24,7 @@ export const ProductsDesktop = () => {
         className='group relative'
       >
         {data &&
+          // eslint-disable-next-line react/prop-types
           data.map(product => (
             <SwiperSlide
               key={product.id}
@@ -38,7 +38,12 @@ export const ProductsDesktop = () => {
                   />
                 </Link>
                 <div className='flex h-[32px] min-w-[32px] cursor-pointer items-center justify-center rounded-full bg-[#f7f7f7]'>
-                  <FaRegTrashAlt className='text-[20px] text-[#d9d9d9] hover:text-orange-500' />
+                  <FaRegTrashAlt
+                    className='text-[20px] text-[#d9d9d9] hover:text-orange-500'
+                    onClick={() => {
+                      onDelete(product.id)
+                    }}
+                  />
                 </div>
               </div>
               <Link

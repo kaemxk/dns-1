@@ -1,14 +1,16 @@
-import { useGetSliderProductsQuery } from '@/shared/redux/api/baseApi'
+
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { ProductsStars } from './products-stars'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { ProductsProps } from '../interfaces'
 
-export const ProductsMobile = () => {
-  const { data } = useGetSliderProductsQuery()
+// eslint-disable-next-line react/prop-types
+export const ProductsMobile: React.FC<ProductsProps> = ({ data, onDelete }) => {
 
   return (
     <div className='flex flex-row gap-[16px] overflow-x-scroll pb-[2px] pl-[16px] pr-[16px]'>
+      {/* eslint-disable-next-line react/prop-types */}
       {data?.map(product => (
         <div
           className='box-border flex h-[320px] min-w-[160px] flex-col gap-[10px] rounded-[8px] bg-white p-[8px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'
@@ -22,7 +24,12 @@ export const ProductsMobile = () => {
               />
             </Link>
             <div className='flex h-[25px] min-w-[25px] cursor-pointer items-center justify-center rounded-full bg-[#f7f7f7]'>
-              <FaRegTrashAlt className='text-[#d9d9d9] hover:text-orange-500' />
+              <FaRegTrashAlt
+                className='text-[#d9d9d9] hover:text-orange-500'
+                onClick={() => {
+                  onDelete(product.id)
+                }}
+              />
             </div>
           </div>
           <Link

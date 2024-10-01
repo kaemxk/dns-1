@@ -8,3 +8,7 @@ export interface SliderProduct {
   specs: string
   creditMonthlyPayment: number
 }
+export interface ProductsProps {
+  data: SliderProduct[]
+  onDelete: (id: string) => void
+}
