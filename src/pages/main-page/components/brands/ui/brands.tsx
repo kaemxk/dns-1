@@ -1,5 +1,5 @@
 import { useResize } from '@/shared/hooks/use-resize'
-import { brands } from '@/widgets/brands/model/brands'
+import { brands } from '../model/brands'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'

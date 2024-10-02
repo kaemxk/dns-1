@@ -14,7 +14,7 @@ export const tinders: Tinder[] = [
     naming: 'Автомобильное ЗУ Pero AC06 черный',
     price: '850 ₽',
     priceDiscount: '1 150 ₽',
-    image: '../widgets/action-tinder/images/adapter.jpg',
+    image: '../pages/main-page/components/action-tinder/images/adapter.jpg',
   },
   {
     url: '#',
@@ -22,7 +22,7 @@ export const tinders: Tinder[] = [
     naming: 'Сушильная машина Gorenje DNS92 белый',
     price: '89 999 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/stiralka.jpg',
+    image: '../pages/main-page/components/action-tinder/images/stiralka.jpg',
   },
   {
     url: '#',
@@ -30,7 +30,7 @@ export const tinders: Tinder[] = [
     naming: '6.67" Смартфон HUAWEI P60 Pro 256 ГБ белый',
     price: '59 999 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/phone.jpg',
+    image: '../pages/main-page/components/action-tinder/images/phone.jpg',
   },
   {
     url: '#',
@@ -38,7 +38,7 @@ export const tinders: Tinder[] = [
     naming: 'Сушильная машина Gorenje DNA82 белый',
     price: '59 999 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/stiralka2.jpg',
+    image: '../pages/main-page/components/action-tinder/images/stiralka2.jpg',
   },
   {
     url: '#',
@@ -46,7 +46,7 @@ export const tinders: Tinder[] = [
     naming: 'Микроволновая печь Gorenje MO17E1S серебристый',
     price: '5 999 ₽',
     priceDiscount: '6 999 ₽',
-    image: '../widgets/action-tinder/images/microwave.jpg',
+    image: '../pages/main-page/components/action-tinder/images/microwave.jpg',
   },
   {
     url: '#',
@@ -54,7 +54,7 @@ export const tinders: Tinder[] = [
     naming: 'Мойка высокого давления Karcher K 3 EU',
     price: '8 499 ₽',
     priceDiscount: '9 599 ₽',
-    image: '../widgets/action-tinder/images/cleaner.jpg',
+    image: '../pages/main-page/components/action-tinder/images/cleaner.jpg',
   },
   {
     url: '#',
@@ -62,7 +62,7 @@ export const tinders: Tinder[] = [
     naming: 'Холодильник Side by Side  Gorenje NRR9185EAXLWD серебристый',
     price: '88 499 ₽',
     priceDiscount: '99 999 ₽',
-    image: '../widgets/action-tinder/images/holodilnik.jpg',
+    image: '../pages/main-page/components/action-tinder/images/holodilnik.jpg',
   },
   {
     url: '#',
@@ -70,7 +70,7 @@ export const tinders: Tinder[] = [
     naming: 'IP-камера Dahua DH-IPC-HFW2449SP-S-IL-0280B',
     price: '8 699 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/camera.jpg',
+    image: '../pages/main-page/components/action-tinder/images/camera.jpg',
   },
   {
     url: '#',
@@ -78,7 +78,7 @@ export const tinders: Tinder[] = [
     naming: 'Фитнес-браслет HUAWEI Band 8',
     price: '1 799 ₽',
     priceDiscount: '1 999 ₽',
-    image: '../widgets/action-tinder/images/smartband.jpg',
+    image: '../pages/main-page/components/action-tinder/images/smartband.jpg',
   },
   {
     url: '#',
@@ -86,7 +86,7 @@ export const tinders: Tinder[] = [
     naming: 'Телефон беспроводной (DECT) Panasonic KX-TG1611RUW',
     price: '3 499 ₽',
     priceDiscount: '3 699 ₽',
-    image: '../widgets/action-tinder/images/homephone.jpg',
+    image: '../pages/main-page/components/action-tinder/images/homephone.jpg',
   },
   {
     url: '#',
@@ -94,7 +94,7 @@ export const tinders: Tinder[] = [
     naming: 'Наушники TWS HUAWEI Freebuds 5i черный',
     price: '4 499 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/airpods.jpg',
+    image: '../pages/main-page/components/action-tinder/images/airpods.jpg',
   },
   {
     url: '#',
@@ -102,7 +102,7 @@ export const tinders: Tinder[] = [
     naming: '34" Монитор HUAWEI MateView GT ZQE-CBA черный',
     price: '38 999 ₽',
     priceDiscount: '45 999 ₽',
-    image: '../widgets/action-tinder/images/monitor.jpg',
+    image: '../pages/main-page/components/action-tinder/images/monitor.jpg',
   },
   {
     url: '#',
@@ -110,7 +110,7 @@ export const tinders: Tinder[] = [
     naming: '6.7" Смартфон Apple iPhone 15 Pro Max 256 ГБ серый',
     price: '139 899 ₽',
     priceDiscount: '158 999 ₽',
-    image: '../widgets/action-tinder/images/iphone.jpg',
+    image: '../pages/main-page/components/action-tinder/images/iphone.jpg',
   },
   {
     url: '#',
@@ -118,7 +118,7 @@ export const tinders: Tinder[] = [
     naming: '10.2" Планшет Apple iPad (9th Gen) Wi-Fi 64 ГБ серый',
     price: '34 199 ₽',
     priceDiscount: '37 999 ₽',
-    image: '../widgets/action-tinder/images/ipad.jpg',
+    image: '../pages/main-page/components/action-tinder/images/ipad.jpg',
   },
   {
     url: '#',
@@ -126,7 +126,7 @@ export const tinders: Tinder[] = [
     naming: '15.6" Ноутбук ASUS TUF Gaming F15 FX507ZC4-HN009 серый',
     price: '78 999 ₽',
     priceDiscount: '88 999 ₽',
-    image: '../widgets/action-tinder/images/notebook1.jpg',
+    image: '../pages/main-page/components/action-tinder/images/notebook1.jpg',
   },
   {
     url: '#',
@@ -134,7 +134,7 @@ export const tinders: Tinder[] = [
     naming: '15.6" Ноутбук ASUS TUF Gaming A15 FA507NU-LP101 серый',
     price: '89 999 ₽',
     priceDiscount: '99 999 ₽',
-    image: '../widgets/action-tinder/images/notebook2.jpg',
+    image: '../pages/main-page/components/action-tinder/images/notebook2.jpg',
   },
   {
     url: '#',
@@ -142,7 +142,7 @@ export const tinders: Tinder[] = [
     naming: 'Стиральная машина Gorenje WNS94ACIS белый',
     price: '79 999 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/stiralka4.jpg',
+    image: '../pages/main-page/components/action-tinder/images/stiralka4.jpg',
   },
   {
     url: '#',
@@ -150,7 +150,7 @@ export const tinders: Tinder[] = [
     naming: 'Холодильник с морозильником  Gorenje NRK6201ES4 серебристый',
     price: '48 999 ₽',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/holodilnik2.jpg',
+    image: '../pages/main-page/components/action-tinder/images/holodilnik2.jpg',
   },
   {
     url: '#',
@@ -158,6 +158,6 @@ export const tinders: Tinder[] = [
     naming: '',
     price: '',
     priceDiscount: '',
-    image: '../widgets/action-tinder/images/last-icon.png',
+    image: '../pages/main-page/components/action-tinder/images/last-icon.png',
   },
 ]

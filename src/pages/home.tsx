@@ -1,7 +1,7 @@
-import { ActionTinder } from '@/widgets/action-tinder'
-import { ActualOffers } from '@/widgets/actual-offers'
-import { SliderProducts } from '@/widgets/slider-products'
-import { Brands } from '@/widgets/brands'
+import { ActionTinder } from './main-page/components/action-tinder'
+import { ActualOffers } from './main-page/components/actual-offers'
+import { SliderProducts } from './main-page/components/slider-products'
+import { Brands } from './main-page/components/brands'
 
 const Home = () => {
   return (
