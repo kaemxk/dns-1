@@ -9,7 +9,7 @@ export const SliderProducts = () => {
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
   return (
-    <>
+    <div className={isMobile ? 'mb-6' : 'mb-[60px]'}>
       <div
         className={clsx(
           'mb-[12px] w-fit font-bold',
@@ -19,6 +19,6 @@ export const SliderProducts = () => {
         Вы недавно смотрели
       </div>
       {isMobile ? <ProductsMobile /> : <ProductsDesktop />}
-    </>
+    </div>
   )
 }
