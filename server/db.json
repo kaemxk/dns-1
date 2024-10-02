@@ -29873,6 +29873,30 @@
       "author": "agent",
       "message": "Здравствуйте, я виртуальный помощник DNS! Я могу помочь в поиске заказа или товаров, проверке баланса подарочной карты или карты ProZaPass и многом другом. Выберите что Вас интересует или напишите свой вопрос."
     }
-  ]
+  ],
+
+    "personalBlock": {
+    "message": "",
+    "data": {
+        "listDiscrepancies": [],
+        "listPersonalItemBlock": [
+            {
+                "id": "e77de38b-23ec-41b3-a585-960b0d5caa8f",
+                "label": "Как выбрать держатель для смартфона",
+                "description": "Интересные гайды и советы по выбору",
+                "color": "#FFF7DA",
+                "imageUrl": "../widgets/top-block/images/personalBlockDerjatel.svg",
+                "contentType": "content",
+                "buttons": [
+                    {
+                        "url": "/guide/17a8a1f9-1640-11e5-a679-00259074e77d/",
+                        "type": "content_hub_open",
+                        "text": "Прочитать"
+                    }
+                ]
+            }
+        ]
+    }
+}
 }
   

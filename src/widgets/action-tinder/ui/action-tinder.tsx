@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import { useResize } from '../../../shared/hooks/use-resize'; 
-import '../../action-tinder/model/action-tinder.css';
+import '@/widgets/action-tinder/model/action-tinder.css'
 
 export const ActionTinder = () => {
     const windowWidth = useResize();
