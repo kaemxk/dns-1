@@ -4,16 +4,19 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
 import { useResize } from '../../../shared/hooks/use-resize'
 import '../model/action-tinder.css'
+import { useMemo } from 'react'
 import clsx from 'clsx'
 
 export const ActionTinder = () => {
   const windowWidth = useResize()
+  const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
   return (
     <div
       className={clsx(
         'actions',
         'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
+        isMobile ? 'mb-6' : 'mb-[60px]',
       )}
     >
       <Swiper
