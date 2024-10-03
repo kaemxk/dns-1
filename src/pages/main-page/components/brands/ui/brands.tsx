@@ -1,11 +1,9 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper-bundle.css'
 
 import { useResize } from '@/shared/hooks/use-resize'
+import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
 
 import { brands } from '../model/brands'
 
@@ -16,47 +14,46 @@ export const Brands: React.FC = () => {
   return (
     <div
       className={clsx(
-        'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
+        'scrollbar-hide flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
         isMobile ? 'mb-6' : 'mb-[60px]',
       )}
     >
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView='auto'
-        style={{ paddingLeft: '16px', paddingRight: '16px' }}
+      <SwiperHOC
+        data={brands}
+        id='brands'
+        isMobile={isMobile}
+        swiperClassName='group relative'
+        swiperSlideClassName={isMobile ? 'w-[112px]' : 'w-[132px]'}
       >
-        {brands.map((brand, index) => (
-          <Link to={brand.url} key={index}>
-            <SwiperSlide key={index} style={isMobile ? { width: '112px' } : { width: '132px' }}>
-              <div
-                className='mb-2 flex h-80 w-full cursor-pointer flex-col justify-between overflow-hidden rounded-[16px] border border-white bg-white p-4 shadow-md shadow-sm transition-all transition-transform duration-300 hover:border-gray-500 hover:bg-gray-100 lg:hover:border-gray-500'
-                style={isMobile ? { height: '57px' } : { height: '69px' }}
-              >
-                {isMobile ? (
-                  <div
-                    className='h-30 w-30 transition-filter object-fit-contain absolute right-[15px] bg-contain bg-center bg-no-repeat duration-300 hover:brightness-110'
-                    style={{
-                      backgroundImage: `url(${brand.image})`,
-                      width: '78px',
-                      height: '23px',
-                    }}
-                  />
-                ) : (
-                  <div
-                    className='h-30 w-30 transition-filter object-fit-contain absolute right-[25px] bg-contain bg-center bg-no-repeat duration-300 hover:brightness-110'
-                    style={{
-                      backgroundImage: `url(${brand.image})`,
-                      width: '86px',
-                      height: '31px',
-                    }}
-                  />
-                )}
-              </div>
-            </SwiperSlide>
+        {brand => (
+          <Link to={brand.url}>
+            <div
+              className='flex h-16 w-full cursor-pointer flex-col justify-between overflow-hidden rounded-[16px] border border-white bg-white p-4 shadow-sm transition duration-300 hover:border-gray-500 hover:bg-gray-100 lg:hover:border-gray-500'
+              style={isMobile ? { height: '57px' } : { height: '69px' }}
+            >
+              {isMobile ? (
+                <div
+                  className='h-30 w-30 transition-filter object-fit-contain absolute right-[15px] bg-contain bg-center bg-no-repeat duration-300 hover:brightness-110'
+                  style={{
+                    backgroundImage: `url(${brand.image})`,
+                    width: '78px',
+                    height: '23px',
+                  }}
+                />
+              ) : (
+                <div
+                  className='h-30 w-30 transition-filter object-fit-contain absolute right-[25px] bg-contain bg-center bg-no-repeat duration-300 hover:brightness-110'
+                  style={{
+                    backgroundImage: `url(${brand.image})`,
+                    width: '86px',
+                    height: '31px',
+                  }}
+                />
+              )}
+            </div>
           </Link>
-        ))}
-      </Swiper>
+        )}
+      </SwiperHOC>
     </div>
   )
 }
