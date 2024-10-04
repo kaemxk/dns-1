@@ -92,8 +92,8 @@ export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => 
               </div>
             </SwiperSlide>
           ))}
-        <div className="swiper-button-prev flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\\003C'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
-        <div className="swiper-button-next flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\\003E'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
+        <div className="swiper-button-prev flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\003C'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
+        <div className="swiper-button-next flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\003E'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
       </Swiper>
     </div>
   )

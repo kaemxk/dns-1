@@ -3,6 +3,7 @@ import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
 import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
 import { ChatMessage } from '@/shared/redux/api/chatSlice'
 import { SliderProduct } from '@/widgets/slider-products/interfaces'
+import { SliderContent } from '@/widgets/news-blogs-reviews/ui/content-slider.types'
 
 export const baseApi = createApi({
   reducerPath: 'serviceAPI',
@@ -22,6 +23,9 @@ export const baseApi = createApi({
     getSliderProducts: builder.query<SliderProduct[], void>({
       query: () => `sliderProducts`,
     }),
+    getSliderContent: builder.query<SliderContent, void>({
+      query: () => `sliderContent`,
+    }),
   }),
 })
 
@@ -30,4 +34,5 @@ export const {
   useGetMenuHeaderQuery,
   useGetChatHistoryQuery,
   useGetSliderProductsQuery,
+  useGetSliderContentQuery,
 } = baseApi
