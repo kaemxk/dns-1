@@ -1,11 +1,13 @@
-import { tinders } from '../model/tinder'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
-import 'swiper/swiper-bundle.css'
-import { useResize } from '@/shared/hooks/use-resize'
-import '../model/action-tinder.css'
-import { useMemo } from 'react'
 import clsx from 'clsx'
+import { useMemo } from 'react'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper-bundle.css'
+
+import { useResize } from '@/shared/hooks/use-resize'
+
+import { tinders } from '../model/tinder'
+import '../model/action-tinder.css'
 
 export const ActionTinder = () => {
   const windowWidth = useResize()

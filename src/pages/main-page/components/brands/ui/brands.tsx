@@ -1,11 +1,13 @@
-import { useResize } from '@/shared/hooks/use-resize'
-import { brands } from '../model/brands'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import clsx from 'clsx'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
-import { useMemo } from 'react'
-import clsx from 'clsx'
+
+import { useResize } from '@/shared/hooks/use-resize'
+
+import { brands } from '../model/brands'
 
 export const Brands: React.FC = () => {
   const windowWidth = useResize()
