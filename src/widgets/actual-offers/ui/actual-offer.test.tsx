@@ -1,8 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { describe, it, expect, vi } from 'vitest'
+
 import { ActualOffers } from './actual-offers'
 import { offers } from '../model/offers'
-import { MemoryRouter } from 'react-router-dom'
 
 vi.mock('../../../shared/hooks/use-resize', () => ({
   useResize: vi.fn(),

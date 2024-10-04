@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import clsx from 'clsx'
+import { useState } from 'react'
+import { AiOutlineScan } from 'react-icons/ai'
 import { IoIosSearch, IoIosCloseCircle } from 'react-icons/io'
 import { VscCommentDiscussion } from 'react-icons/vsc'
-import { AiOutlineScan } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+
 import { Geolocation } from '@/widgets/geolocation'
 
 export const HeaderMobile = () => {

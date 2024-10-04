@@ -1,6 +1,6 @@
+import clsx from 'clsx'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import clsx from 'clsx'
 
 import { ITileVariant } from './interface'
 

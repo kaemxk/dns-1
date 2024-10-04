@@ -11,11 +11,27 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'server', '*.config.*'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'import'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: [['builtin', 'external'], ['internal'], ['parent', 'sibling', 'index']],
+        pathGroups: [
+          // imports with @ before ./ || ../
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'before',
+          },
+        ],
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc', caseInsensitive: true },
+      },
+    ],
   },
   parserOptions: {
     ecmaVersion: 'latest',

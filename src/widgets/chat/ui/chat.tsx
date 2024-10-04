@@ -1,16 +1,16 @@
+import clsx from 'clsx'
 import { useState, useLayoutEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@/shared/redux/store'
-
 import { IoChatboxSharp, IoCloseOutline, IoSend } from 'react-icons/io5'
 import { PiPaperclipHorizontal } from 'react-icons/pi'
 import { RiRobot3Fill } from 'react-icons/ri'
-import clsx from 'clsx'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { ChatMessage } from '@/shared/redux/api/chatSlice'
-import { validateFiles, createMessageData } from '../utils'
-import { addMessages } from '@/shared/redux/api/chatSlice'
 import { useGetChatHistoryQuery } from '@/shared/redux/api/baseApi'
+import { addMessages } from '@/shared/redux/api/chatSlice'
+import { ChatMessage } from '@/shared/redux/api/chatSlice'
+import { RootState } from '@/shared/redux/store'
+
+import { validateFiles, createMessageData } from '../utils'
 
 export const Chat: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)

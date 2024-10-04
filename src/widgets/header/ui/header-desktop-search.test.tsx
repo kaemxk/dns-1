@@ -1,7 +1,8 @@
-import { describe, it } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { HeaderDesktopSearch } from './header-desktop-search'
 import { MemoryRouter } from 'react-router-dom'
+import { describe, it } from 'vitest'
+
+import { HeaderDesktopSearch } from './header-desktop-search'
 
 const renderSearch = () =>
   render(

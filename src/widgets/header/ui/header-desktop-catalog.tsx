@@ -1,7 +1,8 @@
-import { useGetCatalogMenuQuery } from '@/shared/redux/api/baseApi'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import { useGetCatalogMenuQuery } from '@/shared/redux/api/baseApi'
 
 export interface CatalogItem {
   id: string

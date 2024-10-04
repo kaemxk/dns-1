@@ -1,8 +1,10 @@
-import { useGetSliderProductsQuery } from '@/shared/redux/api/baseApi'
-import { HiOutlineInformationCircle } from 'react-icons/hi'
-import { ProductsStars } from './products-stars'
 import { FaRegTrashAlt } from 'react-icons/fa'
+import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+
+import { useGetSliderProductsQuery } from '@/shared/redux/api/baseApi'
+
+import { ProductsStars } from './products-stars'
 
 export const ProductsMobile = () => {
   const { data } = useGetSliderProductsQuery()

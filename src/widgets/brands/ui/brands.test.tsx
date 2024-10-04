@@ -1,7 +1,8 @@
 import { fireEvent, render } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
-import { Brands } from './brands'
 import { MemoryRouter } from 'react-router-dom'
+import { describe, expect, it } from 'vitest'
+
+import { Brands } from './brands'
 import '@testing-library/jest-dom/vitest'
 
 type SwiperSlideElem = Element & {

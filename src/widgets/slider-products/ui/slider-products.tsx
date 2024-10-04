@@ -1,8 +1,10 @@
-import { useResize } from '@/shared/hooks/use-resize'
-import { ProductsMobile } from './products-mobile'
-import { ProductsDesktop } from './products-desktop'
-import { useMemo } from 'react'
 import clsx from 'clsx'
+import { useMemo } from 'react'
+
+import { useResize } from '@/shared/hooks/use-resize'
+
+import { ProductsDesktop } from './products-desktop'
+import { ProductsMobile } from './products-mobile'
 
 export const SliderProducts = () => {
   const windowWidth = useResize()
