@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+
 import FooterLogoSection from './footerLogoSection'
 import '@testing-library/jest-dom'
 

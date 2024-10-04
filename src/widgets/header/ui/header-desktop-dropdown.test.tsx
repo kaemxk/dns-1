@@ -1,7 +1,8 @@
-import { describe, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { MemoryRouter } from 'react-router-dom'
+import { describe, it } from 'vitest'
+
+import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 
 describe('HeaderDesktopDropdown', () => {
   it('Отображение ссылок', () => {

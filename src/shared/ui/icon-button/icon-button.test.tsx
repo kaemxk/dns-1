@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import { FaBeer } from 'react-icons/fa'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
+
 import { IconButton } from './icon-button'
-import { FaBeer } from 'react-icons/fa'
 
 describe('IconButton', () => {
   const icon = <FaBeer role='img' aria-label='beer-icon' />

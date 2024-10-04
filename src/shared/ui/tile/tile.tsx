@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import TileStory from './tileStory'
+import { ITile } from './interface'
 import TileFeature from './tileFeature'
 import TileGoods from './tileGoods'
-import { ITile } from './interface'
+import TileStory from './tileStory'
 
 export const Tile: FC<ITile> = ({
   variant = 'story-card',

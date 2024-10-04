@@ -1,7 +1,8 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import FooterNavSection from './footerNavSection'
 import { vi } from 'vitest'
+
+import FooterNavSection from './footerNavSection'
 
 const mockFooterInfo = {
   phone: {
