@@ -21,14 +21,9 @@ export const Card: React.FC<CardProps> = contentData => {
   }
   const trimmedText = trimText(contentData.contentData.title)
 
-
-  //  console.log(contentData.contentData?.vobler)
-
-  //  bg-zinc-500
   return (
     <a
       className='flex h-[220px] w-[186px] cursor-pointer flex-col justify-between rounded-xl'
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       style={{
         backgroundColor: `${contentData.contentData.vobler[0] ? contentData.contentData.vobler[0].color : 'gray'}`,
       }}

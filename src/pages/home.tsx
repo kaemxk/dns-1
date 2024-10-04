@@ -11,7 +11,7 @@ const Home = () => {
       <Brands />
       <ActionTinder />
       <SliderProducts />
-      <ContentSlider/>
+      <ContentSlider />
     </div>
   )
 }
