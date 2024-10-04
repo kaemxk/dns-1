@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
@@ -13,7 +14,12 @@ export const Brands: React.FC = () => {
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
   return (
-    <div className='scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4'>
+    <div
+      className={clsx(
+        'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
+        isMobile ? 'mb-6' : 'mb-[60px]',
+      )}
+    >
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}

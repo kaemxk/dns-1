@@ -7,7 +7,7 @@ export const PageLayout = () => {
   return (
     <div className='flex min-h-screen flex-col'>
       <Header />
-      <main className='mb-[50px] flex-grow'>
+      <main className='flex-grow'>
         <div className='mx-auto max-w-[1380px]'>
           <Outlet />
         </div>
