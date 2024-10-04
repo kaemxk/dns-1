@@ -4,7 +4,8 @@ import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { useResize } from '@/shared/hooks/use-resize'
-import { brands } from '@/widgets/brands/model/brands'
+
+import { brands } from '../model/brands'
 
 import 'swiper/swiper-bundle.css'
 
