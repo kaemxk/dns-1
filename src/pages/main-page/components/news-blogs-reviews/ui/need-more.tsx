@@ -16,7 +16,6 @@ export const NeedMore = () => {
         className='need-more_button after:content after:border-r-gray flex h-[128px] w-[280px] flex-col rounded-b-xl border-[1px] border-gray-100 py-[25px] pl-[20px] pr-[51px] text-[14px] contrast-100 transition-[.2s] after:absolute after:bottom-16 after:right-6 after:h-3 after:w-3 after:rotate-45 after:rounded-sm after:border-[2px] after:border-b-transparent after:border-l-transparent after:contrast-75 hover:bg-[#f7f7f7]'
         to='#'
       >
-        {/* padding: 25px 51px 25px 20px */}
         <div className='text-[16px] text-gray-800 contrast-100'>
           А еще у нас есть портал про технологии, игры и IT
         </div>

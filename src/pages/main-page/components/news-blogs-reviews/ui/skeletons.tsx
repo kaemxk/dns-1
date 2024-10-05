@@ -8,39 +8,39 @@ export const Skeletons = () => {
         <Skeleton
           height={45}
           width={80}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />
         <Skeleton
           height={45}
           width={80}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />{' '}
         <Skeleton
           height={45}
           width={80}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />{' '}
         <Skeleton
           height={45}
           width={80}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />
       </div>
       <div className='skeleton__container mt-5 flex gap-5'>
         <Skeleton
           height={220}
           width={186}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />
         <Skeleton
           height={220}
           width={186}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />
         <Skeleton
           height={220}
           width={186}
-          style={{ backgroundColor: '#e0e0e0' }} // Цвет фона
+          style={{ backgroundColor: '#e0e0e0' }} 
         />
       </div>
     </div>
