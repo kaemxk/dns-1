@@ -1,10 +1,3 @@
-import { describe, it } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { Geolocation } from './geolocation'
-import { Provider } from 'react-redux'
-import { store } from '@/shared/redux'
-import { MemoryRouter } from 'react-router-dom'
-import * as slice from '../../../shared/redux/api/configSlice'
 import {
   QueryActionCreatorResult,
   QueryDefinition,
@@ -13,6 +6,15 @@ import {
   FetchBaseQueryError,
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router-dom'
+import { describe, it } from 'vitest'
+
+import { store } from '@/shared/redux'
+
+import { Geolocation } from './geolocation'
+import * as slice from '../../../shared/redux/api/configSlice'
 
 const renderGeolocation = () => {
   return render(

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
+
 import { TapBar } from './tap-bar'
 
 // Вспомогательный компонент для проверки текущего URL

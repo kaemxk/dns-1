@@ -1,15 +1,15 @@
+import { clsx } from 'clsx'
+import { useState } from 'react'
+
+import { useGetSliderContentQuery } from '@/shared/redux/api/baseApi'
+import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
+
 import { Card } from './card'
 import { NeedMore } from './need-more'
 import { Skeletons } from './skeletons'
 
-import { useGetSliderContentQuery } from '@/shared/redux/api/baseApi'
-import { useState } from 'react'
-import { clsx } from 'clsx'
-
 import 'swiper/css'
 import 'swiper/css/navigation'
-
-import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
 
 export const ContentSlider = () => {
   const { data: contentData, isLoading: isContentLoading, error } = useGetSliderContentQuery()

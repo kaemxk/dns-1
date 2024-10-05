@@ -1,7 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
 import { nanoid } from '@reduxjs/toolkit'
 import clsx from 'clsx'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 
 import type ISwiperHOCProps from './interface'

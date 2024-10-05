@@ -1,10 +1,12 @@
-import { useResize } from '@/shared/hooks/use-resize'
-import { brands } from '@/widgets/brands/model/brands'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { useResize } from '@/shared/hooks/use-resize'
+import { brands } from '@/widgets/brands/model/brands'
+
 import 'swiper/swiper-bundle.css'
-import { useMemo } from 'react'
 
 export const Brands: React.FC = () => {
   const windowWidth = useResize()
@@ -22,7 +24,7 @@ export const Brands: React.FC = () => {
           <Link to={brand.url} key={index}>
             <SwiperSlide key={index} style={isMobile ? { width: '112px' } : { width: '132px' }}>
               <div
-                className='mb-2 flex h-80 w-full cursor-pointer flex-col justify-between overflow-hidden rounded-[16px] border border-white bg-white p-4 shadow-md shadow-sm transition-all transition-transform duration-300 hover:border-gray-500 hover:bg-gray-100 lg:hover:border-gray-500'
+                className='mb-2 flex h-80 w-full cursor-pointer flex-col justify-between overflow-hidden rounded-[16px] border border-white bg-white p-4 shadow-md transition-all duration-300 hover:border-gray-500 hover:bg-gray-100 lg:hover:border-gray-500'
                 style={isMobile ? { height: '57px' } : { height: '69px' }}
               >
                 {isMobile ? (

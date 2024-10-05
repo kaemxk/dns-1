@@ -1,8 +1,10 @@
-import { useResize } from '@/shared/hooks'
-import { offers, Offer } from '../model/offers'
+import clsx from 'clsx'
 import { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import clsx from 'clsx'
+
+import { useResize } from '@/shared/hooks'
+
+import { offers, Offer } from '../model/offers'
 
 export const ActualOffers: FC = () => {
   const windowWidth = useResize()

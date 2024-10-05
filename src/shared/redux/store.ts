@@ -1,8 +1,8 @@
 import { configureStore, Store } from '@reduxjs/toolkit'
 
-import { baseApi } from './api'
-
 import chatSlice from '@/shared/redux/api/chatSlice'
+
+import { baseApi } from './api'
 import { configSlice } from './api/configSlice'
 
 export const store: Store = configureStore({

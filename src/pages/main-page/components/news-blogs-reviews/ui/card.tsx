@@ -1,5 +1,6 @@
-import { Item } from './content-slider.types'
 import { Link } from 'react-router-dom'
+
+import { Item } from './content-slider.types'
 
 interface CardProps {
   contentData: Item

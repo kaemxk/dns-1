@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
-import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
-import { ChatMessage } from '@/shared/redux/api/chatSlice'
-import { SliderProduct } from '@/widgets/slider-products/interfaces'
+
 import { SliderContent } from '@/pages/main-page/components/news-blogs-reviews/ui/content-slider.types'
+import { ChatMessage } from '@/shared/redux/api/chatSlice'
+import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
+import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
+import { SliderProduct } from '@/widgets/slider-products/interfaces'
 
 export const baseApi = createApi({
   reducerPath: 'serviceAPI',

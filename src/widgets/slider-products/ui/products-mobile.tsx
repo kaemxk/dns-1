@@ -1,13 +1,12 @@
-
-import { HiOutlineInformationCircle } from 'react-icons/hi'
-import { ProductsStars } from './products-stars'
 import { FaRegTrashAlt } from 'react-icons/fa'
+import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+
+import { ProductsStars } from './products-stars'
 import { ProductsProps } from '../interfaces'
 
 // eslint-disable-next-line react/prop-types
 export const ProductsMobile: React.FC<ProductsProps> = ({ data, onDelete }) => {
-
   return (
     <div className='flex flex-row gap-[16px] overflow-x-scroll pb-[2px] pl-[16px] pr-[16px]'>
       {/* eslint-disable-next-line react/prop-types */}
