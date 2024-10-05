@@ -11,7 +11,7 @@ const Home = () => {
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
   return (
-    <div className={isMobile ? 'mb-[24px]' : '> *:mb-[60px]'}>
+    <div className={isMobile ? '> *:mb-[24px]' : '> *:mb-[60px]'}>
       <ActualOffers />
       <Brands />
       <ActionTinder />
