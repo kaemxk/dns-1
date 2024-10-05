@@ -3,7 +3,7 @@ import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
 import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
 import { ChatMessage } from '@/shared/redux/api/chatSlice'
 import { SliderProduct } from '@/widgets/slider-products/interfaces'
-import { SliderContent } from '@/widgets/news-blogs-reviews/ui/content-slider.types'
+import { SliderContent } from '@/pages/main-page/components/news-blogs-reviews/ui/content-slider.types'
 
 export const baseApi = createApi({
   reducerPath: 'serviceAPI',

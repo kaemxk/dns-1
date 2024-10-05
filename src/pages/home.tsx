@@ -2,7 +2,7 @@ import { ActionTinder } from '@/widgets/action-tinder'
 import { ActualOffers } from '@/widgets/actual-offers'
 import { SliderProducts } from '@/widgets/slider-products'
 import { Brands } from '@/widgets/brands'
-import { ContentSlider } from '@/widgets/news-blogs-reviews'
+import { ContentSlider } from '@/pages/main-page/components/news-blogs-reviews'
 
 const Home = () => {
   return (
