@@ -16,8 +16,8 @@ export const Brands: React.FC = () => {
   return (
     <div
       className={clsx(
+        'brands',
         'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
-        isMobile ? 'mb-6' : 'mb-[60px]',
       )}
     >
       <Swiper
