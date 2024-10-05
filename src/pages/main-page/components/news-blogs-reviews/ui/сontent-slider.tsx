@@ -8,9 +8,6 @@ import { Card } from './card'
 import { NeedMore } from './need-more'
 import { Skeletons } from './skeletons'
 
-import 'swiper/css'
-import 'swiper/css/navigation'
-
 export const ContentSlider = () => {
   const { data: contentData, isLoading: isContentLoading, error } = useGetSliderContentQuery()
 
