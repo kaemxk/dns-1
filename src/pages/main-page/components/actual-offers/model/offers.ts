@@ -14,7 +14,7 @@ export interface Offer {
 export const offers: Offer[] = [
   {
     url: '#',
-    image: '../pages/main-page/components/actual-offers/images/tv.png',
+    image: '/pages/main-page/components/actual-offers/images/tv.png',
     text: 'Смотреть кино',
     anchors: [
       { url: '#', text: 'Телевизоры' },
@@ -25,7 +25,7 @@ export const offers: Offer[] = [
   },
   {
     url: '#',
-    image: '../pages/main-page/components/actual-offers/images/iron.jpg',
+    image: '/pages/main-page/components/actual-offers/images/iron.jpg',
     text: 'Отдых на природе',
     anchors: [
       { url: '#', text: 'SUP-доски' },
@@ -37,7 +37,7 @@ export const offers: Offer[] = [
   },
   {
     url: '#',
-    image: '../pages/main-page/components/actual-offers/images/coffeemachine.jpg',
+    image: '/pages/main-page/components/actual-offers/images/coffeemachine.jpg',
     text: 'Согревающие напитки',
     anchors: [
       { url: '#', text: 'Кофемашины автоматические' },
@@ -49,7 +49,7 @@ export const offers: Offer[] = [
   },
   {
     url: '#',
-    image: '../pages/main-page/components/actual-offers/images/heater.jpg',
+    image: '/pages/main-page/components/actual-offers/images/heater.jpg',
     text: 'Тепло в доме',
     anchors: [
       { url: '#', text: 'Конвекторы' },
