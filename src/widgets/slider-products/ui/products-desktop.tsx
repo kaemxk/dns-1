@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom'
 import 'swiper/swiper-bundle.css'
 import { ProductsProps } from '../interfaces'
 
-// eslint-disable-next-line react/prop-types
-export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => {
+
+export const ProductsDesktop = ({ data, onDelete }: ProductsProps) => {
   return (
     <div className='rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>
       <Swiper
@@ -23,8 +23,7 @@ export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => 
         }}
         className='group relative'
       >
-        {data &&
-          // eslint-disable-next-line react/prop-types
+        {Boolean(data && data.length) &&
           data.map(product => (
             <SwiperSlide
               key={product.id}
