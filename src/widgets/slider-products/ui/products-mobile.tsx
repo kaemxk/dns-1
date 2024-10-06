@@ -1,10 +1,8 @@
-
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { ProductsStars } from './products-stars'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { ProductsProps } from '../interfaces'
-
 
 export const ProductsMobile = ({ data, onDelete }: ProductsProps) => {
   return (

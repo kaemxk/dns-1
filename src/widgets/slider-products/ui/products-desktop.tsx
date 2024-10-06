@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 import 'swiper/swiper-bundle.css'
 import { ProductsProps } from '../interfaces'
 
-
 export const ProductsDesktop = ({ data, onDelete }: ProductsProps) => {
   return (
     <div className='rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>

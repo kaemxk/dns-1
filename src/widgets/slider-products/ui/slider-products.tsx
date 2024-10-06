@@ -18,7 +18,7 @@ export const SliderProducts = () => {
       setData(initialData)
     }
   }, [initialData])
-  
+
   const onDelete = (productIdToDelete: string) => {
     setData(prevData => prevData.filter(product => product.id !== productIdToDelete))
   }
