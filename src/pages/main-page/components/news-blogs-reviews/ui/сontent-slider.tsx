@@ -24,34 +24,34 @@ export const ContentSlider = () => {
     return null
   }
 
-    return (
-      <>
-        <div className='content-slider__bottoms-container ml-5 mt-5 flex gap-2'>
-          {Object.values(contentData.data.tabs).map(buttonLabel => {
-            return (
-              <FilterButton
-                key={nanoid()}
-                filter={filter}
-                setFilter={setFilter}
-                buttonLabel={buttonLabel}
-              />
-            )
+  return (
+    <>
+      <div className='content-slider__bottoms-container ml-5 mt-5 flex gap-2'>
+        {Object.values(contentData.data.tabs).map(buttonLabel => {
+          return (
+            <FilterButton
+              key={nanoid()}
+              filter={filter}
+              setFilter={setFilter}
+              buttonLabel={buttonLabel}
+            />
+          )
+        })}
+      </div>
+      <div className='swiper-wrapper content-slider__cards-container ml-3 mr-5 mt-5 flex gap-4'>
+        <SwiperHOC
+          data={contentData.data.items.filter(item => {
+            if (filter === 'Все') return true
+            return item.groupName === filter
           })}
-        </div>
-        <div className='swiper-wrapper content-slider__cards-container ml-3 mr-5 mt-5 flex gap-4'>
-          <SwiperHOC
-            data={contentData.data.items.filter(item => {
-              if (filter === 'Все') return true
-              return item.groupName === filter
-            })}
-            id='slider-content'
-            swiperSlideClassName='flex h-[220px] w-[186px] flex-col justify-between'
-            optionalContent={<NeedMore />}
-            swiperSlideOptContentClassName='flex h-[220px] w-[296px]  mr-6'
-          >
-            {product => <Card contentData={product} />}
-          </SwiperHOC>
-        </div>
-      </>
-    )
+          id='slider-content'
+          swiperSlideClassName='flex h-[220px] w-[186px] flex-col justify-between'
+          optionalContent={<NeedMore />}
+          swiperSlideOptContentClassName='flex h-[220px] w-[296px]  mr-6'
+        >
+          {product => <Card contentData={product} />}
+        </SwiperHOC>
+      </div>
+    </>
+  )
 }
