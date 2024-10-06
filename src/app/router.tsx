@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
+
 import { Home, Stores, Catalog, Cart, Profile, NotFoundPage } from '@/pages'
+
 import { PageLayout } from './layouts/page-layout'
 
 const AppRouter = () => {

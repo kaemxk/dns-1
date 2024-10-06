@@ -1,6 +1,6 @@
+import FooterLoadIcon from './footerLoadIcon.tsx'
 import FooterLogoSection from './footerLogoSection.tsx'
 import FooterNavSection from './footerNavSection.tsx'
-import FooterLoadIcon from './footerLoadIcon.tsx'
 
 export const Footer = () => {
   return (

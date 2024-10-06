@@ -1,8 +1,9 @@
-import { usePosition } from '@/shared/hooks'
-import { useGetCityQuery } from '@/shared/redux/api/configSlice'
 import { useEffect, useState } from 'react'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
+
+import { usePosition } from '@/shared/hooks'
+import { useGetCityQuery } from '@/shared/redux/api/configSlice'
 
 export const Geolocation: React.FC = () => {
   const [city, setCity] = useState<string>(localStorage.getItem('city') || 'Москва')

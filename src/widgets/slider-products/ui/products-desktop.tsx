@@ -1,11 +1,12 @@
+import { CiHeart } from 'react-icons/ci'
+import { FaRegTrashAlt } from 'react-icons/fa'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { MdOutlineShoppingCart } from 'react-icons/md'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
-import { ProductsStars } from './products-stars'
-import { FaRegTrashAlt } from 'react-icons/fa'
-import { CiHeart } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { ProductsStars } from './products-stars'
 import 'swiper/swiper-bundle.css'
 import { ProductsProps } from '../interfaces'
 

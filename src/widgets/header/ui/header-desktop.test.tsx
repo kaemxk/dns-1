@@ -1,10 +1,3 @@
-import { describe, it, expect } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { HeaderDesktop } from './header-desktop'
-import { MemoryRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import * as slice from '../../../shared/redux/api/configSlice'
-import * as baseApi from '../../../shared/redux/api/baseApi'
 import {
   QueryActionCreatorResult,
   QueryDefinition,
@@ -13,8 +6,17 @@ import {
   FetchBaseQueryError,
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
-import { CatalogItem } from './header-desktop-catalog'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router-dom'
+import { describe, it, expect } from 'vitest'
+
 import { store } from '@/shared/redux'
+
+import { HeaderDesktop } from './header-desktop'
+import { CatalogItem } from './header-desktop-catalog'
+import * as baseApi from '../../../shared/redux/api/baseApi'
+import * as slice from '../../../shared/redux/api/configSlice'
 
 const mockBaseApi = () => {
   vi.spyOn(baseApi, 'useGetCatalogMenuQuery').mockReturnValue({

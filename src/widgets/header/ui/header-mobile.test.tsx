@@ -1,8 +1,3 @@
-import { describe, it, expect } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { HeaderMobile } from './header-mobile'
-import { MemoryRouter } from 'react-router-dom'
-import * as slice from '../../../shared/redux/api/configSlice'
 import {
   QueryActionCreatorResult,
   QueryDefinition,
@@ -11,6 +6,12 @@ import {
   FetchBaseQueryError,
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import { describe, it, expect } from 'vitest'
+
+import { HeaderMobile } from './header-mobile'
+import * as slice from '../../../shared/redux/api/configSlice'
 
 const mockSlice = () => {
   vi.spyOn(slice, 'useGetCityQuery').mockReturnValue({
