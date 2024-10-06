@@ -5,7 +5,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { ActualOffers } from './actual-offers'
 import { offers } from '../model/offers'
 
-vi.mock('../../../shared/hooks/use-resize', () => ({
+vi.mock('@/shared/hooks/use-resize', () => ({
   useResize: vi.fn(),
 }))
 

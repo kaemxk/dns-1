@@ -1,10 +1,11 @@
 import { useMemo } from 'react'
 
 import { useResize } from '@/shared/hooks'
-import { ActionTinder } from '@/widgets/action-tinder'
-import { ActualOffers } from '@/widgets/actual-offers'
-import { Brands } from '@/widgets/brands'
-import { SliderProducts } from '@/widgets/slider-products'
+
+import { ActionTinder } from './main-page/components/action-tinder'
+import { ActualOffers } from './main-page/components/actual-offers'
+import { Brands } from './main-page/components/brands'
+import { SliderProducts } from './main-page/components/slider-products'
 
 const Home = () => {
   const windowWidth = useResize()
