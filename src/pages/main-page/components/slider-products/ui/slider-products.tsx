@@ -28,7 +28,7 @@ export const SliderProducts = () => {
   if (isLoading) return <div>Loading...</div>
 
   return (
-    <>
+    <div className='slider-products'>
       <div
         className={clsx(
           'mb-[12px] w-fit font-bold',
@@ -42,6 +42,6 @@ export const SliderProducts = () => {
       ) : (
         <ProductsDesktop data={data} onDelete={onDelete} />
       )}
-    </>
+    </div>
   )
 }

@@ -16,7 +16,7 @@ export const ActionTinder = () => {
   return (
     <div
       className={clsx(
-        'actions',
+        'action-tinder',
         'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
         isMobile ? 'mb-6' : 'mb-[60px]',
       )}
