@@ -5,6 +5,7 @@ interface ButtonProps {
   setFilter: (filter: string) => void
   buttonLabel: string
 }
+
 export const FilterButton = ({ filter, setFilter, buttonLabel }: ButtonProps) => {
   return (
     <div

@@ -5,6 +5,7 @@ import { useGetSliderContentQuery } from '@/shared/redux/api/baseApi'
 import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
 
 import { Card } from './card'
+import { Item } from './content-slider.types'
 import { FilterButton } from './filter-button'
 import { NeedMore } from './need-more'
 import { Skeletons } from './skeletons'
@@ -13,6 +14,10 @@ export const ContentSlider = () => {
   const { data: contentData, isLoading: isContentLoading, error } = useGetSliderContentQuery()
 
   const [filter, setFilter] = useState('Все')
+
+  const dataFilter = (data: Item[]) => {
+    return data.filter(item => (filter === 'Все' ? true : item.groupName === filter))
+  }
 
   if (isContentLoading) {
     return <Skeletons />
@@ -40,10 +45,7 @@ export const ContentSlider = () => {
       </div>
       <div className='swiper-wrapper content-slider__cards-container ml-3 mr-5 mt-5 flex gap-4'>
         <SwiperHOC
-          data={contentData.data.items.filter(item => {
-            if (filter === 'Все') return true
-            return item.groupName === filter
-          })}
+          data={dataFilter(contentData.data.items)}
           id='slider-content'
           swiperSlideClassName='flex h-[220px] w-[186px] flex-col justify-between'
           optionalContent={<NeedMore />}

@@ -1,37 +1,26 @@
 import { Link } from 'react-router-dom'
 
+import { randomRadius } from '@/shared/utils/mathUtils'
+import { getRandomRgbColor } from '@/shared/utils/styleUtils'
+import {trimText} from '@/shared/utils/textUtils'
+
 import { Item } from './content-slider.types'
 
 interface CardProps {
   contentData: Item
 }
 
-const randomRadius = () => {
-  return Math.floor(Math.random() * 40) + 40
-}
-
-export const Card: React.FC<CardProps> = contentData => {
-  const rightRadius = randomRadius()
-  const leftRadius = randomRadius()
-  const rightRadius1 = randomRadius()
-  const leftRadius1 = randomRadius()
-
-  function trimText(text: string) {
-    if (text.length > 50) {
-      const textArray = contentData.contentData.title.split(' ')
-      return textArray.slice(0, 5).concat('...').join(' ')
-    } else return text
-  }
-  const trimmedText = trimText(contentData.contentData.title)
-
-  function getRandomColor() {
-    const r = Math.floor(Math.random() * 56) + 180
-    const g = Math.floor(Math.random() * 56) + 180
-    const b = Math.floor(Math.random() * 56) + 180
-    return `rgb(${r}, ${g}, ${b})`
+export const Card = (contentData: CardProps) => {
+  const radius = {
+    rightTop: randomRadius(),
+    leftTop: randomRadius(),
+    rightBottom: randomRadius(),
+    leftBottom: randomRadius(),
   }
 
-  const backgroundColor = getRandomColor()
+  const trimmedText = trimText(contentData.contentData.title, 50)
+
+  const backgroundColor = getRandomRgbColor()
 
   return (
     <Link to='#'>
@@ -45,7 +34,7 @@ export const Card: React.FC<CardProps> = contentData => {
           src={contentData.contentData.imageUrl}
           alt={contentData.contentData.title}
           style={{
-            borderRadius: `${12}px ${12}px ${rightRadius}% ${leftRadius}% / ${12}px ${12}px ${rightRadius1}% ${leftRadius1}%`,
+            borderRadius: `${12}px ${12}px ${radius.rightBottom}% ${radius.leftBottom}% / ${12}px ${12}px ${radius.rightTop}% ${radius.leftTop}%`,
           }}
         />
         <div className='p-3 text-[14px] font-bold text-black hover:text-orange-500'>

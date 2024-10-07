@@ -2,10 +2,12 @@ export interface SliderContent {
   message: string
   data: {
     items: Item[]
-    tabs: {
-      [key: string]: string
-    }
+    tabs: Tabs
   }
+}
+
+export interface Tabs {
+  [key: string]: string
 }
 
 export interface Item {
