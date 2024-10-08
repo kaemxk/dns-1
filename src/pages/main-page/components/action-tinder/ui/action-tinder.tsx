@@ -6,7 +6,6 @@ import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
 
 import { tinders } from '../model/tinder'
 
-// import '../model/action-tinder.css' // TODO: remove in both places
 export const ActionTinder = () => {
   const windowWidth = useResize()
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
