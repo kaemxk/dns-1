@@ -19,6 +19,7 @@ export const SliderProducts = () => {
       setData(initialData)
     }
   }, [initialData])
+
   const onDelete = (productIdToDelete: string) => {
     setData(prevData => prevData.filter(product => product.id !== productIdToDelete))
   }
@@ -27,7 +28,7 @@ export const SliderProducts = () => {
   if (isLoading) return <div>Loading...</div>
 
   return (
-    <>
+    <div className='slider-products'>
       <div
         className={clsx(
           'mb-[12px] w-fit font-bold',
@@ -41,6 +42,6 @@ export const SliderProducts = () => {
       ) : (
         <ProductsDesktop data={data} onDelete={onDelete} />
       )}
-    </>
+    </div>
   )
 }

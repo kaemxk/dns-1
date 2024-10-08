@@ -2,14 +2,12 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
-import { ProductsStars } from './products-stars'
 import { ProductsProps } from '../interfaces'
+import { ProductsStars } from './products-stars'
 
-// eslint-disable-next-line react/prop-types
-export const ProductsMobile: React.FC<ProductsProps> = ({ data, onDelete }) => {
+export const ProductsMobile = ({ data, onDelete }: ProductsProps) => {
   return (
     <div className='flex flex-row gap-[16px] overflow-x-scroll pb-[2px] pl-[16px] pr-[16px]'>
-      {/* eslint-disable-next-line react/prop-types */}
       {data?.map(product => (
         <div
           className='box-border flex h-[320px] min-w-[160px] flex-col gap-[10px] rounded-[8px] bg-white p-[8px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'

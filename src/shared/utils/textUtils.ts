@@ -4,4 +4,4 @@ function trimText(text: string, maxTextLength: number) {
     return textArray.slice(0, 5).concat('...').join(' ')
   } else return text
 }
-export {trimText}
+export { trimText }

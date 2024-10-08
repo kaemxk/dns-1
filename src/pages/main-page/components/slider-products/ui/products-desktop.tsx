@@ -10,8 +10,7 @@ import { ProductsStars } from './products-stars'
 import 'swiper/swiper-bundle.css'
 import { ProductsProps } from '../interfaces'
 
-// eslint-disable-next-line react/prop-types
-export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => {
+export const ProductsDesktop = ({ data, onDelete }: ProductsProps) => {
   return (
     <div className='rounded-[10px] bg-white py-[24px] shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]'>
       <Swiper
@@ -24,8 +23,7 @@ export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => 
         }}
         className='group relative'
       >
-        {data &&
-          // eslint-disable-next-line react/prop-types
+        {Boolean(data && data.length) &&
           data.map(product => (
             <SwiperSlide
               key={product.id}
@@ -93,8 +91,8 @@ export const ProductsDesktop: React.FC<ProductsProps> = ({ data, onDelete }) => 
               </div>
             </SwiperSlide>
           ))}
-        <div className="swiper-button-prev flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\003C'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
-        <div className="swiper-button-next flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\003E'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
+        <div className="swiper-button-prev flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\\003C'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
+        <div className="swiper-button-next flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white opacity-0 transition-opacity duration-300 after:text-[20px] after:text-gray-500 after:content-['\\003E'] hover:scale-105 hover:shadow-lg hover:after:text-orange-500 group-hover:opacity-100" />
       </Swiper>
     </div>
   )

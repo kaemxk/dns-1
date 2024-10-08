@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { randomRadius } from '@/shared/utils/mathUtils'
 import { getRandomRgbColor } from '@/shared/utils/styleUtils'
-import {trimText} from '@/shared/utils/textUtils'
+import { trimText } from '@/shared/utils/textUtils'
 
 import { Item } from './content-slider.types'
 
