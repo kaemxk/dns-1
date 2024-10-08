@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 
+import { ContentSlider } from '@/pages/main-page/components/news-blogs-reviews'
 import { useResize } from '@/shared/hooks'
 
 import { ActionTinder } from './main-page/components/action-tinder'
@@ -17,6 +18,7 @@ const Home = () => {
       <Brands />
       <ActionTinder />
       <SliderProducts />
+      <ContentSlider />
     </div>
   )
 }

@@ -3,6 +3,7 @@ const chatHistory = require('./chatHistory.json')
 const footerInfo = require('./footerInfo.json')
 const headerInfo = require('./headerInfo.json')
 const sliderProducts = require('./sliderProducts.json')
+const sliderContent = require('./sliderContent.json')
 
 module.exports = () => ({
   headerInfo,
@@ -10,4 +11,5 @@ module.exports = () => ({
   catalogMenu,
   chatHistory,
   sliderProducts,
+  sliderContent,
 })

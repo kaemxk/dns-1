@@ -31,6 +31,8 @@ const SwiperHOC = <T extends unknown[] | undefined>({
   swiperClassName,
   swiperWrapperClassName,
   swiperSlideClassName,
+  optionalContent, // Новый пропс для дополнительного контента
+  swiperSlideOptContentClassName,
 }: ISwiperHOCProps<T>) => {
   const hasData = !!data && !!data.length
 
@@ -77,6 +79,17 @@ const SwiperHOC = <T extends unknown[] | undefined>({
             {children(item, index)}
           </SwiperSlide>
         ))}
+
+      {/* опциональный контент, если он передан */}
+      {optionalContent && (
+        <SwiperSlide
+          key={`${id}-slide-${nanoid(6)}`}
+          className={clsx('snap-start', swiperSlideOptContentClassName)}
+        >
+          {optionalContent}
+        </SwiperSlide>
+      )}
+
       {/* swiper-button-(prev|next) = basic styles */}
       {/* swiper-${id}-btn-(prev|next) = id for navigation*/}
       {!isMobile && (

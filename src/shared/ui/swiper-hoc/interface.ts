@@ -6,6 +6,8 @@ interface ISwiperHOCProps<T> {
   swiperClassName?: string
   swiperWrapperClassName?: string
   swiperSlideClassName?: string
+  optionalContent?: React.ReactNode // Новое свойство для опционального контента
+  swiperSlideOptContentClassName?: string
 }
 
 export default ISwiperHOCProps
