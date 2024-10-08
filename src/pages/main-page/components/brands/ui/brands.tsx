@@ -1,10 +1,12 @@
+import clsx from 'clsx'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { useResize } from '@/shared/hooks/use-resize'
-import { brands } from '@/widgets/brands/model/brands'
+
+import { brands } from '../model/brands'
 
 import 'swiper/swiper-bundle.css'
 
@@ -13,7 +15,12 @@ export const Brands: React.FC = () => {
   const isMobile = useMemo(() => windowWidth <= 992, [windowWidth])
 
   return (
-    <div className='scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4'>
+    <div
+      className={clsx(
+        'brands',
+        'scrollbar-hide group relative flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-contain pr-4',
+      )}
+    >
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}

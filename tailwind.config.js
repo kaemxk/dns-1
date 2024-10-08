@@ -1,6 +1,5 @@
 import daisyui from 'daisyui'
 import typography from '@tailwindcss/typography'
-import { transform } from 'typescript'
 
 /** @type {import('tailwindcss').Config} */
 export default {

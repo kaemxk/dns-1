@@ -3,8 +3,8 @@ import { useMemo } from 'react'
 
 import { useResize } from '@/shared/hooks/use-resize'
 
-import { ProductsDesktop } from './products-desktop'
-import { ProductsMobile } from './products-mobile'
+// import { ProductsDesktop } from '../../../pages/main-page/components/slider-products/ui/products-desktop'
+// import { ProductsMobile } from '../../../pages/main-page/components/slider-products/ui/products-mobile'
 
 export const SliderProducts = () => {
   const windowWidth = useResize()
@@ -20,7 +20,7 @@ export const SliderProducts = () => {
       >
         Вы недавно смотрели
       </div>
-      {isMobile ? <ProductsMobile /> : <ProductsDesktop />}
+      {/* {isMobile ? <ProductsMobile /> : <ProductsDesktop />} */}
     </>
   )
 }

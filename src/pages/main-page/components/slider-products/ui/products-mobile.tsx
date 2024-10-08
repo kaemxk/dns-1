@@ -2,13 +2,10 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
-import { useGetSliderProductsQuery } from '@/shared/redux/api/baseApi'
-
+import { ProductsProps } from '../interfaces'
 import { ProductsStars } from './products-stars'
 
-export const ProductsMobile = () => {
-  const { data } = useGetSliderProductsQuery()
-
+export const ProductsMobile = ({ data, onDelete }: ProductsProps) => {
   return (
     <div className='flex flex-row gap-[16px] overflow-x-scroll pb-[2px] pl-[16px] pr-[16px]'>
       {data?.map(product => (
@@ -24,7 +21,12 @@ export const ProductsMobile = () => {
               />
             </Link>
             <div className='flex h-[25px] min-w-[25px] cursor-pointer items-center justify-center rounded-full bg-[#f7f7f7]'>
-              <FaRegTrashAlt className='text-[#d9d9d9] hover:text-orange-500' />
+              <FaRegTrashAlt
+                className='text-[#d9d9d9] hover:text-orange-500'
+                onClick={() => {
+                  onDelete(product.id)
+                }}
+              />
             </div>
           </div>
           <Link

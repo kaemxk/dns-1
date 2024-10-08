@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -14,7 +13,7 @@ export const ActualOffers: FC = () => {
     windowWidth >= 992 && windowWidth <= 1200 ? offers.filter((_, index) => index !== 2) : offers
   // чтобы работали ссылки перейдите по ссылкам в файле offers.ts и вставьте url на который будет переадресация Link'a :)
   return (
-    <div className={clsx(isMobile ? 'mb-6 pl-4 pr-4' : 'mb-[60px]')}>
+    <div className='actual-offers'>
       {isMobile ? (
         <div className='scroll-snap-x-mandatory scrollbar-none flex w-full gap-2 overflow-x-auto overflow-y-hidden overscroll-contain'>
           {filteredOffers.map((offer, index) => (
