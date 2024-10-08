@@ -1,6 +1,6 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { features } from '../model/features-block';
-import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { features } from '../model/features-block'
+import { Navigation } from 'swiper/modules'
 
 const TopBlockMobile = () => {
   const personalItemBlock = {
@@ -17,8 +17,8 @@ const TopBlockMobile = () => {
         text: 'Прочитать',
       },
     ],
-  };
-  
+  }
+
   return (
     <div>
       <div className='personal-block relative mx-[16px] flex h-[146px] min-h-[146px] flex-col rounded-[16px] bg-[#FFF7DA] p-[16px]'>
@@ -45,30 +45,33 @@ const TopBlockMobile = () => {
         ))}
       </div>
 
-      <div className='swiper-container md:ml-4 mt-4'>
-        <Swiper className='pl-4 pr-4'
+      <div className='swiper-container mt-4 md:ml-4'>
+        <Swiper
+          className='pl-4 pr-4'
           modules={[Navigation]}
           spaceBetween={8}
           slidesPerView='auto'
-          navigation>
+          navigation
+        >
           {features.map((feature, index) => (
             <SwiperSlide key={index} className='h-[110px] w-[100px] overflow-hidden rounded-[15px]'>
               <div className='relative flex h-full flex-col items-center justify-center'>
                 <div className='absolute left-0 top-0 w-full text-center'>
-                  <div className='text-[12px] font-bold leading-[16px] text-black mb-0 text-left ml-3 mt-4'>
+                  <div className='mb-0 ml-3 mt-4 text-left text-[12px] font-bold leading-[16px] text-black'>
                     {feature.naming}
                   </div>
                 </div>
-                <div className='bg-cover bg-center w-full h-full'
-                  style={{ backgroundImage: `url(${feature.image})` }}>
-                </div>
+                <div
+                  className='h-full w-full bg-cover bg-center'
+                  style={{ backgroundImage: `url(${feature.image})` }}
+                ></div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopBlockMobile;
+export default TopBlockMobile

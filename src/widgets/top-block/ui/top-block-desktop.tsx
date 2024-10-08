@@ -1,7 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { features } from '../model/features-block';
-import { Navigation } from 'swiper/modules';
-import '@/widgets/top-block/model/swiper-container-desktop.css';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { features } from '../model/features-block'
+import { Navigation } from 'swiper/modules'
+import '@/widgets/top-block/model/swiper-container-desktop.css'
 import clsx from 'clsx'
 
 const TopBlockDesktop = () => {
@@ -19,14 +19,10 @@ const TopBlockDesktop = () => {
         text: 'Прочитать',
       },
     ],
-  };
+  }
   return (
-    
-    <div className={clsx(
-        'top-block',
-        'mb-[60px] flex w-full gap-4')}
-    >
-      <div className='personal-block-desktop relative flex h-[206px] w-[283px] flex-col overflow-hidden rounded-[16px] bg-[#FFF7DA] p-[24px_14px_24px_20px] min-w-[283px]'>
+    <div className={clsx('top-block', 'mb-[60px] flex w-full gap-4')}>
+      <div className='personal-block-desktop relative flex h-[206px] w-[283px] min-w-[283px] flex-col overflow-hidden rounded-[16px] bg-[#FFF7DA] p-[24px_14px_24px_20px]'>
         <h2 className='mb-[4px] text-[18px] font-bold leading-[22px] text-[#333] opacity-90'>
           {personalItemBlock.label}
         </h2>
@@ -52,29 +48,27 @@ const TopBlockDesktop = () => {
       </div>
 
       <div className='swiper-container-desktop scrollbar-hide group relative h-[206px] w-full snap-x snap-mandatory overflow-x-auto overscroll-contain'>
-
         <Swiper modules={[Navigation]} spaceBetween={15} slidesPerView='auto' navigation>
           {features.map((feature, index) => (
             <SwiperSlide key={index} className='h-[206px] w-[183px] overflow-hidden rounded-[15px]'>
               <div className='relative flex h-full flex-col items-center justify-center'>
                 <div className='absolute left-0 top-0 w-full text-center'>
-                  <div className='mb-2 text-lg font-bold leading-5 text-left ml-4 mt-6'>
+                  <div className='mb-2 ml-4 mt-6 text-left text-lg font-bold leading-5'>
                     {feature.naming}
                   </div>
-                  <div className='text-[14px] text-left ml-4 mt-4'>
-                    {feature.description}
-                  </div>
+                  <div className='ml-4 mt-4 text-left text-[14px]'>{feature.description}</div>
                 </div>
-                <div className='w-full h-full bg-cover bg-center'
-                  style={{ backgroundImage: `url(${feature.image})` }}>
-                </div>
+                <div
+                  className='h-full w-full bg-cover bg-center'
+                  style={{ backgroundImage: `url(${feature.image})` }}
+                ></div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopBlockDesktop;
+export default TopBlockDesktop
