@@ -75,9 +75,9 @@ export const Chat: React.FC = () => {
     <>
       <div
         className={clsx(
-          'fixed bottom-28 right-6 z-50 hidden w-[360px] flex-col rounded-lg bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
+          'fixed bottom-28 right-6 z-10 hidden w-[360px] flex-col rounded-lg bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] transition-all duration-700 lg:block',
           {
-            'translate-y-8 opacity-0': !isOpen,
+            'translate-x-96 opacity-0': !isOpen,
             'translate-y-0 opacity-100': isOpen,
           },
         )}

@@ -13,6 +13,7 @@ import { Geolocation } from '@/widgets/geolocation'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { HeaderDesktopSearch } from './header-desktop-search'
+import { UserPopup } from './user-popup'
 
 export type DNSSupportData = {
   data: {
@@ -24,6 +25,8 @@ export type DNSSupportData = {
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [catalogOpen, setCatalogOpen] = useState<boolean>(false)
+  const [popupOpen, setPopupOpen] = useState<boolean>(false)
+  const [popupClosed, setPopupClosed] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
   const [phone, setPhone] = useState('8-800-77-07-999')
   const [workHours, setWorkHours] = useState('(с 03:00 до 22:00)')
@@ -52,6 +55,15 @@ export const HeaderDesktop = () => {
   }, [data, phone, workHours])
 
   const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
+
+  const animateClosePopup = () => {
+    setPopupClosed(true)
+
+    const closeTimer = setTimeout(() => {
+      setPopupOpen(false)
+      clearTimeout(closeTimer)
+    }, 150)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,7 +208,17 @@ export const HeaderDesktop = () => {
                 counter={5}
                 sum={13550}
               />
-              <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
+              <div
+                className='relative'
+                onMouseEnter={() => {
+                  setPopupOpen(true)
+                  setPopupClosed(false)
+                }}
+                onMouseLeave={animateClosePopup}
+              >
+                <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
+                {popupOpen && <UserPopup popupClosed={popupClosed} />}
+              </div>
             </div>
           </div>
         </div>
