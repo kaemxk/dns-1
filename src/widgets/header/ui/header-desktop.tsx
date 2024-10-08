@@ -62,7 +62,7 @@ export const HeaderDesktop = () => {
     const closeTimer = setTimeout(() => {
       setPopupOpen(false)
       clearTimeout(closeTimer)
-    }, 150)
+    }, 180)
   }
 
   useEffect(() => {
