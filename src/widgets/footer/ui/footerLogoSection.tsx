@@ -6,7 +6,7 @@ const FooterLogoSection = () => {
           <a href='#'>
             <div
               className='h-4 bg-contain bg-left bg-no-repeat'
-              style={{ backgroundImage: "url('../widgets/footer/images/dns.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/dns.svg')" }}
             ></div>
           </a>
         </div>
@@ -14,7 +14,7 @@ const FooterLogoSection = () => {
           <a href='#'>
             <div
               className='h-4 bg-contain bg-left bg-no-repeat'
-              style={{ backgroundImage: "url('../widgets/footer/images/dnsClub.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/dnsClub.svg')" }}
             ></div>
           </a>
         </div>
@@ -22,7 +22,7 @@ const FooterLogoSection = () => {
           <a href='#'>
             <div
               className='h-4 bg-contain bg-left bg-no-repeat'
-              style={{ backgroundImage: "url('../widgets/footer/images/dnsTechnologies.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/dnsTechnologies.svg')" }}
             ></div>
           </a>
         </div>
@@ -31,7 +31,7 @@ const FooterLogoSection = () => {
         <a href='#'>
           <div
             className='h-4 bg-contain bg-left bg-no-repeat'
-            style={{ backgroundImage: "url('../widgets/footer/images/dnsGroup.svg')" }}
+            style={{ backgroundImage: "url('../widgets/footer/ui/images/dnsGroup.svg')" }}
           ></div>
         </a>
       </div>
