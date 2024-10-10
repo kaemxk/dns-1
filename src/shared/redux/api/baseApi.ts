@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+import { SliderContent } from '@/pages/main-page/components/news-blogs-reviews/ui/content-slider.types'
 import { SliderProduct } from '@/pages/main-page/components/slider-products/interfaces'
 import { ChatMessage } from '@/shared/redux/api/chatSlice'
 import { DNSSupportData } from '@/widgets/header/ui/header-desktop'
@@ -23,6 +24,9 @@ export const baseApi = createApi({
     getSliderProducts: builder.query<SliderProduct[], void>({
       query: () => `sliderProducts`,
     }),
+    getSliderContent: builder.query<SliderContent, void>({
+      query: () => `sliderContent`,
+    }),
   }),
 })
 
@@ -31,4 +35,5 @@ export const {
   useGetMenuHeaderQuery,
   useGetChatHistoryQuery,
   useGetSliderProductsQuery,
+  useGetSliderContentQuery,
 } = baseApi

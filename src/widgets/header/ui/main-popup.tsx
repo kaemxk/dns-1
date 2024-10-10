@@ -1,20 +1,24 @@
+import clsx from 'clsx'
 import { FC } from 'react'
 
-interface IPopupStageTwoProps {
+interface IMainPopup {
   popupClosed: boolean
 }
 
-export const PopupStageTwo: FC<IPopupStageTwoProps> = ({ popupClosed }) => {
+export const MainPopup: FC<IMainPopup> = ({ popupClosed }) => {
+  const animationClass = clsx('transform transition-all duration-200', {
+    'animate-showMain': !popupClosed,
+    'animate-hideMain': popupClosed,
+  })
+
   return (
-    <div
-      className={`${!popupClosed ? 'animate-showMain' : 'animate-hideMain'} transform transition-all duration-200`}
-    >
-      <div className='absolute -left-[550px] top-[0] z-50 -translate-y-[62px] translate-x-[20px]'>
-        <div className='fixed z-50 flex h-[590px] w-[620px] rounded-xl border bg-white shadow-lg'>
+    <div className={animationClass}>
+      <div className='absolute -left-[550px] top-[0] z-[100] -translate-y-[62px] translate-x-[20px]'>
+        <div className='fixed z-[100] flex h-[590px] w-[620px] rounded-xl border bg-white shadow-lg'>
           <div className='flex w-[55%] flex-col justify-between border-r border-gray-300 bg-[#f7f7f7]'>
             <h2 className='p-4 text-lg font-semibold'>Уведомления</h2>
             <div className='mt-4 flex flex-grow flex-col items-center justify-center'>
-              <div className='relative'>
+              <div className='relative z-[100]'>
                 <img
                   src='/img/Bell.png'
                   alt='bell'

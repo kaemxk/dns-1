@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { BsBarChartLine, BsCart3, BsHeart, BsPersonCircle } from 'react-icons/bs'
+import { BsBarChartLine, BsCart3, BsHeart } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
 import { TbPointFilled } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
@@ -25,8 +25,6 @@ export type DNSSupportData = {
 export const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [catalogOpen, setCatalogOpen] = useState<boolean>(false)
-  const [popupOpen, setPopupOpen] = useState<boolean>(false)
-  const [popupClosed, setPopupClosed] = useState<boolean>(false)
   const [scrollTop, setScrollTop] = useState<number>(0)
   const [phone, setPhone] = useState('8-800-77-07-999')
   const [workHours, setWorkHours] = useState('(с 03:00 до 22:00)')
@@ -55,15 +53,6 @@ export const HeaderDesktop = () => {
   }, [data, phone, workHours])
 
   const handlerClickDropdownOpen = () => setDropdownOpen(prevState => !prevState)
-
-  const animateClosePopup = () => {
-    setPopupClosed(true)
-
-    const closeTimer = setTimeout(() => {
-      setPopupOpen(false)
-      clearTimeout(closeTimer)
-    }, 180)
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -208,17 +197,7 @@ export const HeaderDesktop = () => {
                 counter={5}
                 sum={13550}
               />
-              <div
-                className='relative'
-                onMouseEnter={() => {
-                  setPopupOpen(true)
-                  setPopupClosed(false)
-                }}
-                onMouseLeave={animateClosePopup}
-              >
-                <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
-                {popupOpen && <UserPopup popupClosed={popupClosed} />}
-              </div>
+              <UserPopup />
             </div>
           </div>
         </div>

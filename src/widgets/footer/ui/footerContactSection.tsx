@@ -43,13 +43,13 @@ const FooterContactSection: React.FC<FooterContactSectionProps> = ({ phone, city
           <a href='#'>
             <div
               className='transition-filter hover:brightness-115 mr-2 h-9 w-9 bg-contain bg-center bg-no-repeat duration-300'
-              style={{ backgroundImage: "url('../widgets/footer/images/VK.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/VK.svg')" }}
             ></div>
           </a>
           <a href='#'>
             <div
               className='transition-filter hover:brightness-115 h-9 w-9 bg-contain bg-center bg-no-repeat duration-300'
-              style={{ backgroundImage: "url('../widgets/footer/images/youtube.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/youtube.svg')" }}
             ></div>
           </a>
         </div>
@@ -57,13 +57,13 @@ const FooterContactSection: React.FC<FooterContactSectionProps> = ({ phone, city
           <a href='#'>
             <div
               className='transition-filter hover:brightness-115 h-9 w-[68px] bg-contain bg-center bg-no-repeat duration-300'
-              style={{ backgroundImage: "url('../widgets/footer/images/spb.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/spb.svg')" }}
             ></div>
           </a>
           <a href='#'>
             <div
               className='transition-filter hover:brightness-115 h-9 w-9 bg-contain bg-center bg-no-repeat duration-300'
-              style={{ backgroundImage: "url('../widgets/footer/images/akit.svg')" }}
+              style={{ backgroundImage: "url('../widgets/footer/ui/images/akit.svg')" }}
             ></div>
           </a>
         </div>

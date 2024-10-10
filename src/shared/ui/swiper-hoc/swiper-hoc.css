@@ -1,0 +1,44 @@
+.swiper {
+  & .swiper-wrapper ~ .swiper-button-disabled {
+    opacity: 0;
+    background-color: #eee;
+    color: #8c8c8c;
+    border-color: #8c8c8c;
+  }
+
+  & .swiper-wrapper ~ .swiper-button-next,
+  & .swiper-wrapper ~ .swiper-button-prev {
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+    transition:
+      opacity 0.3s,
+      background-color 0.3s,
+      transform 0.2s;
+  }
+
+  & .swiper-wrapper ~ .swiper-button-prev::after,
+  & .swiper-wrapper ~ .swiper-button-next::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-block: solid;
+    border-color: inherit;
+    border-width: 0 1.6px 1.6px 0;
+  }
+
+  & .swiper-wrapper ~ .swiper-button-prev::after {
+    transform: rotate(135deg) translate(-20%, -20%);
+  }
+
+  & .swiper-wrapper ~ .swiper-button-next::after {
+    transform: rotate(-45deg) translate(-20%, -20%);
+  }
+}
+
+/* better be somewhere else than here =>*/
+.scrollbar-none {
+  scrollbar-width: none;
+}
+/* <= */
