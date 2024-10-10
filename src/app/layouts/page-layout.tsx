@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import { Header, Footer, ScrollTop, TapBar } from '@/widgets'
+import { Header, Footer, ScrollTop, TapBar, Breadcrumbs } from '@/widgets'
 import { Chat } from '@/widgets/chat'
 
 export const PageLayout = () => {
@@ -9,6 +9,7 @@ export const PageLayout = () => {
       <Header />
       <main className='flex-grow'>
         <div className='mx-auto max-w-[1380px]'>
+          <Breadcrumbs />
           <Outlet />
         </div>
       </main>
