@@ -9,7 +9,7 @@ interface SideBlockProps {
   bottom?: ILink[]
 }
 
-const SideBlock: React.FC<SideBlockProps> = ({ top, bottom }: SideBlockProps) => {
+const SideBlock: React.FC<SideBlockProps> = ({ top, bottom }) => {
   return (
     <div className='w-[280px] overflow-hidden rounded-lg bg-white shadow-[0_1px_2px_rgba(0,0,0,.16)]'>
       <div className='flex w-full flex-col pb-3 pt-3'>
