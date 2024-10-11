@@ -11,7 +11,7 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: 'detect'
+      version: 'detect',
     },
   },
 
@@ -38,6 +38,7 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
+    'react/prop-types': 'off',
   },
   parserOptions: {
     ecmaVersion: 'latest',
