@@ -33,6 +33,16 @@ export const useGetCrumbs = (pathDict: Record<string, string>): ICrumb[] | undef
   // add missing types to ISearchData if needed
   const path = searchPath(data || [], url.pathname) || []
 
+  if (!path.length) {
+    // exceptional pathes
+    if (baseUrl === '/catalog') {
+      return [
+        { title: 'DNS', url: '/' },
+        { title: 'Каталог товаров', url: '' },
+      ]
+    }
+  }
+
   const crumbPath = path?.map(({ url, title, link }) => ({ url: link || url || '', title }))
 
   const crumbs = [{ title: pathDict[baseUrl], url: baseUrl }, ...crumbPath]
