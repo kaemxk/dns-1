@@ -35,6 +35,6 @@
     },
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
+  "include": ["src", "**/*.tsx"],
   "exclude": ["server"]
 }
