@@ -6,7 +6,7 @@ interface IBreadcrumbsProps {
   crumbs: ICrumb[] | null | undefined
 }
 
-export const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({ crumbs = [] }: IBreadcrumbsProps) => {
+export const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({ crumbs = [] }) => {
   if (!crumbs || !crumbs.length) return null
 
   return (
