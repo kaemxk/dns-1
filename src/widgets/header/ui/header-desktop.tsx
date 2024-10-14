@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { BsBarChartLine, BsCart3, BsHeart, BsPersonCircle } from 'react-icons/bs'
+import { BsBarChartLine, BsCart3, BsHeart } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
 import { TbPointFilled } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
@@ -13,6 +13,7 @@ import { Geolocation } from '@/widgets/geolocation'
 import { HeaderDesktopCatalog } from './header-desktop-catalog'
 import { HeaderDesktopDropdown } from './header-desktop-dropdown'
 import { HeaderDesktopSearch } from './header-desktop-search'
+import { UserPopup } from './user-popup'
 
 export type DNSSupportData = {
   data: {
@@ -196,7 +197,7 @@ export const HeaderDesktop = () => {
                 counter={5}
                 sum={13550}
               />
-              <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
+              <UserPopup />
             </div>
           </div>
         </div>
