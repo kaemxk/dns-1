@@ -7,7 +7,7 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
-    url: '#',
+    url: '/catalog',
     naming: 'Каталог',
     description: 'Большой выбор техники для дома и вас',
     image: '/pages/main-page/components/top-block/images/catalog.png',
