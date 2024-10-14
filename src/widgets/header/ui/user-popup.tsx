@@ -1,15 +1,13 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { BsPersonCircle } from 'react-icons/bs'
 
 import { IconButton } from '@/shared/ui/icon-button/icon-button'
 
-import { MainPopup } from './main-popup'
-import { MinimizedPopup } from './minimized-popup'
+import { Popup } from './popup'
 
 export const UserPopup: FC = () => {
   const [popupOpen, setPopupOpen] = useState<boolean>(false)
   const [popupClosed, setPopupClosed] = useState<boolean>(false)
-  const [stageOneDone, setStageOneDone] = useState<boolean>(false)
 
   const animateClosePopup = () => {
     setPopupClosed(true)
@@ -19,10 +17,6 @@ export const UserPopup: FC = () => {
       clearTimeout(closeTimer)
     }, 300)
   }
-
-  useEffect(() => {
-    setTimeout(() => setStageOneDone(true), 60)
-  }, [stageOneDone])
 
   return (
     <div
@@ -34,8 +28,7 @@ export const UserPopup: FC = () => {
       onMouseLeave={animateClosePopup}
     >
       <IconButton title={'Войти'} href={'/profile/menu'} icon={<BsPersonCircle />} />
-      {popupOpen && <MinimizedPopup popupClosed={popupClosed} />}
-      {popupOpen && stageOneDone && <MainPopup popupClosed={popupClosed} />}
+      {popupOpen && <Popup popupClosed={popupClosed} />}
     </div>
   )
 }
