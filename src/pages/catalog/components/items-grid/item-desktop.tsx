@@ -3,11 +3,11 @@ import { FC, useState } from 'react'
 
 import { CatalogItem } from '@/widgets/header/ui/header-desktop-catalog'
 
-interface IItemProps {
+interface IItemDesktopProps {
   item: CatalogItem
 }
 
-const Item: FC<IItemProps> = ({ item }) => {
+const ItemDesktop: FC<IItemDesktopProps> = ({ item }) => {
   const [showHover, setShowHover] = useState<boolean>(false)
 
   const mainContentClass = clsx('absolute inset-0 transition-opacity duration-300 ease-in-out', {
@@ -53,4 +53,4 @@ const Item: FC<IItemProps> = ({ item }) => {
   )
 }
 
-export default Item
+export default ItemDesktop

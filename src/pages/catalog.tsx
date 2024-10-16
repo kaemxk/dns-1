@@ -1,14 +1,9 @@
 import { FC } from 'react'
 
-import ItemsGrid from './catalog/components/items-grid/items-grid'
+import Items from './catalog/components/items-grid/items'
 
 const Catolog: FC = () => {
-  return (
-    <div>
-      <ItemsGrid />
-      <div></div>
-    </div>
-  )
+  return <Items />
 }
 
 export default Catolog
