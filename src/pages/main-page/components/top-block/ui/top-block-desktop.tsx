@@ -1,10 +1,19 @@
 import clsx from 'clsx'
+import { useNavigate } from 'react-router-dom'
 
 import SwiperHOC from '@/shared/ui/swiper-hoc/swiper-hoc'
 
-import { features, personalItemBlock } from '../model/features-block'
+import { Feature, features, personalItemBlock } from '../model/features-block'
 
 const TopBlockDesktop = () => {
+  const navigate = useNavigate()
+
+  const navigateToCatalog = (feature: Feature): void => {
+    if (feature.naming === 'Каталог') {
+      navigate(feature.url)
+    }
+  }
+
   return (
     <div className={clsx('top-block', 'mb-[60px] flex w-full gap-4')}>
       <div className='personal-block-desktop relative flex h-[206px] w-[283px] min-w-[283px] flex-col overflow-hidden rounded-[16px] bg-[#FFF7DA] p-[24px_14px_24px_20px]'>
@@ -40,7 +49,11 @@ const TopBlockDesktop = () => {
           swiperSlideClassName='h-[206px] w-[183px]'
         >
           {(feature, index) => (
-            <div key={index} className='h-[206px] w-[183px] overflow-hidden rounded-[15px]'>
+            <div
+              key={index}
+              className='cursor h-[206px] w-[183px] cursor-pointer overflow-hidden rounded-[15px] hover:brightness-[1.015]'
+              onClick={() => navigateToCatalog(feature)}
+            >
               <div className='relative flex h-full flex-col items-center justify-center'>
                 <div className='absolute left-0 top-0 w-full text-center'>
                   <div className='mb-2 ml-4 mt-6 text-left text-lg font-bold leading-5'>
