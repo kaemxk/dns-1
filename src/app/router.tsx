@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Home, Stores, Catalog, Cart, Profile, NotFoundPage } from '@/pages'
+import { Home, Stores, Catalog, Cart, Profile, NotFoundPage, About } from '@/pages'
 
 import { PageLayout } from './layouts/page-layout'
 
@@ -11,6 +11,7 @@ const AppRouter = () => {
         <Route path='/' element={<Home />} />
         <Route path='/stores' element={<Stores />} />
         <Route path='/catalog' element={<Catalog />} />
+        <Route path='/about' element={<About />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/profile/menu' element={<Profile />} />
         <Route path='*' element={<NotFoundPage />} />
