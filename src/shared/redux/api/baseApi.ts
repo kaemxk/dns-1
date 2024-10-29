@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+import { ICompanyInfo } from '@/pages/about/components/about-company/model/types/about-company.types'
 import { SliderContent } from '@/pages/main-page/components/news-blogs-reviews/ui/content-slider.types'
 import { SliderProduct } from '@/pages/main-page/components/slider-products/interfaces'
 import { ChatMessage } from '@/shared/redux/api/chatSlice'
@@ -27,6 +28,9 @@ export const baseApi = createApi({
     getSliderContent: builder.query<SliderContent, void>({
       query: () => `sliderContent`,
     }),
+    getCompanyInfo: builder.query<ICompanyInfo, void>({
+      query: () => `companyInfo`,
+    }),
   }),
 })
 
@@ -36,4 +40,5 @@ export const {
   useGetChatHistoryQuery,
   useGetSliderProductsQuery,
   useGetSliderContentQuery,
+  useGetCompanyInfoQuery,
 } = baseApi

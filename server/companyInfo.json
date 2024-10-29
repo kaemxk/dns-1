@@ -1,0 +1,108 @@
+{
+  "message": "",
+  "data": {
+    "companyFeatures": [
+      {
+        "id": 1,
+        "header": "Для клиентов",
+        "featureText": [
+          "Наши клиенты - в центре всего, что мы делаем,",
+          "Доверие - главное. Мы строим долгосрочные отношения,",
+          "Во всём, чем мы занимаемся, стремимся быть экспертами,",
+          "Открыты для предложений и улучшений."
+        ],
+        "icon": "https://www.dns-shop.ru/about/assets/smile-ed772126.svg"
+      },
+      {
+        "id": 2,
+        "header": "Для партнёров",
+        "featureText": [
+          "Прозрачность - основа совместного бизнеса,",
+          "Работаем, соблюдая этику бизнеса,",
+          "Уважаем другие мнения и интересы,",
+          "Выполняем обязательства и берем ответственность за свои",
+          "решения,",
+          "Нетерпимы к коррупции."
+        ],
+        "icon": "https://www.dns-shop.ru/about/assets/case-ad3d35f8.svg"
+      },
+      {
+        "id": 3,
+        "header": "Для сотрудников",
+        "featureText": [
+          "DNS - территория личной и коллективной самореализации,",
+          "Мы - одна команда,",
+          "Уважаем мнение и интересы людей,",
+          "Ценим свободу, смелость и ответственность."
+        ],
+        "icon": "https://www.dns-shop.ru/about/assets/stars-9d780f43.svg"
+      }
+    ],
+    "companyHistory": [
+      {
+        "id": 1,
+        "year": 1998,
+        "description": "Открытие первого магазина в г. Владивосток",
+        "icon": "https://www.dns-shop.ru/about/assets/logo_vladivostok-3de6087f.svg"
+      },
+      {
+        "id": 2,
+        "year": 2006,
+        "description": "Запуск собственного производства",
+        "icon": "https://www.dns-shop.ru/about/assets/tools-5dcd8f84.svg"
+      },
+      {
+        "id": 3,
+        "year": 2007,
+        "description": "Выход на рынок Дальнего востока и Восточной сибири",
+        "icon": "https://www.dns-shop.ru/about/assets/sibir-9dcc45d3.svg"
+      },
+      {
+        "id": 4,
+        "year": 2009,
+        "description": "Экспансия на рынок РФ",
+        "icon": "https://www.dns-shop.ru/about/assets/emblem-b2fcc7b5.svg "
+      },
+      {
+        "id": 5,
+        "year": 2011,
+        "description": "Запуск интернет-дискаунтера \"DNS Технопоинт\"",
+        "icon": "https://www.dns-shop.ru/about/assets/rocket-3d35c2f2.svg"
+      },
+      {
+        "id": 6,
+        "year": 2014,
+        "description": "Открытие магазинов в Крыму и Санкт-Петербурге",
+        "icon": "https://www.dns-shop.ru/about/assets/logo_spb-d73dd8ab.svg"
+      },
+      {
+        "id": 7,
+        "year": 2016,
+        "description": "Открытие магазина в Калининграде",
+        "icon": "https://www.dns-shop.ru/about/assets/logo_kaliningrad-7fbbc918.svg"
+      },
+      {
+        "id": 8,
+        "year": 2019,
+        "description": "Открытие сети продуктовых магазинов \"Квартет вкусов\"",
+        "icon": "https://www.dns-shop.ru/about/assets/kvartet-2ad4abd9.svg"
+      },
+      {
+        "id": 9,
+        "year": 2020,
+        "description": "Крупнейший в России продавец бытовой техники и электроники",
+        "icon": "https://www.dns-shop.ru/about/assets/winner-c0f94431.svg"
+      },
+      {
+        "id": 1,
+        "year": 2021,
+        "description": "Выход на рынок Казахстана",
+        "icon": "https://www.dns-shop.ru/about/assets/kz-296e39c6.svg"
+      }
+    ],
+
+    "shopsCount": 2715,
+    "employeesCount": 38584,
+    "citiesCount": 1244
+  }
+}
