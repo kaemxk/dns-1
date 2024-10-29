@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const ProfileWishlist: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -28,7 +29,7 @@ const ProfileWishlist: React.FC = () => {
           </div>
 
           <div className='profile-wishlist__btn-wrapper mb-6 flex h-[44px] w-[168px] items-center justify-center rounded-lg border border-transparent bg-gradient-to-t from-[#fc8507] to-[#ffa218] text-white'>
-            <button onClick={() => (window.location.href = '/catalog')}>Перейти в каталог</button>
+            <Link to='/catalog'>Перейти в каталог</Link>
           </div>
         </div>
       </div>
