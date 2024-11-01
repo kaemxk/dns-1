@@ -188,7 +188,7 @@ export const HeaderDesktop = () => {
           <div className='header-bottom__nav-wrapper flex h-full'>
             <div className='buttons flex'>
               <IconButton title={'Сравнение'} href={'#'} icon={<BsBarChartLine />} counter={2} />
-              <IconButton title={'Избранное'} href={'#'} icon={<BsHeart />} />
+              <IconButton title={'Избранное'} href={'/profile-wishlist'} icon={<BsHeart />} />
               <IconButton
                 title={'Корзина'}
                 href={'/cart'}
