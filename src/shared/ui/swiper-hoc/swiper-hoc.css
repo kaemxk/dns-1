@@ -1,4 +1,6 @@
 .swiper {
+  margin-left: 0;
+  margin-right: 0;
   & .swiper-wrapper ~ .swiper-button-disabled {
     opacity: 0;
     background-color: #eee;
