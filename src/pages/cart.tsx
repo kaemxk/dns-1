@@ -7,7 +7,7 @@ const Cart = () => {
         <span className='w-fit font-bold mx-0 text-[32px]'>Корзина</span>
       </div>
 
-      <div className='ml-[auto] mr-[auto] pt-[60px] pb-[60px] bg-white rounded-[8px] shadow-md transition-transform duration-300 bg-[#f6f6f6]'>
+      <div className='ml-[auto] mr-[auto] pt-[60px] pb-[60px] rounded-[8px] shadow-md transition-transform duration-300 bg-[#f6f6f6]'>
         <div className='flex justify-center h-[196px]'>
           <img src='/images/cart.png'/>
         </div>
