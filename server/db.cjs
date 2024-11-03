@@ -5,6 +5,7 @@ const headerInfo = require('./headerInfo.json')
 const sliderProducts = require('./sliderProducts.json')
 const sliderContent = require('./sliderContent.json')
 const companyInfo = require('./companyInfo.json')
+const vacancies = require('./vacancies.json')
 
 module.exports = () => ({
   headerInfo,
@@ -14,4 +15,5 @@ module.exports = () => ({
   companyInfo,
   sliderProducts,
   sliderContent,
+  vacancies,
 })
