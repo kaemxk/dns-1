@@ -10,7 +10,7 @@ const urlDict = new Map([
   ['partners', 'Партнеры - DNS'],
 ])
 // Список url, которые отключают breadcrumbs если этот url сейчас открыт
-const exeptions = new Set(['help', 'service-center', 'profile-wishlist', 'cart'])
+const exeptions = new Set(['help', 'service-center', 'profile-wishlist'])
 
 export const Breadcrumbs: React.FC = () => {
   const { pathname } = useLocation()
