@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { ICompanyInfo } from '@/pages/about/components/about-company/model/types/about-company.types'
+import { IVacancies } from '@/pages/about/components/career/model/types/career.types'
 import { SliderContent } from '@/pages/main-page/components/news-blogs-reviews/ui/content-slider.types'
 import { SliderProduct } from '@/pages/main-page/components/slider-products/interfaces'
 import { ChatMessage } from '@/shared/redux/api/chatSlice'
@@ -31,6 +32,9 @@ export const baseApi = createApi({
     getCompanyInfo: builder.query<ICompanyInfo, void>({
       query: () => `companyInfo`,
     }),
+    getVacancies: builder.query<IVacancies, void>({
+      query: () => 'vacancies',
+    }),
   }),
 })
 
@@ -41,4 +45,5 @@ export const {
   useGetSliderProductsQuery,
   useGetSliderContentQuery,
   useGetCompanyInfoQuery,
+  useGetVacanciesQuery,
 } = baseApi
