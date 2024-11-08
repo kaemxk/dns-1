@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Home, Stores, Catalog, Cart, Profile, NotFoundPage, About, PartnersPage } from '@/pages'
+import { Home, Stores, Catalog, Cart, Profile, NotFoundPage, About, CareerPage, PartnersPage } from '@/pages'
 import ProfileWishlist from '@/pages/profile-wishlist/ui/profile-wishlist'
 
 import { PageLayout } from './layouts/page-layout'
@@ -14,6 +14,7 @@ const AppRouter = () => {
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/about' element={<About />} />
         <Route path='/about/partners' element={<PartnersPage />} />
+        <Route path='/about/career' element={<CareerPage />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/profile/menu' element={<Profile />} />
         <Route path='/profile-wishlist' element={<ProfileWishlist />} />
