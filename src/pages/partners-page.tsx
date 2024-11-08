@@ -12,4 +12,3 @@ const PartnersPage: FC = () => {
 }
 
 export default PartnersPage
-
