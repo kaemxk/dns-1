@@ -31,7 +31,7 @@ export const ContentSlider = () => {
 
   return (
     <>
-      <div className='content-slider__bottoms-container ml-5 mt-5 flex gap-2'>
+      <div className='content-slider__bottoms-container ml-5 mt-5 flex gap-2 !mb-5'>
         {Object.values(contentData.data.tabs).map(buttonLabel => {
           return (
             <FilterButton
