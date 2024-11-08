@@ -6,4 +6,4 @@ export { default as Profile } from './profile'
 export { default as NotFoundPage } from './not-found-page'
 export { default as ProfileWishlist } from './profile-wishlist/ui/profile-wishlist'
 export { default as About } from './about'
-
+export { default as PartnersPage } from './partners-page'
